@@ -1,0 +1,194 @@
+@import "tailwindcss";
+
+/* Tie `dark:*` utilities to next-themes (`class="dark"` on <html>), not system prefs alone */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+  DeveloperFolio (SaadPasta) — colors, fonts, header/social patterns
+  https://github.com/saadpasta/developerFolio
+*/
+
+@font-face {
+  font-family: "Agustina Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: url("/fonts/Agustina.woff") format("woff");
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light;
+  --background: #f5f2f4;
+  --foreground: #000000;
+  --muted: #868e96;
+  --card-subtitle: #666666;
+  --border: rgba(211, 211, 211, 0.55);
+  --surface: #ffffff;
+  --accent: #55198b;
+  --accent-hover: #8c43ce;
+  --accent-foreground: #ffffff;
+  --ring: #55198b;
+  --link: #09d3ac;
+  --skills: #645beb;
+  --education-border: #a9a7f9;
+  --header-hover: #f4f4f4;
+}
+
+.dark {
+  color-scheme: dark;
+  --background: #171c28;
+  --foreground: #ffffff;
+  --muted: #9aa0a8;
+  --card-subtitle: #b8bcc4;
+  --border: rgba(255, 255, 255, 0.1);
+  --surface: #1e2436;
+  --accent: #8c43ce;
+  --accent-hover: #a855f0;
+  --accent-foreground: #ffffff;
+  --ring: #8c43ce;
+  --link: #09d3ac;
+  --skills: #7b6cf0;
+  --education-border: #6c63ff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-card-subtitle: var(--card-subtitle);
+  --color-border: var(--border);
+  --color-surface: var(--surface);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-ring: var(--ring);
+  --color-link: var(--link);
+  --color-skills: var(--skills);
+  --color-education-border: var(--education-border);
+  --color-header-hover: var(--header-hover);
+  --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  font-size: 1.1875rem;
+  line-height: 1.35;
+  overflow-x: clip;
+}
+
+@media (max-width: 1380px) {
+  body {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+}
+
+.devfolio-logo {
+  font-family: "Agustina Regular", cursive;
+  font-weight: 700;
+  font-variant-ligatures: no-common-ligatures;
+  padding: 0 10px;
+}
+
+.devfolio-wave {
+  display: inline-block;
+  animation: devfolio-wave 1.8s ease-in-out infinite;
+  transform-origin: 70% 70%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .devfolio-wave {
+    animation: none;
+  }
+}
+
+@keyframes devfolio-wave {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(-10deg);
+  }
+  20% {
+    transform: rotate(12deg);
+  }
+  30% {
+    transform: rotate(-10deg);
+  }
+  40% {
+    transform: rotate(9deg);
+  }
+  50%,
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes marquee-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee-left {
+  animation: marquee-left 55s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-right {
+  animation: marquee-right 55s linear infinite;
+  will-change: transform;
+}
+
+/*
+ * Reduced motion for the marquee is handled in `TechMarquee` (static grid vs animated strip).
+ * Do not disable these animations via `prefers-reduced-motion` here, or the strip can stay
+ * duplicated while appearing “frozen” if JS and media queries disagree.
+ */
+
+.marquee-fade-x {
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    black 6%,
+    black 94%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    black 6%,
+    black 94%,
+    transparent
+  );
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent) 28%, transparent);
+}

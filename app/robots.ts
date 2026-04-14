@@ -1,0 +1,21 @@
+import type { MetadataRoute } from "next";
+import { getBaseUrl } from "@/lib/base-url";
+
+export default function robots(): MetadataRoute.Robots {
+  const base = getBaseUrl();
+  return {
+    rules: [
+      {
+        userAgent: "*",
+        allow: "/",
+        disallow: ["/api/"],
+      },
+      {
+        userAgent: "Googlebot",
+        allow: "/",
+      },
+    ],
+    sitemap: `${base}/sitemap.xml`,
+    host: base.replace(/^https?:\/\//, ""),
+  };
+}
