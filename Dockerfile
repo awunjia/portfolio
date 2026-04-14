@@ -12,12 +12,18 @@ FROM base AS builder
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 ENV NEXT_TELEMETRY_DISABLED=1
+# Baked into the client bundle at build time (set via compose `build.args` or `docker build --build-arg`).
+ARG NEXT_PUBLIC_BASE_URL
+ENV NEXT_PUBLIC_BASE_URL=${NEXT_PUBLIC_BASE_URL}
+ARG NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY
+ENV NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY=${NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY}
 RUN npm run build
 
 FROM base AS runner
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
-RUN addgroup --system --gid 1001 nodejs && adduser --system --uid 1001 nextjs
+RUN addgroup --system --gid 1001 nodejs && adduser --system --uid 1001 nextjs \
+  && apk add --no-cache wget
 
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next/standalone ./

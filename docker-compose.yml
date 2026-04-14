@@ -1,0 +1,4 @@
+# Default Compose file name (many tools expect `docker-compose.yml` at the repo root).
+# Dokploy: you can set the compose path to either `./docker-compose.yml` or `./docker-compose.prod.yml`.
+include:
+  - docker-compose.prod.yml

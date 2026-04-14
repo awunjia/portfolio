@@ -1,11 +1,63 @@
-# Production stack (e.g. Dokploy). Set NEXT_PUBLIC_BASE_URL in your environment.
+# Production stack for Dokploy (Traefik + external `dokploy-network`).
+#
+# Before deploy, set in the Dokploy environment (or a referenced env file):
+#   DOMAIN=awunjia.com
+#   NEXT_PUBLIC_BASE_URL=https://awunjia.com
+# Plus any secrets from `.env.example` (SMTP, Turnstile, GITHUB_TOKEN, etc.).
+#
+# Traefik routing: labels below match Dokploy’s default (entrypoint `websecure`,
+# cert resolver `letsencrypt`). If you add the domain in Dokploy’s Domains tab instead,
+# remove the `traefik.http.routers.*` and `traefik.http.services.*` lines to avoid
+# duplicate routers - keep `traefik.enable=true` and `traefik.docker.network`.
+#
+# Do not set `container_name` on services (Dokploy recommendation).
+
 services:
   web:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_BASE_URL: ${NEXT_PUBLIC_BASE_URL}
+        NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY: ${NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY:-}
     restart: unless-stopped
-    ports:
-      - "3000:3000"
+    expose:
+      - "3000"
     environment:
+      NODE_ENV: production
       NEXT_PUBLIC_BASE_URL: ${NEXT_PUBLIC_BASE_URL}
+      NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY: ${NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY:-}
+      CLOUDFLARE_TURNSTILE_SECRET_KEY: ${CLOUDFLARE_TURNSTILE_SECRET_KEY:-}
+      SMTP_HOST: ${SMTP_HOST:-}
+      SMTP_PORT: ${SMTP_PORT:-}
+      SMTP_SECURE: ${SMTP_SECURE:-}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASS: ${SMTP_PASS:-}
+      CONTACT_FROM_EMAIL: ${CONTACT_FROM_EMAIL:-}
+      CONTACT_TO_EMAIL: ${CONTACT_TO_EMAIL:-}
+      CONTACT_UPLOAD_DIR: ${CONTACT_UPLOAD_DIR:-}
+      CONTACT_SMTP_DEBUG: ${CONTACT_SMTP_DEBUG:-}
+      GITHUB_TOKEN: ${GITHUB_TOKEN:-}
+    networks:
+      - dokploy-network
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=dokploy-network
+      - traefik.http.routers.portfolio.rule=Host(`${DOMAIN}`)
+      - traefik.http.routers.portfolio.entrypoints=websecure
+      - traefik.http.routers.portfolio.tls.certResolver=letsencrypt
+      - traefik.http.services.portfolio.loadbalancer.server.port=3000
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "wget -qO- http://127.0.0.1:3000/ >/dev/null || exit 1",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 45s
+
+networks:
+  dokploy-network:
+    external: true
