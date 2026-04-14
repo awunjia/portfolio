@@ -37,6 +37,10 @@ services:
       GITHUB_TOKEN: ${GITHUB_TOKEN:-}
     networks:
       - dokploy-network
+    # Helps Traefik pick the right attachment IP when the container is on more than one network.
+    # Does not add routers or TLS - Dokploy Domains still own routing and certificates.
+    labels:
+      - traefik.docker.network=dokploy-network
     healthcheck:
       test:
         [

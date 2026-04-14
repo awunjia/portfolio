@@ -57,6 +57,20 @@ After `npm run build`, run `npm run start` behind your process manager or revers
 
 **Deploy error `open .../docker-compose.prod.yml: no such file`:** the Git branch Dokploy clones does not contain that file at the repo root. Fix by (1) pointing the Dokploy project at the GitHub repo and branch where this portfolio actually lives (for example `awunjia/portfolio` and branch `prod` or `main`), or (2) pushing your latest code (including `docker-compose.prod.yml`) to the repo Dokploy uses, then redeploy.
 
+#### Dokploy / Traefik log errors (what they mean)
+
+**`Router <name> cannot be linked automatically with multiple Services` (e.g. `portfolio`, `chatwoot`)**  
+Traefik sees more than one Docker service that could back the same router. Typical causes on Dokploy: custom Traefik labels on the app that reuse the same router or service name Dokploy already generates (`…-web`, `…-websecure`), duplicate **Domains** rows for the same host, or an old container still running with overlapping labels. **Fix:** in Dokploy, open this project - remove extra **Domains** or duplicate hosts, clear **custom Traefik labels** unless you know each router’s `traefik.http.routers.<router>.service=…` points to a single service, redeploy, then restart or reload Traefik if needed. On the **server**, setting Traefik’s Docker provider default network to `dokploy-network` (Dokploy docs / server Traefik config) avoids wrong-network picks when stacks use multiple networks. This repo only sets `traefik.docker.network=dokploy-network` on the `web` service for that reason.
+
+**`Unable to obtain ACME certificate` + `Invalid response from http://www.<domain>/.well-known/acme-challenge/...` with parking HTML or Cloudflare IPs (`2606:4700:…`)**  
+Let’s Encrypt HTTP-01 is hitting **Cloudflare or a parking page**, not your container. **Fix:** point `www` at your server (same origin as apex, or CNAME `www` → apex), then either use **DNS only** (grey cloud) on `@` and `www` until the certificate is issued, or terminate TLS at Cloudflare and use origin certs / **Full (strict)** instead of Traefik ACME for that hostname, or use a **DNS-01** resolver if your Dokploy / Traefik setup supports it.
+
+**`no valid A records found for www.<domain>`**  
+Add a **DNS A** (or **AAAA**) for `www`, or a **CNAME** from `www` to the hostname that already points at the server. Until public DNS answers, ACME will keep failing.
+
+**`too many failed authorizations` / `rateLimited` (HTTP 429)**  
+Let’s Encrypt throttles after repeated failures. **Fix:** wait until the time shown in the log, fix DNS / HTTP reachability first, then trigger issuance again - do not loop redeploys while validation is still broken.
+
 ## License
 
 Private project unless you choose to add a public license.
