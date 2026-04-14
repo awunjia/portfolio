@@ -6,8 +6,8 @@ import { siteConfig } from "@/config/site";
  */
 export function PersonJsonLd() {
   const sameAs = [siteConfig.github, siteConfig.linkedin].filter(
-    (u): u is string => Boolean(u && u.length > 0),
-  );
+    (u): boolean => Boolean(u && u.length > 0),
+  ) as string[];
 
   const data = {
     "@context": "https://schema.org",
