@@ -52,7 +52,8 @@ After `npm run build`, run `npm run start` behind your process manager or revers
 ### Dokploy (Docker Compose)
 
 - **Compose path** in Dokploy can be `./docker-compose.yml` (includes prod) or `./docker-compose.prod.yml` directly.
-- Set **`DOMAIN`** (hostname only, e.g. `awunjia.com`) and **`NEXT_PUBLIC_BASE_URL`** (full URL, e.g. `https://awunjia.com`) in the service environment so Traefik routing and the Next.js public URL match. The stack attaches to the external **`dokploy-network`** and adds Traefik labels (`websecure`, `letsencrypt`) plus a container health check. If you prefer Dokploy’s **Domains** UI for HTTPS routing, remove the duplicate `traefik.http.routers.*` / `traefik.http.services.*` labels from the compose file and keep `traefik.enable` and `traefik.docker.network` only (see comments in the YAML).
+- **Domains:** add your hostname in Dokploy’s **Domains** tab for this compose service. Dokploy configures Traefik and certificates - this repo’s compose file does **not** set Traefik labels so nothing conflicts with that.
+- **Environment:** set **`NEXT_PUBLIC_BASE_URL`** to the full public URL (e.g. `https://awunjia.com`) so metadata and client code match the served host. The stack joins **`dokploy-network`** and includes a container health check.
 
 **Deploy error `open .../docker-compose.prod.yml: no such file`:** the Git branch Dokploy clones does not contain that file at the repo root. Fix by (1) pointing the Dokploy project at the GitHub repo and branch where this portfolio actually lives (for example `awunjia/portfolio` and branch `prod` or `main`), or (2) pushing your latest code (including `docker-compose.prod.yml`) to the repo Dokploy uses, then redeploy.
 

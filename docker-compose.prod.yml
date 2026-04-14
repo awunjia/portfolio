@@ -1,14 +1,11 @@
-# Production stack for Dokploy (Traefik + external `dokploy-network`).
+# Production stack for Dokploy.
+#
+# Routing and TLS: configure the hostname in Dokploy (Domains for this compose
+# service). Dokploy injects Traefik - do not duplicate Traefik labels here.
 #
 # Before deploy, set in the Dokploy environment (or a referenced env file):
-#   DOMAIN=awunjia.com
-#   NEXT_PUBLIC_BASE_URL=https://awunjia.com
+#   NEXT_PUBLIC_BASE_URL=https://your-domain.com
 # Plus any secrets from `.env.example` (SMTP, Turnstile, GITHUB_TOKEN, etc.).
-#
-# Traefik routing: labels below match Dokploy’s default (entrypoint `websecure`,
-# cert resolver `letsencrypt`). If you add the domain in Dokploy’s Domains tab instead,
-# remove the `traefik.http.routers.*` and `traefik.http.services.*` lines to avoid
-# duplicate routers - keep `traefik.enable=true` and `traefik.docker.network`.
 #
 # Do not set `container_name` on services (Dokploy recommendation).
 
@@ -40,13 +37,6 @@ services:
       GITHUB_TOKEN: ${GITHUB_TOKEN:-}
     networks:
       - dokploy-network
-    labels:
-      - traefik.enable=true
-      - traefik.docker.network=dokploy-network
-      - traefik.http.routers.portfolio.rule=Host(`${DOMAIN}`)
-      - traefik.http.routers.portfolio.entrypoints=websecure
-      - traefik.http.routers.portfolio.tls.certResolver=letsencrypt
-      - traefik.http.services.portfolio.loadbalancer.server.port=3000
     healthcheck:
       test:
         [
