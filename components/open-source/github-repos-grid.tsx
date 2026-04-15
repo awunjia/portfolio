@@ -2,12 +2,14 @@
 
 import type { GitHubRepoPublic } from "@/lib/github-repos";
 import { GitHubRepoCard } from "@/components/open-source/github-repo-card";
+import { useI18n } from "@/components/providers/i18n-provider";
 
 export function GitHubReposGrid({ repos }: { repos: GitHubRepoPublic[] }) {
+  const { t } = useI18n();
   if (repos.length === 0) {
     return (
       <p className="text-center text-muted">
-        No public repositories found for this account.
+        {t("oss.reposEmpty")}
       </p>
     );
   }

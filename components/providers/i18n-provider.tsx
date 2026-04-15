@@ -9,6 +9,8 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import { useCookieConsent } from "@/components/providers/cookie-consent-provider";
+import { clearLocaleCookie } from "@/lib/cookies/consent";
 import { dictionaries } from "@/lib/i18n/dictionaries";
 import {
   LOCALE_STORAGE_KEY,
@@ -45,31 +47,57 @@ function readPersistedLocale(): Locale | null {
 }
 
 function htmlLangFor(locale: Locale): string {
-  if (locale === "en") return "en";
   if (locale === "fi") return "fi";
   if (locale === "sv") return "sv";
-  return "da";
+  if (locale === "da") return "da";
+  return "en";
 }
 
 export function I18nProvider({ children }: { children: ReactNode }) {
+  const { hydrated, preferencesEnabled, consent } = useCookieConsent();
   const [locale, setLocaleState] = useState<Locale>("en");
 
   useEffect(() => {
-    const stored = readPersistedLocale();
-    const next = stored ?? detectBrowserLocale();
-    setLocaleState(next);
-    document.documentElement.lang = htmlLangFor(next);
-  }, []);
-
-  const setLocale = useCallback((next: Locale) => {
-    setLocaleState(next);
-    try {
-      localStorage.setItem(LOCALE_STORAGE_KEY, next);
-    } catch {
-      /* ignore */
+    if (!hydrated) return;
+    if (preferencesEnabled) {
+      const stored = readPersistedLocale();
+      const next = stored ?? detectBrowserLocale();
+      setLocaleState(next);
+      try {
+        document.cookie = `${LOCALE_STORAGE_KEY}=${next}; Path=/; Max-Age=31536000; SameSite=Lax`;
+      } catch {
+        /* ignore */
+      }
+      document.documentElement.lang = htmlLangFor(next);
+    } else {
+      const next = detectBrowserLocale();
+      setLocaleState(next);
+      clearLocaleCookie();
+      document.documentElement.lang = htmlLangFor(next);
     }
-    document.documentElement.lang = htmlLangFor(next);
-  }, []);
+  }, [hydrated, preferencesEnabled, consent?.at]);
+
+  const setLocale = useCallback(
+    (next: Locale) => {
+      setLocaleState(next);
+      if (preferencesEnabled) {
+        try {
+          localStorage.setItem(LOCALE_STORAGE_KEY, next);
+        } catch {
+          /* ignore */
+        }
+        try {
+          document.cookie = `${LOCALE_STORAGE_KEY}=${next}; Path=/; Max-Age=31536000; SameSite=Lax`;
+        } catch {
+          /* ignore */
+        }
+      } else {
+        clearLocaleCookie();
+      }
+      document.documentElement.lang = htmlLangFor(next);
+    },
+    [preferencesEnabled],
+  );
 
   const t = useCallback(
     (key: string) => {

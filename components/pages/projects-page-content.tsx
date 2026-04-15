@@ -8,6 +8,12 @@ import { useI18n } from "@/components/providers/i18n-provider";
 export function ProjectsPageContent() {
   const { t } = useI18n();
   const { projects } = getProjectsForDisplay();
+  const displayProjects = projects.map((p) => {
+    if (!p.i18nKey) return p;
+    const title = t(`proj.items.${p.i18nKey}.title`);
+    const description = t(`proj.items.${p.i18nKey}.description`);
+    return { ...p, title, description };
+  });
 
   return (
     <div className="pb-16">
@@ -22,7 +28,7 @@ export function ProjectsPageContent() {
 
       <Section title={t("proj.sectionTitle")} subtitle={t("proj.sectionSubtitle")}>
         <div className="grid gap-8 md:grid-cols-2">
-          {projects.map((p, i) => (
+          {displayProjects.map((p, i) => (
             <ProjectCard key={p.id} project={p} index={i} />
           ))}
         </div>

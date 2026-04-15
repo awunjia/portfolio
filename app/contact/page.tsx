@@ -1,17 +1,14 @@
 import type { Metadata } from "next";
-import { siteConfig } from "@/config/site";
 import { ContactPageContent } from "@/components/pages/contact-page-content";
+import { buildLocaleMetadata } from "@/lib/i18n/page-metadata";
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description: `A simple way to reach ${siteConfig.fullName} - leave a note from this page.`,
-  openGraph: {
-    title: `Contact - ${siteConfig.fullName}`,
-    description:
-      "Share a little context and I will get back when I can - no pressure.",
-    url: "/contact",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return buildLocaleMetadata({
+    titleKey: "meta.contact.title",
+    descriptionKey: "meta.contact.description",
+    path: "/contact",
+  });
+}
 
 export default function ContactPage() {
   return <ContactPageContent />;

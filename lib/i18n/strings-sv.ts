@@ -17,11 +17,19 @@ export const swedishOverrides: Record<string, string> = {
   "lang.da": "Danska",
 
   "footer.tagline": "Byggd med omsorg i Helsingfors.",
+  "footer.legalCookies": "Cookiepolicy",
+  "footer.legalPrivacy": "Integritet & GDPR",
+  "footer.legalTerms": "Användarvillkor",
+  "footer.cookieSettings": "Cookieinställningar",
 
   "theme.toggle": "Växla mörkt läge",
 
   "a11y.backToTop": "Tillbaka till toppen",
 
+  "home.ariaOverview": "Översikt",
+  "home.tagline":
+    "Jag är en fullstackutvecklare som gillar lugn, underhållbar webb- och mobilutveckling. Jag jobbar oftast med Node.js, PHP och Flutter, från API:er och datalager till gränssnitt som faktiskt går att använda, och jag gillar att arbeta nära produkt, design och kollegor.",
+  "home.role": "Fullstack-mjukvaruingenjör",
   "home.sayHello": "Säg hej",
   "home.downloadCv": "Ladda ner CV",
   "home.sectionStackTitle": "Teknisk stack",
@@ -33,6 +41,16 @@ export const swedishOverrides: Record<string, string> = {
     "Ungefärliga självbedömningar - bäst att läsa bredvid CV eller dialog.",
   "home.sectionDeliveryTitle": "Leveransfokus",
   "home.sectionDeliverySubtitle": "Webb- och mobilarbete jag brukar landa i.",
+  "home.proficiency.frontend": "Frontend",
+  "home.proficiency.backend": "Backend",
+  "home.proficiency.programming": "Programmering",
+  "home.delivery.mobileTitle": "Mobilappar",
+  "home.delivery.mobileBody":
+    "Flutter när en mobilklient med nativ känsla är rätt val - genomtänkt UX och leveranser som fortsätter vara realistiska att skicka iväg.",
+  "home.delivery.webTitle": "Webbappar och dashboards",
+  "home.delivery.webBody":
+    "Webbappar och dashboards med Next.js, REST- eller GraphQL-API:er, inloggning och vyer som fortsätter vara läsbara när datan växer.",
+  "home.techMarqueeAria": "Teknikstack",
   "home.ctaTitle": "Rekryterar eller bara nyfiken?",
   "home.ctaBody":
     "Om du delar roll, senioritet, stack och tidslinje svarar jag med tillgänglighet och några relevanta anteckningar när jag kan - oftast inom ett par vardagar.",
@@ -51,6 +69,23 @@ export const swedishOverrides: Record<string, string> = {
   "profile.revealPhone": "Visa telefonnummer",
   "profile.hidePhone": "Dölj telefonnummer",
   "profile.portraitAlt": "Porträtt: {name}",
+  "profile.degreeLine": "Informationsteknik",
+  "profile.spokenLanguagesValue": "Engelska, finska",
+  "profile.timezoneValue": "Östeuropeisk tid (EET)",
+  "profile.availabilityPitch":
+    "Gärna samtal om heltids- eller konsultuppdrag - distans eller hybrid.",
+
+  "social.ariaGroup": "GitHub, LinkedIn och e-post",
+  "social.github": "GitHub",
+  "social.linkedin": "LinkedIn",
+  "social.email": "E-post",
+  "social.gitlab": "GitLab",
+  "social.facebook": "Facebook",
+  "social.instagram": "Instagram",
+  "social.twitter": "Twitter",
+  "social.medium": "Medium",
+  "social.stackoverflow": "Stack Overflow",
+  "social.kaggle": "Kaggle",
 
   "contact.eyebrow": "Hej",
   "contact.title": "Kontakt",
@@ -63,6 +98,9 @@ export const swedishOverrides: Record<string, string> = {
   "form.attachment": "Bilaga (valfritt)",
   "form.attachmentHelp": "PDF, Word, bilder eller text - upp till {size} MB.",
   "form.security": "Slutför säkerhetskontrollen innan du skickar.",
+  "form.turnstileError":
+    "Säkerhetskontrollen laddades inte (kod {code}). Cloudflare skiljer på localhost och 127.0.0.1: lägg till båda i widgeten om du använder någon av dem. Prova annan webbläsare, stäng av tillägg (adblock) och VPN. Felkod 300* kan betyda att utmaningen inte kunde slutföras i denna miljö.",
+  "form.turnstileRetry": "Försök med säkerhetskontrollen igen",
   "form.hint": "Jag läser allt som kommer in och svarar oftast inom några vardagar.",
   "form.send": "Skicka meddelande",
   "form.sending": "Skickar…",
@@ -73,6 +111,7 @@ export const swedishOverrides: Record<string, string> = {
   "form.networkError":
     "Nätverksproblem - meddelandet kanske inte skickades. Kontrollera anslutningen och försök igen om en stund.",
   "form.genericError": "Något gick fel hos oss - försök igen om en stund.",
+  "form.errorDetailsPrefix": "Detaljer:",
 
   "notFound.title": "Sidan hittades inte",
   "notFound.body":
@@ -85,6 +124,8 @@ export const swedishOverrides: Record<string, string> = {
   "about.sectionSubtitle":
     "Senaste rollerna först - gärna mer djup i samtal.",
   "about.techAria": "Tekniker hos {company}",
+  "about.bio":
+    "Jag gillar att förvandla luddiga krav till mjukvara som känns stabil - tydlig struktur där det hjälper, tester där de betalar sig, och UX som är snäll mot både användare och den som öppnar repot härnäst.",
 
   "skills.eyebrow": "Verktygslåda",
   "skills.title": "Kompetens och stackar",
@@ -96,6 +137,24 @@ export const swedishOverrides: Record<string, string> = {
   "skills.emphasisSubtitle":
     "Självbedömd nivå - bäst bredvid CV eller samtal.",
   "skills.stackAria": "Tekniker: {title}",
+  "skills.stack.languagesWeb.title": "Språk och webbgrunder",
+  "skills.stack.languagesWeb.description":
+    "Språk, märkning och stilskikt jag använder när jag formar produktens UI.",
+  "skills.stack.frontendUi.title": "Frontend-ramverk och UI-leverans",
+  "skills.stack.frontendUi.description":
+    "Hur jag strukturerar UI-arbete - komponenter, SPA eller SSR, state och byggverktyg som förblir överkomliga.",
+  "skills.stack.backendApis.title": "Backend, API:er och applikationsdata",
+  "skills.stack.backendApis.description":
+    "Tjänster, ORM:er och integrationsmönster - från vänliga monoliter till mindre modulära API:er.",
+  "skills.stack.datastores.title": "Datalager och cache",
+  "skills.stack.datastores.description":
+    "Relations- och dokumentmodeller, migreringar och lätt cache när en sida behöver lite extra luft.",
+  "skills.stack.mobileRealtime.title": "Mobil och realtidsklient",
+  "skills.stack.mobileRealtime.description":
+    "Flutter-appar med reaktivt tillstånd, kartor, push och Supabase eller Firebase när produkten kräver det.",
+  "skills.stack.cloudPlatform.title": "Moln, containrar och plattform",
+  "skills.stack.cloudPlatform.description":
+    "Paketering, orkestrering, IaC och hostingval som håller deploys tråkiga på ett bra sätt.",
 
   "edu.eyebrow": "Lärande",
   "edu.title": "Utbildning",
@@ -112,6 +171,15 @@ export const swedishOverrides: Record<string, string> = {
   "proj.sectionTitle": "Alla projekt",
   "proj.sectionSubtitle":
     "Arbetsprover och sidoprojekt - inget gömt bakom marknadsföring.",
+  "proj.cardCode": "Kod",
+  "proj.cardLive": "Live-sajt",
+  "proj.ariaTechnologies": "Tekniker",
+  "proj.items.portfolio.title": "Portföljplattform",
+  "proj.items.portfolio.description":
+    "En lugn portföljsajt från typad konfiguration, med App Router-mönster, Docker-paket och CV-export när någon ber om PDF.",
+  "proj.items.apiToolkit.title": "API-verktygslåda",
+  "proj.items.apiToolkit.description":
+    "Typade REST-handlers, validering och strukturerade fel så klienter alltid vet vad som hände.",
 
   "oss.eyebrow": "GitHub",
   "oss.title": "Öppen källkod",
@@ -125,4 +193,77 @@ export const swedishOverrides: Record<string, string> = {
   "oss.reposHeading": "Repon ({count})",
   "oss.reposBody":
     "Sorterat efter senaste push, inklusive forks och arkiverade repon när det känns meningsfullt.",
+  "oss.reposEmpty": "Inga offentliga repon hittades för det här kontot.",
+  "oss.repoArchived": "Arkiverad",
+  "oss.repoFork": "Fork",
+  "oss.repoNoDescription": "Ingen beskrivning på GitHub ännu.",
+  "oss.repoStars": "{count} stjärnor",
+  "oss.repoForks": "{count} forks",
+  "oss.repoUpdated": "Uppdaterad {date}",
+  "oss.repoOpen": "Repository",
+  "oss.repoWebsite": "Webbplats",
+  "oss.repoTopicsAria": "Ämnen",
+
+  "github.statsAria": "GitHub-statistik",
+  "github.statsTitle": "GitHub i korthet",
+  "github.statsIntro":
+    "Publika siffror för {handle} - cachade ungefär en timme så sidan förblir snabb.",
+  "github.openProfile": "Öppna GitHub-profil",
+  "github.statRepos": "Offentliga repon",
+  "github.statFollowers": "Följare",
+  "github.statFollowing": "Följer",
+
+  "meta.home.title": "Översikt",
+  "meta.home.description": "{name} - {role}. {tagline}",
+  "meta.skills.title": "Kompetens",
+  "meta.skills.description": "En avslappnad tur genom verktyg och stackar för {name} - {role}.",
+  "meta.skills.ogDescription": "{tagline}",
+  "meta.education.title": "Utbildning",
+  "meta.education.description":
+    "Utbildning för {name} - {degree} vid {school}, och tidigare studier.",
+  "meta.education.ogDescription": "{degree}, {school}",
+  "meta.about.title": "Arbetslivserfarenhet",
+  "meta.about.description":
+    "En vänlig genomgång av arbetslivserfarenhet för {name} - mestadels fullstack webb, Laravel och lite Flutter IoT.",
+  "meta.about.ogDescription": "{bio}",
+  "meta.contact.title": "Kontakt",
+  "meta.contact.description": "Ett enkelt sätt att nå {name} - lämna ett meddelande här.",
+  "meta.projects.title": "Projekt",
+  "meta.projects.description":
+    "Ett litet urval projekt av {name}, hållna i webbplatsens konfiguration.",
+  "meta.oss.title": "Öppen källkod",
+  "meta.oss.description": "Offentliga GitHub-repon från {name}.",
+  "meta.oss.ogDescription": "Repon från {handle} på GitHub.",
+
+  "meta.legal.cookiesTitle": "Cookiepolicy",
+  "meta.legal.cookiesDescription":
+    "Hur denna portfolio använder cookies och liknande teknik, även i kontaktformuläret när det behövs.",
+  "meta.legal.privacyTitle": "Integritet & GDPR",
+  "meta.legal.privacyDescription":
+    "Hur personuppgifter behandlas, dina GDPR-rättigheter och hur du kontaktar oss eller begär radering.",
+  "meta.legal.termsTitle": "Användarvillkor",
+  "meta.legal.termsDescription": "Villkor för användning av webbplatsen och kontaktfunktionen.",
+
+  "cookies.bannerTitle": "Cookies och din integritet",
+  "cookies.bannerBody":
+    "Vi använder nödvändiga cookies för att komma ihåg ditt samtycke. Med preferenser sparas tema och språk. Du kan ändra dig när som helst.",
+  "cookies.acceptAll": "Godkänn alla",
+  "cookies.rejectNonEssential": "Avvisa icke-nödvändiga",
+  "cookies.managePreferences": "Hantera inställningar",
+  "cookies.savePreferences": "Spara val",
+  "cookies.close": "Stäng",
+  "cookies.necessaryTitle": "Strikt nödvändiga",
+  "cookies.necessaryBody":
+    "Krävs för webbplatsen och att komma ihåg ditt samtycke. Kan inte stängas av.",
+  "cookies.necessaryStatus": "Alltid på",
+  "cookies.preferencesTitle": "Preferenser",
+  "cookies.preferencesBody":
+    "Kommer ihåg tema (ljus/mörk) och språk så sidan känns igen när du återvänder.",
+  "cookies.statisticsTitle": "Statistik (valfritt)",
+  "cookies.statisticsBody":
+    "Inga analyscookies är aktiva idag. Om det ändras styr detta reglaget dem.",
+  "cookies.legalIntro": "Läs mer:",
+  "cookies.and": "och",
+  "cookies.themeLockedHint":
+    "Aktivera preferenscookies i bannern för att spara temat.",
 };

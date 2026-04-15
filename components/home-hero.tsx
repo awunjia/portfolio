@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
+import { HiOutlineArrowDownTray, HiOutlineChatBubbleLeftRight } from "react-icons/hi2";
 import { siteConfig } from "@/config/site";
 import { useI18n } from "@/components/providers/i18n-provider";
 import { SocialMedia } from "@/components/devfolio/social-media";
@@ -20,7 +21,7 @@ export function HomeHero() {
     >
       <div className="greeting-text-div min-w-0 flex-1">
         <p className="break-words text-sm font-medium tracking-wide text-accent">
-          {siteConfig.role}
+          {t("home.role")}
         </p>
         <h1 className="greeting-text mt-4 max-w-3xl break-words text-3xl font-semibold leading-tight tracking-tight text-foreground sm:text-4xl md:text-5xl lg:text-[70px] lg:leading-[1.1]">
           {siteConfig.fullName}
@@ -31,15 +32,17 @@ export function HomeHero() {
         <div className="button-greeting-div mt-10 flex w-full min-w-0 flex-row flex-wrap items-stretch gap-3 sm:items-center">
           <Link
             href="/contact"
-            className="inline-flex h-11 min-w-0 flex-1 items-center justify-center rounded-lg bg-accent px-4 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent-hover sm:flex-none sm:px-8"
+            className="inline-flex h-11 min-w-0 flex-1 items-center justify-center gap-2 rounded-lg bg-accent px-4 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent-hover sm:flex-none sm:px-8"
           >
+            <HiOutlineChatBubbleLeftRight className="size-4 shrink-0" aria-hidden />
             {t("home.sayHello")}
           </Link>
           <a
             href={`${siteConfig.cvDownloadPath}?locale=${locale}`}
             download
-            className="inline-flex h-11 min-w-0 flex-1 items-center justify-center rounded-lg border border-border bg-surface px-4 text-sm font-semibold text-foreground transition-colors hover:border-accent hover:text-accent dark:bg-surface sm:flex-none sm:px-8"
+            className="inline-flex h-11 min-w-0 flex-1 items-center justify-center gap-2 rounded-lg border border-border bg-surface px-4 text-sm font-semibold text-foreground transition-colors hover:border-accent hover:text-accent dark:bg-surface sm:flex-none sm:px-8"
           >
+            <HiOutlineArrowDownTray className="size-4 shrink-0" aria-hidden />
             {t("home.downloadCv")}
           </a>
         </div>

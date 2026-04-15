@@ -3,16 +3,20 @@
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import type { GitHubRepoPublic } from "@/lib/github-repos";
+import { useI18n } from "@/components/providers/i18n-provider";
+import type { Locale } from "@/lib/i18n/locale";
 
-type GitHubRepoCardProps = {
-  repo: GitHubRepoPublic;
-  index?: number;
-};
+function localeToBcp47(locale: Locale): string {
+  if (locale === "fi") return "fi-FI";
+  if (locale === "sv") return "sv-SE";
+  if (locale === "da") return "da-DK";
+  return "en-GB";
+}
 
-function formatPushedAt(iso: string): string {
+function formatPushedAt(iso: string, locale: Locale): string {
   try {
     const d = new Date(iso);
-    return d.toLocaleDateString(undefined, {
+    return d.toLocaleDateString(localeToBcp47(locale), {
       year: "numeric",
       month: "short",
       day: "numeric",
@@ -22,8 +26,18 @@ function formatPushedAt(iso: string): string {
   }
 }
 
+type GitHubRepoCardProps = {
+  repo: GitHubRepoPublic;
+  index?: number;
+};
+
 export function GitHubRepoCard({ repo, index = 0 }: GitHubRepoCardProps) {
   const reduceMotion = useReducedMotion();
+  const { t, locale } = useI18n();
+  const updatedLabel = t("oss.repoUpdated").replace(
+    "{date}",
+    formatPushedAt(repo.pushedAt, locale),
+  );
 
   return (
     <motion.article
@@ -44,17 +58,17 @@ export function GitHubRepoCard({ repo, index = 0 }: GitHubRepoCardProps) {
           </h3>
           {repo.archived ? (
             <span className="rounded-full bg-muted px-2 py-0.5 text-xs font-medium text-muted">
-              Archived
+              {t("oss.repoArchived")}
             </span>
           ) : null}
           {repo.isFork ? (
             <span className="rounded-full border border-border px-2 py-0.5 text-xs font-medium text-muted">
-              Fork
+              {t("oss.repoFork")}
             </span>
           ) : null}
         </div>
         <p className="line-clamp-3 text-sm leading-relaxed text-muted">
-          {repo.description?.trim() || "No description on GitHub yet."}
+          {repo.description?.trim() || t("oss.repoNoDescription")}
         </p>
         <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-muted">
           {repo.language ? (
@@ -62,18 +76,18 @@ export function GitHubRepoCard({ repo, index = 0 }: GitHubRepoCardProps) {
               <span className="font-medium text-foreground">{repo.language}</span>
             </span>
           ) : null}
-          <span>{repo.stars} stars</span>
-          <span>{repo.forks} forks</span>
-          <span>Updated {formatPushedAt(repo.pushedAt)}</span>
+          <span>{t("oss.repoStars").replace("{count}", String(repo.stars))}</span>
+          <span>{t("oss.repoForks").replace("{count}", String(repo.forks))}</span>
+          <span>{updatedLabel}</span>
         </div>
         {repo.topics.length > 0 ? (
-          <ul className="flex flex-wrap gap-2" aria-label="Topics">
-            {repo.topics.slice(0, 8).map((t) => (
+          <ul className="flex flex-wrap gap-2" aria-label={t("oss.repoTopicsAria")}>
+            {repo.topics.slice(0, 8).map((topic) => (
               <li
-                key={t}
+                key={topic}
                 className="rounded-full border border-skills/30 bg-skills/10 px-2.5 py-0.5 text-xs font-medium text-card-subtitle dark:text-muted"
               >
-                {t}
+                {topic}
               </li>
             ))}
           </ul>
@@ -85,7 +99,7 @@ export function GitHubRepoCard({ repo, index = 0 }: GitHubRepoCardProps) {
             rel="noopener noreferrer"
             className="text-sm font-medium text-accent underline-offset-4 transition-colors hover:text-accent-hover hover:underline"
           >
-            Repository
+            {t("oss.repoOpen")}
           </Link>
           {repo.homepage ? (
             <Link
@@ -94,7 +108,7 @@ export function GitHubRepoCard({ repo, index = 0 }: GitHubRepoCardProps) {
               rel="noopener noreferrer"
               className="text-sm font-medium text-accent underline-offset-4 transition-colors hover:text-accent-hover hover:underline"
             >
-              Website
+              {t("oss.repoWebsite")}
             </Link>
           ) : null}
         </div>

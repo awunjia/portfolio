@@ -17,18 +17,20 @@ import {
 import { SiKaggle } from "react-icons/si";
 import { MdEmail } from "react-icons/md";
 import { siteConfig, type SocialMediaConfig } from "@/config/site";
+import { useI18n } from "@/components/providers/i18n-provider";
 
 const iconBtn =
   "icon-button inline-flex h-[2.6rem] w-[2.6rem] shrink-0 items-center justify-center rounded-full text-white transition-colors duration-200 hover:bg-foreground";
 
 export function SocialMedia({ className = "" }: { className?: string }) {
+  const { t } = useI18n();
   const social = siteConfig.social as SocialMediaConfig | undefined;
   if (social?.display === false) return null;
 
   return (
     <div
       className={`social-media-div flex flex-wrap justify-center gap-x-1 gap-y-2 text-[2em] md:justify-start ${className}`}
-      aria-label="GitHub, LinkedIn, and email"
+      aria-label={t("social.ariaGroup")}
     >
       {siteConfig.github ? (
         <a
@@ -36,7 +38,7 @@ export function SocialMedia({ className = "" }: { className?: string }) {
           target="_blank"
           rel="noopener noreferrer"
           className={`${iconBtn} bg-[#333]`}
-          aria-label="GitHub"
+          aria-label={t("social.github")}
         >
           <FaGithub className="text-[1.3rem]" aria-hidden />
         </a>
@@ -47,7 +49,7 @@ export function SocialMedia({ className = "" }: { className?: string }) {
           target="_blank"
           rel="noopener noreferrer"
           className={`${iconBtn} bg-[#0e76a8]`}
-          aria-label="LinkedIn"
+          aria-label={t("social.linkedin")}
         >
           <FaLinkedin className="text-[1.3rem]" aria-hidden />
         </a>
@@ -56,7 +58,7 @@ export function SocialMedia({ className = "" }: { className?: string }) {
         <a
           href={`mailto:${siteConfig.email}`}
           className={`${iconBtn} bg-[#ea4335]`}
-          aria-label="Email"
+          aria-label={t("social.email")}
         >
           <MdEmail className="text-[1.3rem]" aria-hidden />
         </a>
@@ -67,7 +69,7 @@ export function SocialMedia({ className = "" }: { className?: string }) {
           target="_blank"
           rel="noopener noreferrer"
           className={`${iconBtn} bg-[#fca326]`}
-          aria-label="GitLab"
+          aria-label={t("social.gitlab")}
         >
           <FaGitlab className="text-[1.3rem]" aria-hidden />
         </a>
@@ -78,7 +80,7 @@ export function SocialMedia({ className = "" }: { className?: string }) {
           target="_blank"
           rel="noopener noreferrer"
           className={`${iconBtn} bg-[#3b5998]`}
-          aria-label="Facebook"
+          aria-label={t("social.facebook")}
         >
           <FaFacebook className="text-[1.3rem]" aria-hidden />
         </a>
@@ -89,7 +91,7 @@ export function SocialMedia({ className = "" }: { className?: string }) {
           target="_blank"
           rel="noopener noreferrer"
           className={`${iconBtn} bg-[#c13584]`}
-          aria-label="Instagram"
+          aria-label={t("social.instagram")}
         >
           <FaInstagram className="text-[1.3rem]" aria-hidden />
         </a>
@@ -100,7 +102,7 @@ export function SocialMedia({ className = "" }: { className?: string }) {
           target="_blank"
           rel="noopener noreferrer"
           className={`${iconBtn} bg-[#1da1f2]`}
-          aria-label="Twitter"
+          aria-label={t("social.twitter")}
         >
           <FaTwitter className="text-[1.3rem]" aria-hidden />
         </a>
@@ -111,7 +113,7 @@ export function SocialMedia({ className = "" }: { className?: string }) {
           target="_blank"
           rel="noopener noreferrer"
           className={`${iconBtn} bg-black`}
-          aria-label="Medium"
+          aria-label={t("social.medium")}
         >
           <FaMedium className="text-[1.3rem]" aria-hidden />
         </a>
@@ -122,7 +124,7 @@ export function SocialMedia({ className = "" }: { className?: string }) {
           target="_blank"
           rel="noopener noreferrer"
           className={`${iconBtn} bg-[#f48024]`}
-          aria-label="Stack Overflow"
+          aria-label={t("social.stackoverflow")}
         >
           <FaStackOverflow className="text-[1.3rem]" aria-hidden />
         </a>
@@ -133,7 +135,7 @@ export function SocialMedia({ className = "" }: { className?: string }) {
           target="_blank"
           rel="noopener noreferrer"
           className={`${iconBtn} bg-[#20beff]`}
-          aria-label="Kaggle"
+          aria-label={t("social.kaggle")}
         >
           <SiKaggle className="text-[1.3rem]" aria-hidden />
         </a>

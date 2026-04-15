@@ -6,11 +6,13 @@
  */
 import { useTheme } from "next-themes";
 import { useSyncExternalStore } from "react";
+import { useCookieConsent } from "@/components/providers/cookie-consent-provider";
 import { useI18n } from "@/components/providers/i18n-provider";
 
 export function DevfolioThemeToggle() {
   const { setTheme, resolvedTheme } = useTheme();
   const { t } = useI18n();
+  const { preferencesEnabled } = useCookieConsent();
   const mounted = useSyncExternalStore(
     () => () => {},
     () => true,
@@ -20,14 +22,17 @@ export function DevfolioThemeToggle() {
   const isDark = mounted && resolvedTheme === "dark";
 
   return (
-    <label className="relative inline-block h-[26px] w-[50px] shrink-0 cursor-pointer">
+    <label
+      className={`relative inline-block h-[26px] w-[50px] shrink-0 ${preferencesEnabled ? "cursor-pointer" : "cursor-not-allowed opacity-50"}`}
+    >
       <span className="sr-only">{t("theme.toggle")}</span>
       <input
         type="checkbox"
         className="peer sr-only"
         checked={isDark}
         onChange={() => setTheme(isDark ? "light" : "dark")}
-        disabled={!mounted}
+        disabled={!mounted || !preferencesEnabled}
+        title={preferencesEnabled ? undefined : t("cookies.themeLockedHint")}
       />
       <span
         className="absolute inset-0 rounded-full bg-neutral-300 ring-1 ring-black/[0.07] transition-colors duration-300 peer-checked:bg-neutral-600 peer-checked:ring-black/10 dark:bg-neutral-600 dark:ring-white/[0.08] dark:peer-checked:bg-neutral-800 dark:peer-checked:ring-white/[0.06] peer-focus-visible:ring-2 peer-focus-visible:ring-accent/40 peer-focus-visible:ring-offset-2 peer-focus-visible:ring-offset-background dark:peer-focus-visible:ring-accent/50 dark:peer-focus-visible:ring-offset-[#171c28]"

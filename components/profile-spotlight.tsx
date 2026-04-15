@@ -24,8 +24,7 @@ function initialsFromName(full: string): string {
 
 export function ProfileSpotlight() {
   const { t } = useI18n();
-  const { fullName, role, degree, profile, email, cvPlaceholders } =
-    siteConfig;
+  const { fullName, profile, email, cvPlaceholders } = siteConfig;
   const [avatarFailed, setAvatarFailed] = useState(false);
   const [showPhone, setShowPhone] = useState(false);
   const showImage = profile.avatarSrc && !avatarFailed;
@@ -45,19 +44,19 @@ export function ProfileSpotlight() {
           key: "languages",
           Icon: HiOutlineLanguage,
           label: t("profile.languages"),
-          value: profile.languages,
+          value: t("profile.spokenLanguagesValue"),
         },
         {
           key: "timezone",
           Icon: HiOutlineClock,
           label: t("profile.timezone"),
-          value: profile.timezone,
+          value: t("profile.timezoneValue"),
         },
         {
           key: "availability",
           Icon: HiOutlineChatBubbleLeftRight,
           label: t("profile.availability"),
-          value: profile.availability,
+          value: t("profile.availabilityPitch"),
         },
         {
           key: "phone",
@@ -77,9 +76,6 @@ export function ProfileSpotlight() {
       t,
       cvPlaceholders.address,
       cvPlaceholders.phone,
-      profile.languages,
-      profile.timezone,
-      profile.availability,
       email,
     ],
   );
@@ -120,8 +116,8 @@ export function ProfileSpotlight() {
               )}
             </div>
             <p className="mt-4 text-lg font-semibold text-foreground">{fullName}</p>
-            <p className="text-sm font-medium text-accent">{role}</p>
-            <p className="mt-2 text-xs text-muted">{degree}</p>
+            <p className="text-sm font-medium text-accent">{t("home.role")}</p>
+            <p className="mt-2 text-xs text-muted">{t("profile.degreeLine")}</p>
           </div>
 
           <div className="min-w-0">

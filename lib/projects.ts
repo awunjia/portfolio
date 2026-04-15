@@ -2,6 +2,7 @@ import { siteConfig, type SiteProject } from "@/config/site";
 
 export type ProjectView = {
   id: string;
+  i18nKey?: "portfolio" | "apiToolkit";
   title: string;
   description: string;
   techStack: string[];
@@ -16,6 +17,7 @@ export type ProjectView = {
 function mapProject(p: SiteProject, index: number): ProjectView {
   return {
     id: `project-${index}`,
+    i18nKey: p.i18nKey,
     title: p.title,
     description: p.description,
     techStack: [...p.techStack],

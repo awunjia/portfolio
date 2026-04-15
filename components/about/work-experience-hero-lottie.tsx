@@ -23,7 +23,7 @@ export function WorkExperienceHeroLottie() {
 
   return (
     <div
-      className="relative w-full max-w-[min(100%,480px)] rounded-2xl border border-border bg-surface p-4 shadow-sm dark:border-white/10 dark:bg-white/[0.04] dark:shadow-none"
+      className="relative flex w-full max-w-[min(100%,480px)] justify-center"
       aria-hidden
     >
       <Lottie

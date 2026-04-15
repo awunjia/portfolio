@@ -1,11 +1,15 @@
 "use client";
 
+import Link from "next/link";
+import { HiOutlineAdjustmentsHorizontal } from "react-icons/hi2";
 import { siteConfig } from "@/config/site";
+import { useCookieConsent } from "@/components/providers/cookie-consent-provider";
 import { useI18n } from "@/components/providers/i18n-provider";
 
 export function Footer() {
   const year = new Date().getFullYear();
   const { t } = useI18n();
+  const { hydrated, consent, openSettings } = useCookieConsent();
 
   return (
     <footer className="footer-div mt-auto border-t border-border pb-6 pt-8 dark:border-white/10">
@@ -14,6 +18,39 @@ export function Footer() {
           © {year} {siteConfig.fullName}
         </p>
         <p className="footer-text mt-2 text-xs text-muted/90">{t("footer.tagline")}</p>
+        <nav
+          className="footer-text mt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs text-muted"
+          aria-label="Legal"
+        >
+          <Link
+            href="/legal/cookies"
+            className="font-medium text-accent underline-offset-2 transition-colors hover:text-accent-hover hover:underline"
+          >
+            {t("footer.legalCookies")}
+          </Link>
+          <Link
+            href="/legal/privacy"
+            className="font-medium text-accent underline-offset-2 transition-colors hover:text-accent-hover hover:underline"
+          >
+            {t("footer.legalPrivacy")}
+          </Link>
+          <Link
+            href="/legal/terms"
+            className="font-medium text-accent underline-offset-2 transition-colors hover:text-accent-hover hover:underline"
+          >
+            {t("footer.legalTerms")}
+          </Link>
+          {hydrated && consent !== null ? (
+            <button
+              type="button"
+              onClick={() => openSettings()}
+              className="inline-flex items-center gap-1.5 font-medium text-accent underline-offset-2 transition-colors hover:text-accent-hover hover:underline"
+            >
+              <HiOutlineAdjustmentsHorizontal className="size-3.5 shrink-0" aria-hidden />
+              {t("footer.cookieSettings")}
+            </button>
+          ) : null}
+        </nav>
       </div>
     </footer>
   );

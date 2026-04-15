@@ -7,6 +7,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { HiOutlineBars3, HiOutlineXMark } from "react-icons/hi2";
 import { siteConfig } from "@/config/site";
 import { DevfolioThemeToggle } from "@/components/devfolio/devfolio-theme-toggle";
 import { LanguageMenu } from "@/components/layout/language-menu";
@@ -77,26 +78,17 @@ export function Navbar() {
             <LanguageMenu />
             <button
               type="button"
-              className="inline-flex cursor-pointer py-2 pl-3 md:hidden"
+              className="inline-flex cursor-pointer items-center justify-center py-2 pl-3 text-[#333] md:hidden dark:text-white"
               aria-expanded={open}
               aria-controls="devfolio-menu"
               aria-label={open ? t("nav.menuClose") : t("nav.menuOpen")}
               onClick={() => setOpen((v) => !v)}
             >
-              <span
-                className="flex h-3.5 w-[18px] flex-col justify-between"
-                aria-hidden
-              >
-                <span
-                  className={`h-0.5 w-full origin-center bg-[#333] transition-transform duration-200 dark:bg-white ${open ? "translate-y-[9px] rotate-45" : ""}`}
-                />
-                <span
-                  className={`h-0.5 w-full bg-[#333] transition-opacity duration-200 dark:bg-white ${open ? "opacity-0" : ""}`}
-                />
-                <span
-                  className={`h-0.5 w-full origin-center bg-[#333] transition-transform duration-200 dark:bg-white ${open ? "-translate-y-[9px] -rotate-45" : ""}`}
-                />
-              </span>
+              {open ? (
+                <HiOutlineXMark className="size-6 shrink-0" aria-hidden />
+              ) : (
+                <HiOutlineBars3 className="size-6 shrink-0" aria-hidden />
+              )}
             </button>
           </div>
 

@@ -1,4 +1,6 @@
 export type SiteProject = {
+  /** When set, UI uses `proj.items.{key}.*` strings */
+  i18nKey?: "portfolio" | "apiToolkit";
   title: string;
   description: string;
   techStack: string[];
@@ -32,6 +34,14 @@ export type EducationItem = {
 };
 
 export type SkillStack = {
+  /** Key for `skills.stack.{key}.title` / `.description` */
+  i18nKey:
+    | "languagesWeb"
+    | "frontendUi"
+    | "backendApis"
+    | "datastores"
+    | "mobileRealtime"
+    | "cloudPlatform";
   title: string;
   /** One line: what this group covers in your work */
   description: string;
@@ -40,6 +50,8 @@ export type SkillStack = {
 
 export type ProficiencyBar = {
   label: string;
+  /** Key under `home.proficiency.*` in UI strings */
+  i18nKey: "frontend" | "backend" | "programming";
   /** 0–100 */
   percentage: number;
 };
@@ -102,9 +114,9 @@ export const siteConfig = {
   bio: "I like turning fuzzy requirements into software that feels steady - clear structure where it helps, tests where they earn their keep, and UX that stays kind to both users and whoever opens the repo next.",
   /** DeveloperFolio-style proficiency meters (skillProgress) */
   proficiency: [
-    { label: "Frontend", percentage: 65 },
-    { label: "Backend", percentage: 80 },
-    { label: "Programming", percentage: 95 },
+    { label: "Frontend", i18nKey: "frontend", percentage: 65 },
+    { label: "Backend", i18nKey: "backend", percentage: 80 },
+    { label: "Programming", i18nKey: "programming", percentage: 95 },
   ] satisfies ProficiencyBar[],
   skills: [
     "TypeScript",
@@ -154,6 +166,7 @@ export const siteConfig = {
    */
   skillStacks: [
     {
+      i18nKey: "languagesWeb",
       title: "Languages & web foundations",
       description:
         "The languages, markup, and styling layers I reach for when shaping product UI.",
@@ -167,6 +180,7 @@ export const siteConfig = {
       ],
     },
     {
+      i18nKey: "frontendUi",
       title: "Frontend frameworks & UI delivery",
       description:
         "How I like to structure UI work - components, SPA or SSR stacks, state, and build tooling that stays approachable.",
@@ -182,6 +196,7 @@ export const siteConfig = {
       ],
     },
     {
+      i18nKey: "backendApis",
       title: "Backend, APIs & application data",
       description:
         "Services, ORMs, and integration patterns - from friendly monoliths to smaller modular APIs.",
@@ -197,18 +212,21 @@ export const siteConfig = {
       ],
     },
     {
+      i18nKey: "datastores",
       title: "Datastores & caching",
       description:
         "Relational and document models, migrations, and light caching when a page needs a little extra air.",
       tools: ["PostgreSQL", "MySQL", "MongoDB", "Redis"],
     },
     {
+      i18nKey: "mobileRealtime",
       title: "Mobile & real-time client",
       description:
         "Flutter apps with reactive state, maps, push messaging, and Supabase or Firebase when the product calls for it.",
       tools: ["Flutter", "GetX", "Firebase", "Supabase", "FCM", "MapSDK"],
     },
     {
+      i18nKey: "cloudPlatform",
       title: "Cloud, containers & platform",
       description:
         "Packaging, orchestration, IaC, and hosting choices that keep deploys boring in a good way.",
@@ -227,6 +245,7 @@ export const siteConfig = {
   ] satisfies readonly SkillStack[],
   projects: [
     {
+      i18nKey: "portfolio",
       title: "Portfolio platform",
       description:
         "A calm portfolio site driven from typed config, with App Router patterns, Docker packaging, and a CV export when someone asks for a PDF.",
@@ -236,6 +255,7 @@ export const siteConfig = {
       images: [],
     },
     {
+      i18nKey: "apiToolkit",
       title: "API toolkit",
       description:
         "Typed REST handlers, validation, and structured errors so clients always know what happened.",

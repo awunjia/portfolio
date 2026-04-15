@@ -1,9 +1,9 @@
 "use client";
 
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { useTheme } from "next-themes";
 import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
+import { HiOutlineArrowPath, HiOutlinePaperAirplane } from "react-icons/hi2";
 import { useI18n } from "@/components/providers/i18n-provider";
 
 type FormState = "idle" | "submitting" | "success" | "error";
@@ -15,26 +15,55 @@ const ACCEPT_ATTR =
 const turnstileSiteKey =
   process.env.NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY ?? "";
 
+/** Must be referentially stable — inline `{ appendTo: "body" }` re-runs inject logic every render and can break Turnstile (cf. Next.js + explicit render issues). */
+const TURNSTILE_SCRIPT_OPTIONS = { appendTo: "body" as const };
+
 export function ContactForm() {
   const reduceMotion = useReducedMotion();
-  const { resolvedTheme } = useTheme();
   const { t } = useI18n();
   const [state, setState] = useState<FormState>("idle");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const [turnstileIssue, setTurnstileIssue] = useState<string | null>(null);
   const [fileLabel, setFileLabel] = useState<string | null>(null);
   const turnstileRef = useRef<TurnstileInstance | null>(null);
+
+  const turnstileOptions = useMemo(
+    () =>
+      ({
+        theme: "auto",
+        size: "flexible",
+      }) as const,
+    [],
+  );
 
   const requireTurnstile = Boolean(turnstileSiteKey);
   const canSubmit =
     !requireTurnstile || (turnstileToken !== null && turnstileToken.length > 0);
 
   const onTurnstileSuccess = useCallback((token: string) => {
+    setTurnstileIssue(null);
     setTurnstileToken(token);
   }, []);
 
   const onTurnstileExpire = useCallback(() => {
     setTurnstileToken(null);
+  }, []);
+
+  const onTurnstileError = useCallback(
+    (code: string) => {
+      setTurnstileToken(null);
+      // Defer updates so we do not re-render synchronously inside Turnstile's error path (avoids bad re-entrancy with the widget).
+      queueMicrotask(() => {
+        setTurnstileIssue(t("form.turnstileError").replace("{code}", String(code)));
+      });
+    },
+    [t],
+  );
+
+  const retryTurnstile = useCallback(() => {
+    setTurnstileIssue(null);
+    turnstileRef.current?.reset();
   }, []);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -87,7 +116,7 @@ export function ContactForm() {
           const parts = [
             body.error ?? t("form.genericError"),
             body.hint,
-            body.debug ? `Details: ${body.debug}` : undefined,
+            body.debug ? `${t("form.errorDetailsPrefix")} ${body.debug}` : undefined,
           ].filter(Boolean);
           setErrorMessage(parts.join(" "));
         }
@@ -206,17 +235,36 @@ export function ContactForm() {
       </div>
 
       {turnstileSiteKey ? (
-        <div className="flex min-w-0 max-w-full justify-center overflow-x-auto sm:justify-start">
-          <Turnstile
-            ref={turnstileRef}
-            siteKey={turnstileSiteKey}
-            onSuccess={onTurnstileSuccess}
-            onExpire={onTurnstileExpire}
-            options={{
-              theme: resolvedTheme === "dark" ? "dark" : "light",
-              size: "flexible",
-            }}
-          />
+        <div className="flex min-w-0 max-w-full flex-col gap-2 sm:items-start">
+          {turnstileIssue ? (
+            <div className="space-y-2">
+              <p
+                role="status"
+                className="rounded-lg border border-amber-500/30 bg-amber-500/10 px-3 py-2 text-sm text-amber-950 dark:text-amber-100"
+              >
+                {turnstileIssue}
+              </p>
+              <button
+                type="button"
+                onClick={retryTurnstile}
+                className="inline-flex h-9 items-center justify-center gap-2 rounded-lg border border-border bg-background px-3 text-sm font-medium text-foreground transition-colors hover:border-accent hover:text-accent"
+              >
+                <HiOutlineArrowPath className="size-4 shrink-0" aria-hidden />
+                {t("form.turnstileRetry")}
+              </button>
+            </div>
+          ) : null}
+          <div className="flex min-h-[65px] min-w-[300px] w-full max-w-full shrink-0 justify-center overflow-x-auto sm:justify-start">
+            <Turnstile
+              ref={turnstileRef}
+              siteKey={turnstileSiteKey}
+              onSuccess={onTurnstileSuccess}
+              onExpire={onTurnstileExpire}
+              onError={onTurnstileError}
+              options={turnstileOptions}
+              scriptOptions={TURNSTILE_SCRIPT_OPTIONS}
+            />
+          </div>
         </div>
       ) : null}
 
@@ -245,8 +293,13 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={state === "submitting" || !canSubmit}
-        className="inline-flex h-11 items-center justify-center rounded-lg bg-accent px-6 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-60"
+        className="inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-accent px-6 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-60"
       >
+        {state === "submitting" ? (
+          <HiOutlineArrowPath className="size-4 shrink-0 animate-spin" aria-hidden />
+        ) : (
+          <HiOutlinePaperAirplane className="size-4 shrink-0" aria-hidden />
+        )}
         {state === "submitting" ? t("form.sending") : t("form.send")}
       </button>
     </motion.form>

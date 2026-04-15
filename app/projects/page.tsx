@@ -1,16 +1,14 @@
 import type { Metadata } from "next";
-import { siteConfig } from "@/config/site";
 import { ProjectsPageContent } from "@/components/pages/projects-page-content";
+import { buildLocaleMetadata } from "@/lib/i18n/page-metadata";
 
-export const metadata: Metadata = {
-  title: "Projects",
-  description: `A small set of projects by ${siteConfig.fullName}, kept in site configuration.`,
-  openGraph: {
-    title: `Projects - ${siteConfig.fullName}`,
-    description: "A few highlighted builds with stacks and links.",
-    url: "/projects",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return buildLocaleMetadata({
+    titleKey: "meta.projects.title",
+    descriptionKey: "meta.projects.description",
+    path: "/projects",
+  });
+}
 
 export default function ProjectsPage() {
   return <ProjectsPageContent />;

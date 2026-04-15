@@ -44,6 +44,7 @@ import {
 } from "react-icons/si";
 import { TbApi } from "react-icons/tb";
 import { useReducedMotion } from "framer-motion";
+import { useI18n } from "@/components/providers/i18n-provider";
 
 export type TechMarqueeItem = {
   id: string;
@@ -170,8 +171,9 @@ function MarqueeRow({
 }
 
 export function TechMarquee() {
+  const { t } = useI18n();
   return (
-    <div className="min-w-0 space-y-1.5 md:space-y-3" aria-label="Technology stack">
+    <div className="min-w-0 space-y-1.5 md:space-y-3" aria-label={t("home.techMarqueeAria")}>
       <MarqueeRow items={TECH_MARQUEE_ROW_LEFT} direction="left" />
       <MarqueeRow items={TECH_MARQUEE_ROW_RIGHT} direction="right" />
     </div>

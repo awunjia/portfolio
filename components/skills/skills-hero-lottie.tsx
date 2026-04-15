@@ -22,7 +22,7 @@ export function SkillsHeroLottie() {
 
   return (
     <div
-      className="relative w-full max-w-[min(100%,280px)] rounded-2xl border border-border bg-surface p-6 shadow-sm dark:border-white/10 dark:bg-white/[0.04] dark:shadow-none sm:max-w-[min(100%,320px)]"
+      className="relative flex w-full max-w-[min(100%,280px)] justify-center sm:max-w-[min(100%,320px)]"
       aria-hidden
     >
       <Lottie

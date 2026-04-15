@@ -18,7 +18,7 @@ export function AboutPageContent() {
         </h1>
         <div className="mt-6 grid grid-cols-1 gap-8 md:grid-cols-2 md:items-center md:gap-x-10 md:gap-y-8 lg:gap-x-12">
           <div className="min-w-0 space-y-4">
-            <p className="text-lg text-muted">{siteConfig.bio}</p>
+            <p className="text-lg text-muted">{t("about.bio")}</p>
           </div>
           <div className="flex min-w-0 justify-center md:justify-end">
             <WorkExperienceHeroLottie />

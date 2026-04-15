@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { HiOutlineChatBubbleLeftRight } from "react-icons/hi2";
 import { Section } from "@/components/section";
 import { HomeHero } from "@/components/home-hero";
 import { SkillsLottie } from "@/components/devfolio/skills-lottie";
@@ -76,8 +77,9 @@ export function HomePageContent() {
           <p className="mx-auto mt-3 max-w-xl text-muted">{t("home.ctaBody")}</p>
           <Link
             href="/contact"
-            className="mt-8 inline-flex h-11 w-full max-w-xs items-center justify-center rounded-lg bg-accent px-6 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent-hover sm:w-auto sm:max-w-none sm:px-8"
+            className="mt-8 inline-flex h-11 w-full max-w-xs items-center justify-center gap-2 rounded-lg bg-accent px-6 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent-hover sm:w-auto sm:max-w-none sm:px-8"
           >
+            <HiOutlineChatBubbleLeftRight className="size-4 shrink-0" aria-hidden />
             {t("home.ctaButton")}
           </Link>
         </div>

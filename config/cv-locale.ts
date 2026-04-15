@@ -6,7 +6,7 @@ import type { Locale } from "@/lib/i18n/locale";
  * - `education`: same order as `siteConfig.education` (3 rows)
  * - `projects`: first two entries of `siteConfig.projects` (CV shows two)
  * - `proficiency`: same order as `siteConfig.proficiency` (3 rows)
- * - `skillGroups`: five groups, each at least 10 strings (PDF trims to 10)
+ * - `skillGroups`: five groups of skill chips (PDF trims to 10 per group)
  */
 export type CvLocaleBundle = {
   role: string;
@@ -66,8 +66,7 @@ export const CV_DEFAULT_SKILL_GROUP_ITEMS: readonly (readonly string[])[] = [
     "Supabase",
     "FCM",
     "MapSDK",
-    "third-party SDKs",
-    "error contracts",
+    "HubSpot",
   ],
   ["C", "C++", "Arduino", "Java", "Dart", "Python", "Bash", "embedded-adjacent tooling"],
   ["Docker", "Kubernetes", "Terraform", "AWS", "Vercel", "Linux", "Git", "GitHub", "CI-friendly builds"],
@@ -177,8 +176,7 @@ const FI: CvLocaleBundle = {
       "Supabase",
       "FCM",
       "MapSDK",
-      "kolmannen osapuolen SDK:t",
-      "virhesopimukset",
+      "HubSpot",
     ],
     [
       "C",
@@ -308,8 +306,7 @@ const SV: CvLocaleBundle = {
       "Supabase",
       "FCM",
       "MapSDK",
-      "tredjeparts-SDK:er",
-      "felkontrakt",
+      "HubSpot",
     ],
     ["C", "C++", "Arduino", "Java", "Dart", "Python", "Bash", "inbyggdnära verktyg"],
     [
@@ -430,8 +427,7 @@ const DA: CvLocaleBundle = {
       "Supabase",
       "FCM",
       "MapSDK",
-      "tredjeparts-SDK'er",
-      "fejl-kontrakter",
+      "HubSpot",
     ],
     ["C", "C++", "Arduino", "Java", "Dart", "Python", "Bash", "embedded-nære værktøjer"],
     [

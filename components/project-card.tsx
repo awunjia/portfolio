@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import type { ProjectView } from "@/lib/projects";
+import { useI18n } from "@/components/providers/i18n-provider";
 
 type ProjectCardProps = {
   project: ProjectView;
@@ -11,6 +12,7 @@ type ProjectCardProps = {
 
 export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
   const reduceMotion = useReducedMotion();
+  const { t } = useI18n();
   const cover = project.images[0];
 
   return (
@@ -46,7 +48,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
           {project.title}
         </h3>
         <p className="text-sm leading-relaxed text-muted">{project.description}</p>
-        <ul className="flex flex-wrap gap-2" aria-label="Technologies">
+        <ul className="flex flex-wrap gap-2" aria-label={t("proj.ariaTechnologies")}>
           {project.techStack.map((tech) => (
             <li
               key={tech}
@@ -64,7 +66,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
               rel="noopener noreferrer"
               className="text-sm font-medium text-link underline-offset-4 hover:underline"
             >
-              Code
+              {t("proj.cardCode")}
             </Link>
           ) : null}
           {project.liveUrl ? (
@@ -74,7 +76,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
               rel="noopener noreferrer"
               className="text-sm font-medium text-link underline-offset-4 hover:underline"
             >
-              Live site
+              {t("proj.cardLive")}
             </Link>
           ) : null}
         </div>

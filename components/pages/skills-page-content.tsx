@@ -39,32 +39,36 @@ export function SkillsPageContent() {
         titleSize="compact"
       >
         <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-          {stacks.map((stack) => (
-            <article
-              key={stack.title}
-              className="flex flex-col rounded-2xl border border-border bg-surface p-6 shadow-sm transition-shadow hover:shadow-md dark:border-white/10 dark:bg-white/[0.03] dark:shadow-none dark:hover:border-white/15"
-            >
-              <h2 className="text-lg font-semibold tracking-tight text-foreground">
-                {stack.title}
-              </h2>
-              <p className="mt-2 text-sm leading-relaxed text-muted">
-                {stack.description}
-              </p>
-              <ul
-                className="mt-5 flex flex-wrap gap-2"
-                aria-label={t("skills.stackAria").replace("{title}", stack.title)}
+          {stacks.map((stack) => {
+            const stackTitle = t(`skills.stack.${stack.i18nKey}.title`);
+            const stackDescription = t(`skills.stack.${stack.i18nKey}.description`);
+            return (
+              <article
+                key={stack.i18nKey}
+                className="flex flex-col rounded-2xl border border-border bg-surface p-6 shadow-sm transition-shadow hover:shadow-md dark:border-white/10 dark:bg-white/[0.03] dark:shadow-none dark:hover:border-white/15"
               >
-                {stack.tools.map((tool) => (
-                  <li
-                    key={tool}
-                    className="rounded-full border border-skills/35 bg-skills/10 px-2.5 py-1 text-xs font-medium text-foreground dark:border-skills/25 dark:bg-skills/15 dark:text-muted"
-                  >
-                    {tool}
-                  </li>
-                ))}
-              </ul>
-            </article>
-          ))}
+                <h2 className="text-lg font-semibold tracking-tight text-foreground">
+                  {stackTitle}
+                </h2>
+                <p className="mt-2 text-sm leading-relaxed text-muted">
+                  {stackDescription}
+                </p>
+                <ul
+                  className="mt-5 flex flex-wrap gap-2"
+                  aria-label={t("skills.stackAria").replace("{title}", stackTitle)}
+                >
+                  {stack.tools.map((tool) => (
+                    <li
+                      key={tool}
+                      className="rounded-full border border-skills/35 bg-skills/10 px-2.5 py-1 text-xs font-medium text-foreground dark:border-skills/25 dark:bg-skills/15 dark:text-muted"
+                    >
+                      {tool}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            );
+          })}
         </div>
       </Section>
 

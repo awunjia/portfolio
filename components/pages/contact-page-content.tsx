@@ -37,7 +37,7 @@ export function ContactPageContent() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-border/80 bg-surface/80 p-6 shadow-sm backdrop-blur-sm dark:bg-surface/40 sm:p-8">
+          <div className="rounded-2xl border border-border/80 bg-surface/95 p-6 shadow-sm dark:bg-[#1e2436]/95 sm:p-8">
             <ContactForm />
           </div>
         </div>

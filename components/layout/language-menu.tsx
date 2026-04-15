@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { FaChevronDown, FaGlobe } from "react-icons/fa";
+import { HiOutlineCheck, HiOutlineChevronDown, HiOutlineLanguage } from "react-icons/hi2";
 import { useI18n } from "@/components/providers/i18n-provider";
 import { LOCALE_ENDONYM, type Locale } from "@/lib/i18n/locale";
 
@@ -32,8 +32,8 @@ export function LanguageMenu() {
         aria-label={t("lang.menu")}
         onClick={() => setOpen((v) => !v)}
       >
-        <FaGlobe className="text-base shrink-0" aria-hidden />
-        <FaChevronDown
+        <HiOutlineLanguage className="size-[1.125rem] shrink-0" aria-hidden />
+        <HiOutlineChevronDown
           className={`size-3 shrink-0 opacity-80 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
           aria-hidden
         />
@@ -54,12 +54,17 @@ export function LanguageMenu() {
                 setLocale(id);
                 setOpen(false);
               }}
-              className={`w-full px-4 py-2.5 text-left text-sm transition-colors hover:bg-header-hover dark:hover:bg-white/10 ${
+              className={`flex w-full items-center gap-2 px-4 py-2.5 text-left text-sm transition-colors hover:bg-header-hover dark:hover:bg-white/10 ${
                 locale === id
                   ? "font-semibold text-accent dark:text-white"
                   : "text-foreground"
               }`}
             >
+              <span className="flex w-4 shrink-0 justify-center" aria-hidden>
+                {locale === id ? (
+                  <HiOutlineCheck className="size-4 text-accent dark:text-white" />
+                ) : null}
+              </span>
               {LOCALE_ENDONYM[id]}
             </button>
           ))}

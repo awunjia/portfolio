@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
-import { siteConfig } from "@/config/site";
 import { EducationPageContent } from "@/components/pages/education-page-content";
+import { buildLocaleMetadata } from "@/lib/i18n/page-metadata";
 
-export const metadata: Metadata = {
-  title: "Education",
-  description: `Education for ${siteConfig.fullName} - ${siteConfig.degree} at ${siteConfig.school}, and prior studies.`,
-  openGraph: {
-    title: `Education - ${siteConfig.fullName}`,
-    description: `${siteConfig.degree}, ${siteConfig.school}`,
-    url: "/education",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return buildLocaleMetadata({
+    titleKey: "meta.education.title",
+    descriptionKey: "meta.education.description",
+    ogDescriptionKey: "meta.education.ogDescription",
+    path: "/education",
+  });
+}
 
 export default function EducationPage() {
   return <EducationPageContent />;

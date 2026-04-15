@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
-import { siteConfig } from "@/config/site";
 import { SkillsPageContent } from "@/components/pages/skills-page-content";
+import { buildLocaleMetadata } from "@/lib/i18n/page-metadata";
 
-export const metadata: Metadata = {
-  title: "Skills",
-  description: `A relaxed tour of tools and stacks for ${siteConfig.fullName} - ${siteConfig.role}.`,
-  openGraph: {
-    title: `Skills - ${siteConfig.fullName}`,
-    description: siteConfig.tagline,
-    url: "/skills",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return buildLocaleMetadata({
+    titleKey: "meta.skills.title",
+    descriptionKey: "meta.skills.description",
+    ogDescriptionKey: "meta.skills.ogDescription",
+    path: "/skills",
+  });
+}
 
 export default function SkillsPage() {
   return <SkillsPageContent />;

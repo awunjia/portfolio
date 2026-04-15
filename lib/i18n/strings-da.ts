@@ -17,11 +17,19 @@ export const danishOverrides: Record<string, string> = {
   "lang.da": "Dansk",
 
   "footer.tagline": "Bygget med omtanke i Helsinki.",
+  "footer.legalCookies": "Cookiepolitik",
+  "footer.legalPrivacy": "Privatliv & GDPR",
+  "footer.legalTerms": "Brugervilkår",
+  "footer.cookieSettings": "Cookieindstillinger",
 
   "theme.toggle": "Skift mørk tilstand",
 
   "a11y.backToTop": "Tilbage til toppen",
 
+  "home.ariaOverview": "Overblik",
+  "home.tagline":
+    "Jeg er en fullstack-ingeniør, der kan lide roligt, vedligeholdeligt web- og mobiludviklingsarbejde. Jeg arbejder mest med Node.js, PHP og Flutter, fra API'er og datalag til brugerflader, folk rent faktisk kan bruge, og jeg kan godt lide at sparre med produkt, design og teamet undervejs.",
+  "home.role": "Fullstack-softwareingeniør",
   "home.sayHello": "Sig hej",
   "home.downloadCv": "Download CV",
   "home.sectionStackTitle": "Teknisk stack",
@@ -33,6 +41,16 @@ export const danishOverrides: Record<string, string> = {
     "Omtrentlige selvvurderinger - bedst læst ved siden af CV eller dialog.",
   "home.sectionDeliveryTitle": "Leverancefokus",
   "home.sectionDeliverySubtitle": "Web- og mobilopgaver jeg typisk lander i.",
+  "home.proficiency.frontend": "Frontend",
+  "home.proficiency.backend": "Backend",
+  "home.proficiency.programming": "Programmering",
+  "home.delivery.mobileTitle": "Mobilapps",
+  "home.delivery.mobileBody":
+    "Flutter, når en mobilklient med næsten nativ fornemmelse er det rigtige valg - gennemtænkt UX og builds, der stadig er praktiske at udsende.",
+  "home.delivery.webTitle": "Webapps og dashboards",
+  "home.delivery.webBody":
+    "Webapps og dashboards med Next.js, REST eller GraphQL-API'er, auth og visninger, der forbliver læselige, når data hoben sig op.",
+  "home.techMarqueeAria": "Teknologistack",
   "home.ctaTitle": "Ansætter eller bare nysgerrig?",
   "home.ctaBody":
     "Hvis du deler rollen, senioritet, stack og tidslinje svarer jeg med tilgængelighed og nogle relevante noter når jeg kan - typisk inden for et par hverdage.",
@@ -51,6 +69,23 @@ export const danishOverrides: Record<string, string> = {
   "profile.revealPhone": "Vis telefonnummer",
   "profile.hidePhone": "Skjul telefonnummer",
   "profile.portraitAlt": "Portræt: {name}",
+  "profile.degreeLine": "Informationsteknologi",
+  "profile.spokenLanguagesValue": "Engelsk, finsk",
+  "profile.timezoneValue": "Østeuropæisk tid (EET)",
+  "profile.availabilityPitch":
+    "Glad for at tale om fuldtid eller freelance - remote eller hybrid.",
+
+  "social.ariaGroup": "GitHub, LinkedIn og e-mail",
+  "social.github": "GitHub",
+  "social.linkedin": "LinkedIn",
+  "social.email": "E-mail",
+  "social.gitlab": "GitLab",
+  "social.facebook": "Facebook",
+  "social.instagram": "Instagram",
+  "social.twitter": "Twitter",
+  "social.medium": "Medium",
+  "social.stackoverflow": "Stack Overflow",
+  "social.kaggle": "Kaggle",
 
   "contact.eyebrow": "Hej",
   "contact.title": "Kontakt",
@@ -63,6 +98,9 @@ export const danishOverrides: Record<string, string> = {
   "form.attachment": "Vedhæftning (valgfrit)",
   "form.attachmentHelp": "PDF, Word, billeder eller tekst - op til {size} MB.",
   "form.security": "Udfør sikkerhedstjekket før du sender.",
+  "form.turnstileError":
+    "Sikkerhedstjekket kunne ikke indlæses (kode {code}). Cloudflare behandler localhost og 127.0.0.1 som forskellige værter: tilføj begge i widgeten, hvis du bruger begge. Prøv en anden browser, deaktiver udvidelser (adblock) og VPN. Fejlkode 300* kan betyde, at udfordringen ikke kunne afsluttes i dette miljø.",
+  "form.turnstileRetry": "Prøv sikkerhedstjekket igen",
   "form.hint": "Jeg læser alt der lander her og svarer som regel inden for nogle hverdage.",
   "form.send": "Send besked",
   "form.sending": "Sender…",
@@ -73,6 +111,7 @@ export const danishOverrides: Record<string, string> = {
   "form.networkError":
     "Netværksproblem - beskeden er måske ikke sendt. Tjek forbindelsen og prøv igen om lidt.",
   "form.genericError": "Noget gik galt hos os - prøv igen om lidt.",
+  "form.errorDetailsPrefix": "Detaljer:",
 
   "notFound.title": "Siden blev ikke fundet",
   "notFound.body":
@@ -85,6 +124,8 @@ export const danishOverrides: Record<string, string> = {
   "about.sectionSubtitle":
     "Seneste roller først - gerne mere dybde i samtalen.",
   "about.techAria": "Teknologier hos {company}",
+  "about.bio":
+    "Jeg kan godt lide at omsætte uklare krav til software, der føles roligt - klar struktur hvor det hjælper, tests hvor de tjener sig selv, og UX der er venlig både over for brugere og den, der åbner repoet næste gang.",
 
   "skills.eyebrow": "Værktøjskasse",
   "skills.title": "Kompetencer og stacks",
@@ -96,6 +137,24 @@ export const danishOverrides: Record<string, string> = {
   "skills.emphasisSubtitle":
     "Selvvurdering - bedst ved siden af CV eller samtale.",
   "skills.stackAria": "Teknologier: {title}",
+  "skills.stack.languagesWeb.title": "Sprog og webfundamenter",
+  "skills.stack.languagesWeb.description":
+    "Sprog, markup og styling-lag jeg bruger, når jeg former produktets UI.",
+  "skills.stack.frontendUi.title": "Frontend-rammer og UI-leverance",
+  "skills.stack.frontendUi.description":
+    "Sådan strukturerer jeg UI-arbejde - komponenter, SPA eller SSR, state og build-værktøjer der forbliver tilgængelige.",
+  "skills.stack.backendApis.title": "Backend, API'er og applikationsdata",
+  "skills.stack.backendApis.description":
+    "Services, ORM'er og integrationsmønstre - fra venlige monolitter til mindre modulære API'er.",
+  "skills.stack.datastores.title": "Datalagre og cache",
+  "skills.stack.datastores.description":
+    "Relations- og dokumentmodeller, migreringer og let cache når en side har brug for lidt ekstra luft.",
+  "skills.stack.mobileRealtime.title": "Mobil og realtidsklient",
+  "skills.stack.mobileRealtime.description":
+    "Flutter-apps med reaktiv state, kort, push og Supabase eller Firebase når produktet kalder på det.",
+  "skills.stack.cloudPlatform.title": "Sky, containere og platform",
+  "skills.stack.cloudPlatform.description":
+    "Pakning, orkestrering, IaC og hostingvalg der holder deploys kedelige på den gode måde.",
 
   "edu.eyebrow": "Læring",
   "edu.title": "Uddannelse",
@@ -112,6 +171,15 @@ export const danishOverrides: Record<string, string> = {
   "proj.sectionTitle": "Alle projekter",
   "proj.sectionSubtitle":
     "Arbejdsprøver og sideprojekter - intet skjult bag marketing.",
+  "proj.cardCode": "Kode",
+  "proj.cardLive": "Live-site",
+  "proj.ariaTechnologies": "Teknologier",
+  "proj.items.portfolio.title": "Portfolio-platform",
+  "proj.items.portfolio.description":
+    "Et roligt portfolio-site fra typet konfiguration, med App Router-mønstre, Docker-pakning og CV-eksport når nogen beder om PDF.",
+  "proj.items.apiToolkit.title": "API-værktøjssæt",
+  "proj.items.apiToolkit.description":
+    "Typede REST-handlers, validering og strukturerede fejl så klienter altid ved, hvad der skete.",
 
   "oss.eyebrow": "GitHub",
   "oss.title": "Open source",
@@ -125,4 +193,77 @@ export const danishOverrides: Record<string, string> = {
   "oss.reposHeading": "Repositories ({count})",
   "oss.reposBody":
     "Sorteret efter seneste push, inklusive forks og arkiverede repos når det giver mening.",
+  "oss.reposEmpty": "Ingen offentlige repositories fundet for denne konto.",
+  "oss.repoArchived": "Arkiveret",
+  "oss.repoFork": "Fork",
+  "oss.repoNoDescription": "Ingen beskrivelse på GitHub endnu.",
+  "oss.repoStars": "{count} stjerner",
+  "oss.repoForks": "{count} forks",
+  "oss.repoUpdated": "Opdateret {date}",
+  "oss.repoOpen": "Repository",
+  "oss.repoWebsite": "Website",
+  "oss.repoTopicsAria": "Emner",
+
+  "github.statsAria": "GitHub-statistik",
+  "github.statsTitle": "GitHub på et øjeblik",
+  "github.statsIntro":
+    "Offentlige tal for {handle} - cachet i cirka en time så siden forbliver hurtig.",
+  "github.openProfile": "Åbn GitHub-profil",
+  "github.statRepos": "Offentlige repositories",
+  "github.statFollowers": "Følgere",
+  "github.statFollowing": "Følger",
+
+  "meta.home.title": "Overblik",
+  "meta.home.description": "{name} - {role}. {tagline}",
+  "meta.skills.title": "Kompetencer",
+  "meta.skills.description": "En afslappet tur gennem værktøjer og stacks for {name} - {role}.",
+  "meta.skills.ogDescription": "{tagline}",
+  "meta.education.title": "Uddannelse",
+  "meta.education.description":
+    "Uddannelse for {name} - {degree} ved {school}, og tidligere forløb.",
+  "meta.education.ogDescription": "{degree}, {school}",
+  "meta.about.title": "Erhvervserfaring",
+  "meta.about.description":
+    "En venlig gennemgang af erhvervserfaring for {name} - mest fullstack web, Laravel og lidt Flutter IoT.",
+  "meta.about.ogDescription": "{bio}",
+  "meta.contact.title": "Kontakt",
+  "meta.contact.description": "En enkel måde at nå {name} på - efterlad en besked her.",
+  "meta.projects.title": "Projekter",
+  "meta.projects.description":
+    "Et lille udvalg af projekter af {name}, holdt i site-konfigurationen.",
+  "meta.oss.title": "Open source",
+  "meta.oss.description": "Offentlige GitHub-repositories fra {name}.",
+  "meta.oss.ogDescription": "Repositories fra {handle} på GitHub.",
+
+  "meta.legal.cookiesTitle": "Cookiepolitik",
+  "meta.legal.cookiesDescription":
+    "Hvordan denne portfolio bruger cookies og lignende teknologier, også på kontaktformularen når det er relevant.",
+  "meta.legal.privacyTitle": "Privatliv & GDPR",
+  "meta.legal.privacyDescription":
+    "Hvordan persondata behandles, dine GDPR-rettigheder og hvordan du kontakter os eller anmoder om sletning.",
+  "meta.legal.termsTitle": "Brugervilkår",
+  "meta.legal.termsDescription": "Vilkår for brug af websitet og kontaktfunktionen.",
+
+  "cookies.bannerTitle": "Cookies og dit privatliv",
+  "cookies.bannerBody":
+    "Vi bruger nødvendige cookies til at huske dit samtykke. Med præferencer husker vi tema og sprog. Du kan ændre dig når som helst.",
+  "cookies.acceptAll": "Accepter alle",
+  "cookies.rejectNonEssential": "Afvis ikke-nødvendige",
+  "cookies.managePreferences": "Administrer præferencer",
+  "cookies.savePreferences": "Gem valg",
+  "cookies.close": "Luk",
+  "cookies.necessaryTitle": "Strengt nødvendige",
+  "cookies.necessaryBody":
+    "Kræves for websitet og for at huske dit samtykke. Kan ikke slås fra.",
+  "cookies.necessaryStatus": "Altid aktiv",
+  "cookies.preferencesTitle": "Præferencer",
+  "cookies.preferencesBody":
+    "Husker tema (lys/mørk) og sprog, så siden føles genkendelig når du vender tilbage.",
+  "cookies.statisticsTitle": "Statistik (valgfrit)",
+  "cookies.statisticsBody":
+    "Der er ingen analyse-cookies aktive i dag. Skulle det ændres, kan du styre dem her.",
+  "cookies.legalIntro": "Læs mere:",
+  "cookies.and": "og",
+  "cookies.themeLockedHint":
+    "Slå præference-cookies til i banneret for at gemme tema.",
 };

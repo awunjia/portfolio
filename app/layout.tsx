@@ -1,8 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
+import { CookieConsentProvider } from "@/components/providers/cookie-consent-provider";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { I18nProvider } from "@/components/providers/i18n-provider";
+import { CookieConsentBanner } from "@/components/cookies/cookie-consent-banner";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { BackToTop } from "@/components/layout/back-to-top";
@@ -84,14 +86,17 @@ export default function RootLayout({
     >
       <body className="flex min-h-full flex-col bg-background text-foreground">
         <PersonJsonLd />
-        <ThemeProvider>
-          <I18nProvider>
-            <Navbar />
-            <main className="flex-1">{children}</main>
-            <Footer />
-            <BackToTop />
-          </I18nProvider>
-        </ThemeProvider>
+        <CookieConsentProvider>
+          <ThemeProvider>
+            <I18nProvider>
+              <Navbar />
+              <main className="flex-1">{children}</main>
+              <Footer />
+              <BackToTop />
+              <CookieConsentBanner />
+            </I18nProvider>
+          </ThemeProvider>
+        </CookieConsentProvider>
       </body>
     </html>
   );

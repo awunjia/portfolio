@@ -10,6 +10,7 @@ import Lottie, { type LottieRefCurrentProps } from "lottie-react";
 import { DotLottieReact, type DotLottie } from "@lottiefiles/dotlottie-react";
 import { useReducedMotion } from "framer-motion";
 import webDashboardAnimation from "@/assets/lottie/platform-web-dashboard.json";
+import { useI18n } from "@/components/providers/i18n-provider";
 
 const MOBILE_APP_DOTLOTTIE_SRC = "/lottie/mobile-app-promo.lottie";
 
@@ -106,16 +107,18 @@ function PlatformLottie({
 }
 
 export function PlatformLottiesShowcase() {
+  const { t } = useI18n();
+
   return (
     <div className="grid grid-cols-1 items-stretch gap-12 sm:grid-cols-2 sm:gap-10 lg:gap-14">
       <PlatformMobileDotLottie
-        label="Mobile apps"
-        description="Flutter work when a native-feeling mobile client is the right fit - thoughtful UX and builds that stay practical to ship."
+        label={t("home.delivery.mobileTitle")}
+        description={t("home.delivery.mobileBody")}
       />
       <PlatformLottie
         data={webDashboardAnimation}
-        label="Web apps and dashboards"
-        description="Web apps and dashboards with Next.js, REST or GraphQL APIs, auth, and views that stay readable when data piles up."
+        label={t("home.delivery.webTitle")}
+        description={t("home.delivery.webBody")}
         lottieClassName="mx-auto h-full max-h-full w-full object-contain"
       />
     </div>
