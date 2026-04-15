@@ -249,6 +249,12 @@ export const finnishOverrides: Record<string, string> = {
   "meta.oss.description": "Julkiset GitHub-repositoriot käyttäjältä {name}.",
   "meta.oss.ogDescription": "Repositoriot tililtä {handle} GitHubissa.",
 
+  "meta.keywords":
+    "Awunjia Serge, Serge Awunjia, palkkaa kehittäjä Suomi, etätyö full stack, sopimusohjelmoija, Helsinki ohjelmistokehittäjä, Laravel-työ, Next.js-kehittäjä, Flutter-kehittäjä, TypeScript, avoin työhön kehittäjä, ohjelmistoinsinööri saatavilla, Novia ammattikorkeakoulu, Vaasa, Buean yliopisto, GitHub awunjia, LinkedIn Awunjia Serge, Groweo, Sbotech, portfolio",
+
+  "seo.hiringMetaLine":
+    "Kiinnostunut kokoaikaisista, sopimus- ja etäystävällisistä ohjelmistokehitysrooleista.",
+
   "meta.legal.cookiesTitle": "Evästekäytäntö",
   "meta.legal.cookiesDescription":
     "Miten tämä portfolio käyttää evästeitä ja vastaavia tekniikoita, myös yhteydenottolomakkeella tarvittaessa.",

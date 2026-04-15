@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { cookies } from "next/headers";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { CookieConsentProvider } from "@/components/providers/cookie-consent-provider";
@@ -8,9 +9,11 @@ import { CookieConsentBanner } from "@/components/cookies/cookie-consent-banner"
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { BackToTop } from "@/components/layout/back-to-top";
-import { PersonJsonLd } from "@/components/seo/person-json-ld";
+import { RootStructuredData } from "@/components/seo/root-structured-data";
 import { siteConfig } from "@/config/site";
 import { getBaseUrl } from "@/lib/base-url";
+import { isLocale, LOCALE_STORAGE_KEY } from "@/lib/i18n/locale";
+import { htmlLangAttribute } from "@/lib/i18n/seo-locale";
 import { siteMetaDescription, siteMetaKeywords } from "@/lib/seo";
 
 /* DeveloperFolio uses a clean geometric sans; Montserrat matches that stack */
@@ -21,12 +24,14 @@ const montserrat = Montserrat({
 });
 
 const base = getBaseUrl();
+const defaultOgImage = new URL(siteConfig.profile.avatarSrc, `${base}/`).toString();
+const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION?.trim();
 
 export const metadata: Metadata = {
   metadataBase: new URL(base),
   title: {
-    default: `${siteConfig.fullName} - ${siteConfig.role}`,
-    template: `%s - ${siteConfig.fullName}`,
+    default: `${siteConfig.role} — ${siteConfig.fullName}`,
+    template: `%s | ${siteConfig.fullName}`,
   },
   description: siteMetaDescription(),
   keywords: siteMetaKeywords(),
@@ -35,19 +40,22 @@ export const metadata: Metadata = {
   publisher: siteConfig.fullName,
   category: "technology",
   referrer: "origin-when-cross-origin",
-  alternates: { canonical: "/" },
+  alternates: { canonical: `${base}/` },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: base,
+    alternateLocale: ["fi_FI", "sv_SE", "da_DK"],
+    url: `${base}/`,
     siteName: siteConfig.fullName,
-    title: `${siteConfig.fullName} - ${siteConfig.role}`,
+    title: `${siteConfig.role} — ${siteConfig.fullName}`,
     description: siteMetaDescription(),
+    images: [{ url: defaultOgImage, alt: siteConfig.fullName }],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.fullName} - ${siteConfig.role}`,
+    title: `${siteConfig.role} — ${siteConfig.fullName}`,
     description: siteMetaDescription(),
+    images: [defaultOgImage],
   },
   robots: {
     index: true,
@@ -60,6 +68,9 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
+  ...(googleVerification
+    ? { verification: { google: googleVerification } }
+    : {}),
 };
 
 export const viewport: Viewport = {
@@ -72,20 +83,24 @@ export const viewport: Viewport = {
   ],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jar = await cookies();
+  const raw = jar.get(LOCALE_STORAGE_KEY)?.value;
+  const localeCookie = isLocale(raw) ? raw : "en";
+
   return (
     <html
-      lang="en"
+      lang={htmlLangAttribute(localeCookie)}
       suppressHydrationWarning
       data-scroll-behavior="smooth"
       className={`${montserrat.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-background text-foreground">
-        <PersonJsonLd />
+        <RootStructuredData />
         <CookieConsentProvider>
           <ThemeProvider>
             <I18nProvider>

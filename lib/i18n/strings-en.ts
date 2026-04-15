@@ -249,6 +249,12 @@ export const englishMessages: Record<string, string> = {
   "meta.oss.description": "Public GitHub repositories from {name}.",
   "meta.oss.ogDescription": "Repositories from {handle} on GitHub.",
 
+  "meta.keywords":
+    "Awunjia Serge, Serge Awunjia, hire developer Finland, remote full-stack developer, contract software engineer Europe, Helsinki software engineer, Finland full-stack developer, Laravel developer jobs, Next.js developer, Flutter developer, TypeScript engineer, open to work developer, software engineer available, Novia UAS Vaasa, University of Buea computer science, GitHub awunjia, LinkedIn Awunjia Serge, Groweo, Sbotech, portfolio website",
+
+  "seo.hiringMetaLine":
+    "Open to full-time, contract, and remote-friendly software engineering roles.",
+
   "meta.legal.cookiesTitle": "Cookie policy",
   "meta.legal.cookiesDescription":
     "How this portfolio uses cookies and similar technologies, including on the contact form where applicable.",

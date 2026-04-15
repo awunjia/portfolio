@@ -16,10 +16,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/legal/terms",
   ] as const;
 
-  return paths.map((path) => ({
-    url: `${base}${path || "/"}`,
-    lastModified: new Date(),
-    changeFrequency: path === "" ? "weekly" : "monthly",
-    priority: path === "" ? 1 : 0.7,
-  }));
+  return paths.map((path) => {
+    const url = `${base}${path || "/"}`;
+    const isHome = path === "";
+    const isContact = path === "/contact";
+    const isLegal = path.startsWith("/legal/");
+    return {
+      url,
+      lastModified: new Date(),
+      changeFrequency: isHome ? "weekly" : isContact ? "monthly" : isLegal ? "yearly" : "monthly",
+      priority: isHome ? 1 : isContact ? 0.85 : isLegal ? 0.35 : 0.75,
+    };
+  });
 }

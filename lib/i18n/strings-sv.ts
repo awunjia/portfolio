@@ -235,6 +235,12 @@ export const swedishOverrides: Record<string, string> = {
   "meta.oss.description": "Offentliga GitHub-repon från {name}.",
   "meta.oss.ogDescription": "Repon från {handle} på GitHub.",
 
+  "meta.keywords":
+    "Awunjia Serge, Serge Awunjia, anlita utvecklare Finland, distans fullstack, konsultmjukvaruutvecklare, Helsinki utvecklare, Laravel jobb, Next.js utvecklare, Flutter utvecklare, TypeScript, utvecklare tillgänglig, Novia YH, Vaasa, University of Buea, GitHub awunjia, LinkedIn Awunjia Serge, Groweo, Sbotech, portfolio",
+
+  "seo.hiringMetaLine":
+    "Öppen för heltid, konsultuppdrag och distansvänliga roller inom mjukvaruutveckling.",
+
   "meta.legal.cookiesTitle": "Cookiepolicy",
   "meta.legal.cookiesDescription":
     "Hur denna portfolio använder cookies och liknande teknik, även i kontaktformuläret när det behövs.",
