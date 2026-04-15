@@ -1,10 +1,26 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { siteConfig, type EducationItem } from "@/config/site";
 import { Section } from "@/components/section";
-import { EducationHeroLottie } from "@/components/education/education-hero-lottie";
 import { useI18n } from "@/components/providers/i18n-provider";
+
+const EducationHeroLottie = dynamic(
+  () =>
+    import("@/components/education/education-hero-lottie").then((m) => ({
+      default: m.EducationHeroLottie,
+    })),
+  {
+    ssr: false,
+    loading: () => (
+      <div
+        className="h-[min(52vh,440px)] w-full max-w-[min(100%,420px)] animate-pulse rounded-2xl bg-muted/25"
+        aria-hidden
+      />
+    ),
+  },
+);
 
 export function EducationPageContent() {
   const { t } = useI18n();

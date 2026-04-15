@@ -1,12 +1,26 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { HiOutlineArrowDownTray, HiOutlineChatBubbleLeftRight } from "react-icons/hi2";
 import { siteConfig } from "@/config/site";
 import { useI18n } from "@/components/providers/i18n-provider";
 import { SocialMedia } from "@/components/devfolio/social-media";
-import { HeroLottie } from "@/components/devfolio/hero-lottie";
+
+const HeroLottie = dynamic(
+  () => import("@/components/devfolio/hero-lottie").then((m) => ({ default: m.HeroLottie })),
+  {
+    ssr: false,
+    loading: () => (
+      <div
+        className="greeting-image-div relative mx-auto w-full max-w-[420px] shrink-0 animate-pulse rounded-2xl bg-muted/25 lg:mx-0 lg:max-w-[min(34vw,400px)]"
+        style={{ minHeight: "min(50vh, 520px)" }}
+        aria-hidden
+      />
+    ),
+  },
+);
 
 export function HomeHero() {
   const reduceMotion = useReducedMotion();

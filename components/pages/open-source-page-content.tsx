@@ -1,11 +1,27 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import type { GitHubReposResult } from "@/lib/github-repos";
-import { OpenSourceHeroLottie } from "@/components/open-source/open-source-hero-lottie";
 import { GitHubReposGrid } from "@/components/open-source/github-repos-grid";
 import { useI18n } from "@/components/providers/i18n-provider";
+
+const OpenSourceHeroLottie = dynamic(
+  () =>
+    import("@/components/open-source/open-source-hero-lottie").then((m) => ({
+      default: m.OpenSourceHeroLottie,
+    })),
+  {
+    ssr: false,
+    loading: () => (
+      <div
+        className="h-[min(52vh,440px)] w-full max-w-[min(100%,420px)] animate-pulse rounded-2xl bg-muted/25"
+        aria-hidden
+      />
+    ),
+  },
+);
 
 type Props = {
   result: GitHubReposResult;

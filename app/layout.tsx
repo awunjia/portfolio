@@ -20,6 +20,8 @@ import { siteMetaDescription, siteMetaKeywords } from "@/lib/seo";
 const montserrat = Montserrat({
   variable: "--font-montserrat",
   subsets: ["latin"],
+  display: "swap",
+  adjustFontFallback: true,
   weight: ["400", "500", "600", "700"],
 });
 

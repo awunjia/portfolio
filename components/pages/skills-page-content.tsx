@@ -1,10 +1,26 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { siteConfig, type SkillStack } from "@/config/site";
 import { Section } from "@/components/section";
 import { ProficiencyShowcase } from "@/components/proficiency-showcase";
-import { SkillsHeroLottie } from "@/components/skills/skills-hero-lottie";
 import { useI18n } from "@/components/providers/i18n-provider";
+
+const SkillsHeroLottie = dynamic(
+  () =>
+    import("@/components/skills/skills-hero-lottie").then((m) => ({
+      default: m.SkillsHeroLottie,
+    })),
+  {
+    ssr: false,
+    loading: () => (
+      <div
+        className="h-[min(52vh,440px)] w-full max-w-[min(100%,420px)] animate-pulse rounded-2xl bg-muted/25"
+        aria-hidden
+      />
+    ),
+  },
+);
 
 export function SkillsPageContent() {
   const { t } = useI18n();

@@ -1,10 +1,26 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import { Section } from "@/components/section";
-import { WorkExperienceHeroLottie } from "@/components/about/work-experience-hero-lottie";
 import { useI18n } from "@/components/providers/i18n-provider";
+
+const WorkExperienceHeroLottie = dynamic(
+  () =>
+    import("@/components/about/work-experience-hero-lottie").then((m) => ({
+      default: m.WorkExperienceHeroLottie,
+    })),
+  {
+    ssr: false,
+    loading: () => (
+      <div
+        className="h-[min(52vh,440px)] w-full max-w-[min(100%,420px)] animate-pulse rounded-2xl bg-muted/25"
+        aria-hidden
+      />
+    ),
+  },
+);
 
 export function AboutPageContent() {
   const { t } = useI18n();

@@ -1,15 +1,45 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { HiOutlineChatBubbleLeftRight } from "react-icons/hi2";
 import { Section } from "@/components/section";
 import { HomeHero } from "@/components/home-hero";
-import { SkillsLottie } from "@/components/devfolio/skills-lottie";
 import { TechMarquee } from "@/components/tech-marquee";
 import { ProficiencyShowcase } from "@/components/proficiency-showcase";
-import { PlatformLottiesShowcase } from "@/components/platform-lotties-showcase";
 import { ProfileSpotlight } from "@/components/profile-spotlight";
 import { useI18n } from "@/components/providers/i18n-provider";
+
+const SkillsLottie = dynamic(
+  () => import("@/components/devfolio/skills-lottie").then((m) => ({ default: m.SkillsLottie })),
+  {
+    ssr: false,
+    loading: () => (
+      <div
+        className="skills-image-div relative mx-auto w-full max-w-[min(100%,480px)] shrink-0 animate-pulse rounded-2xl bg-muted/25 lg:mx-0"
+        style={{ minHeight: "min(55vh, 520px)" }}
+        aria-hidden
+      />
+    ),
+  },
+);
+
+const PlatformLottiesShowcase = dynamic(
+  () =>
+    import("@/components/platform-lotties-showcase").then((m) => ({
+      default: m.PlatformLottiesShowcase,
+    })),
+  {
+    ssr: false,
+    loading: () => (
+      <div
+        className="mx-auto w-full max-w-5xl animate-pulse rounded-2xl bg-muted/20"
+        style={{ minHeight: 320 }}
+        aria-hidden
+      />
+    ),
+  },
+);
 
 export function HomePageContent() {
   const { t } = useI18n();

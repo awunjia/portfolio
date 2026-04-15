@@ -1,10 +1,23 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import { ContactForm } from "@/components/contact-form";
-import { ContactHeroLottie } from "@/components/contact/contact-hero-lottie";
 import { useI18n } from "@/components/providers/i18n-provider";
+
+const ContactHeroLottie = dynamic(
+  () =>
+    import("@/components/contact/contact-hero-lottie").then((m) => ({
+      default: m.ContactHeroLottie,
+    })),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="h-56 w-full max-w-md animate-pulse rounded-2xl bg-muted/25" aria-hidden />
+    ),
+  },
+);
 
 export function ContactPageContent() {
   const { t } = useI18n();

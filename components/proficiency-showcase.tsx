@@ -1,9 +1,22 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { motion, useReducedMotion } from "framer-motion";
 import { siteConfig } from "@/config/site";
-import { BuildLottie } from "@/components/devfolio/build-lottie";
 import { useI18n } from "@/components/providers/i18n-provider";
+
+const BuildLottie = dynamic(
+  () => import("@/components/devfolio/build-lottie").then((m) => ({ default: m.BuildLottie })),
+  {
+    ssr: false,
+    loading: () => (
+      <div
+        className="h-[min(52vh,480px)] w-full max-w-[min(100%,420px)] animate-pulse rounded-2xl bg-muted/25"
+        aria-hidden
+      />
+    ),
+  },
+);
 
 /** Uses `--skills` (theme purple / pink-magenta accent) */
 const fillClass = "bg-skills";
