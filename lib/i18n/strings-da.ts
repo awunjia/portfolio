@@ -124,6 +124,7 @@ export const danishOverrides: Record<string, string> = {
   "about.sectionSubtitle":
     "Seneste roller først - gerne mere dybde i samtalen.",
   "about.techAria": "Teknologier hos {company}",
+  "about.highlightsAria": "Højdepunkter hos {company}",
   "about.bio":
     "Jeg kan godt lide at omsætte uklare krav til software, der føles roligt - klar struktur hvor det hjælper, tests hvor de tjener sig selv, og UX der er venlig både over for brugere og den, der åbner repoet næste gang.",
 
@@ -137,22 +138,22 @@ export const danishOverrides: Record<string, string> = {
   "skills.emphasisSubtitle":
     "Selvvurdering - bedst ved siden af CV eller samtale.",
   "skills.stackAria": "Teknologier: {title}",
-  "skills.stack.languagesWeb.title": "Sprog og webfundamenter",
+  "skills.stack.languagesWeb.title": "Programmeringssprog",
   "skills.stack.languagesWeb.description":
-    "Sprog, markup og styling-lag jeg bruger, når jeg former produktets UI.",
+    "Sprog jeg skriver i til daglig - fra produktkode til scripts og en gang imellem en mikrocontroller.",
   "skills.stack.frontendUi.title": "Frontend-rammer og UI-leverance",
   "skills.stack.frontendUi.description":
-    "Sådan strukturerer jeg UI-arbejde - komponenter, SPA eller SSR, state og build-værktøjer der forbliver tilgængelige.",
-  "skills.stack.backendApis.title": "Backend, API'er og applikationsdata",
+    "Markup, styling og komponentrammer til grænseflader, der forbliver læsbare for designere, udviklere og dem, der faktisk bruger dem.",
+  "skills.stack.backendApis.title": "Backend, API'er og integrationer",
   "skills.stack.backendApis.description":
-    "Services, ORM'er og integrationsmønstre - fra venlige monolitter til mindre modulære API'er.",
+    "Services, ORM'er og integrationsmønstre - typede REST eller GraphQL, validerede payloads, webhooks og tredjeparter som HubSpot når produktet kræver det.",
   "skills.stack.datastores.title": "Datalagre og cache",
   "skills.stack.datastores.description":
     "Relations- og dokumentmodeller, migreringer og let cache når en side har brug for lidt ekstra luft.",
-  "skills.stack.mobileRealtime.title": "Mobil og realtidsklient",
+  "skills.stack.mobileRealtime.title": "Mobil, IoT og realtidsklienter",
   "skills.stack.mobileRealtime.description":
-    "Flutter-apps med reaktiv state, kort, push og Supabase eller Firebase når produktet kalder på det.",
-  "skills.stack.cloudPlatform.title": "Sky, containere og platform",
+    "Flutter-apps med reaktiv state, kort, push og Firebase eller Supabase - tæt på det embedded- og smart-home-arbejde der startede min karriere.",
+  "skills.stack.cloudPlatform.title": "Sky, containere og leverance",
   "skills.stack.cloudPlatform.description":
     "Pakning, orkestrering, IaC og hostingvalg der holder deploys kedelige på den gode måde.",
 
@@ -176,10 +177,16 @@ export const danishOverrides: Record<string, string> = {
   "proj.ariaTechnologies": "Teknologier",
   "proj.items.portfolio.title": "Portfolio-platform",
   "proj.items.portfolio.description":
-    "Et roligt portfolio-site fra typet konfiguration, med App Router-mønstre, Docker-pakning og CV-eksport når nogen beder om PDF.",
+    "Denne side - en rolig Next.js-app drevet af typet konfiguration, med App Router-mønstre, fire sprog i18n, Docker-pakning og et statisk CV besøgende kan hente med ét klik.",
   "proj.items.apiToolkit.title": "API-værktøjssæt",
   "proj.items.apiToolkit.description":
-    "Typede REST-handlers, validering og strukturerede fejl så klienter altid ved, hvad der skete.",
+    "Typede REST-handlers, runtime-validering og strukturerede fejl så klienter - mennesker eller maskiner - altid ved præcis, hvad der skete.",
+  "proj.items.iotAttendance.title": "IoT-fremmødeplatform",
+  "proj.items.iotAttendance.description":
+    "Specialbyggede RFID-læsere parret med et Laravel-fremmøde-API og en intern admin-flade. Hardware, firmware, server og UI co-designet, så personalets check-in forbliver et et-sekunds tryk.",
+  "proj.items.smartHome.title": "Smart-home-platform",
+  "proj.items.smartHome.description":
+    "En privatlivsfokuseret smart-home-stack: en lokal home-server gateway over MQTT der broer Bluetooth, Wi-Fi og Zigbee, plus en Flutter-app til opsætning, automationer og daglig styring.",
 
   "oss.eyebrow": "GitHub",
   "oss.title": "Open source",

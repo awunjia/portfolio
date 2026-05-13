@@ -2,7 +2,7 @@ import { siteConfig, type SiteProject } from "@/config/site";
 
 export type ProjectView = {
   id: string;
-  i18nKey?: "portfolio" | "apiToolkit";
+  i18nKey?: SiteProject["i18nKey"];
   title: string;
   description: string;
   techStack: string[];

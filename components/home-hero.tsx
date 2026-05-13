@@ -24,7 +24,7 @@ const HeroLottie = dynamic(
 
 export function HomeHero() {
   const reduceMotion = useReducedMotion();
-  const { t, locale } = useI18n();
+  const { t } = useI18n();
 
   return (
     <motion.div
@@ -52,8 +52,8 @@ export function HomeHero() {
             {t("home.sayHello")}
           </Link>
           <a
-            href={`${siteConfig.cvDownloadPath}?locale=${locale}`}
-            download
+            href={siteConfig.cvDownloadPath}
+            download={siteConfig.cvDownloadFilename}
             className="inline-flex h-11 min-w-0 flex-1 items-center justify-center gap-2 rounded-lg border border-border bg-surface px-4 text-sm font-semibold text-foreground transition-colors hover:border-accent hover:text-accent dark:bg-surface sm:flex-none sm:px-8"
           >
             <HiOutlineArrowDownTray className="size-4 shrink-0" aria-hidden />

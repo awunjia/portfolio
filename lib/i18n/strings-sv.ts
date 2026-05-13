@@ -124,6 +124,7 @@ export const swedishOverrides: Record<string, string> = {
   "about.sectionSubtitle":
     "Senaste rollerna först - gärna mer djup i samtal.",
   "about.techAria": "Tekniker hos {company}",
+  "about.highlightsAria": "Höjdpunkter hos {company}",
   "about.bio":
     "Jag gillar att förvandla luddiga krav till mjukvara som känns stabil - tydlig struktur där det hjälper, tester där de betalar sig, och UX som är snäll mot både användare och den som öppnar repot härnäst.",
 
@@ -137,22 +138,22 @@ export const swedishOverrides: Record<string, string> = {
   "skills.emphasisSubtitle":
     "Självbedömd nivå - bäst bredvid CV eller samtal.",
   "skills.stackAria": "Tekniker: {title}",
-  "skills.stack.languagesWeb.title": "Språk och webbgrunder",
+  "skills.stack.languagesWeb.title": "Programmeringsspråk",
   "skills.stack.languagesWeb.description":
-    "Språk, märkning och stilskikt jag använder när jag formar produktens UI.",
+    "Språken jag skriver i till vardags - från produktkod till skript och då och då en mikrokontroller.",
   "skills.stack.frontendUi.title": "Frontend-ramverk och UI-leverans",
   "skills.stack.frontendUi.description":
-    "Hur jag strukturerar UI-arbete - komponenter, SPA eller SSR, state och byggverktyg som förblir överkomliga.",
-  "skills.stack.backendApis.title": "Backend, API:er och applikationsdata",
+    "Märkning, styling och komponentramverk för gränssnitt som förblir läsbara för designers, utvecklare och människorna som faktiskt använder dem.",
+  "skills.stack.backendApis.title": "Backend, API:er och integrationer",
   "skills.stack.backendApis.description":
-    "Tjänster, ORM:er och integrationsmönster - från vänliga monoliter till mindre modulära API:er.",
+    "Tjänster, ORM:er och integrationsmönster - typad REST eller GraphQL, validerade payloads, webhooks och tredjeparter som HubSpot när produkten kräver det.",
   "skills.stack.datastores.title": "Datalager och cache",
   "skills.stack.datastores.description":
     "Relations- och dokumentmodeller, migreringar och lätt cache när en sida behöver lite extra luft.",
-  "skills.stack.mobileRealtime.title": "Mobil och realtidsklient",
+  "skills.stack.mobileRealtime.title": "Mobil, IoT och realtidsklienter",
   "skills.stack.mobileRealtime.description":
-    "Flutter-appar med reaktivt tillstånd, kartor, push och Supabase eller Firebase när produkten kräver det.",
-  "skills.stack.cloudPlatform.title": "Moln, containrar och plattform",
+    "Flutter-appar med reaktivt tillstånd, kartor, push och Firebase eller Supabase - nära släkt med det embedded- och smart-home-arbete som startade min karriär.",
+  "skills.stack.cloudPlatform.title": "Moln, containrar och leverans",
   "skills.stack.cloudPlatform.description":
     "Paketering, orkestrering, IaC och hostingval som håller deploys tråkiga på ett bra sätt.",
 
@@ -176,10 +177,16 @@ export const swedishOverrides: Record<string, string> = {
   "proj.ariaTechnologies": "Tekniker",
   "proj.items.portfolio.title": "Portföljplattform",
   "proj.items.portfolio.description":
-    "En lugn portföljsajt från typad konfiguration, med App Router-mönster, Docker-paket och CV-export när någon ber om PDF.",
+    "Den här sajten - en lugn Next.js-app driven av typad konfiguration, med App Router-mönster, fyra språk i18n, Docker-paket och en statisk CV som besökare kan hämta med ett klick.",
   "proj.items.apiToolkit.title": "API-verktygslåda",
   "proj.items.apiToolkit.description":
-    "Typade REST-handlers, validering och strukturerade fel så klienter alltid vet vad som hände.",
+    "Typade REST-handlers, runtime-validering och strukturerade fel så klienter - människor eller maskiner - alltid vet exakt vad som hände.",
+  "proj.items.iotAttendance.title": "IoT-närvaroplattform",
+  "proj.items.iotAttendance.description":
+    "Specialbyggda RFID-läsare parade med ett Laravel-närvaro-API och en intern admin-vy. Hårdvara, firmware, server och UI samdesignades så att personalens incheckning förblir ett en-sekunds tryck.",
+  "proj.items.smartHome.title": "Smart hem-plattform",
+  "proj.items.smartHome.description":
+    "En integritetsfokuserad smart hem-stack: en lokal hemserver-gateway över MQTT som broar Bluetooth, Wi-Fi och Zigbee, plus en Flutter-app för installation, automationer och daglig styrning.",
 
   "oss.eyebrow": "GitHub",
   "oss.title": "Öppen källkod",

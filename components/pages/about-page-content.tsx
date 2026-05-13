@@ -83,6 +83,22 @@ export function AboutPageContent() {
                 <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted">
                   {item.summary}
                 </p>
+                {item.highlights && item.highlights.length > 0 ? (
+                  <ul
+                    className="mt-4 max-w-2xl space-y-1.5 text-sm leading-relaxed text-muted"
+                    aria-label={t("about.highlightsAria").replace("{company}", item.company)}
+                  >
+                    {item.highlights.map((h) => (
+                      <li key={h} className="relative pl-5">
+                        <span
+                          className="absolute left-0 top-2 size-1.5 rounded-full bg-accent/80"
+                          aria-hidden
+                        />
+                        {h}
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
                 {item.techStack && item.techStack.length > 0 ? (
                   <ul
                     className="mt-4 flex flex-wrap gap-2"

@@ -59,7 +59,7 @@ export const finnishOverrides: Record<string, string> = {
     "Tämä sivu on pieni Next.js -sovellus VPS:llä Dokployn kautta, Cloudflare edessä TLS:lle ja lisätranquille. Ei mitään ihmeellistä - yksinkertainen setup, jota jaksan ylläpitää.",
   "home.cardStackTitle": "Sovellusstack",
   "home.cardStackBody":
-    "Next.js App Router, TypeScript, React, Tailwind CSS ja muutama API-reitti esimerkiksi yhteydenottoon ja CV-vientiin.",
+    "Next.js App Router, TypeScript, React, Tailwind CSS ja muutama API-reitti esimerkiksi yhteydenottoon, sekä staattinen CV suoraan public-kansiosta.",
   "home.cardHostTitle": "Hostaus ja julkaisu",
   "home.cardHostBody":
     "Docker-paketoitu VPS:llä ja julkaisu Dokploylla, jotta deployt pysyvät ennustettavina ja tarvittaessa helposti peruttavina.",
@@ -136,6 +136,7 @@ export const finnishOverrides: Record<string, string> = {
   "about.sectionSubtitle":
     "Viimeisimmät roolit ensin - mielelläni syvennän keskustelussa.",
   "about.techAria": "Teknologiat: {company}",
+  "about.highlightsAria": "Kohokohdat: {company}",
   "about.bio":
     "Pidän siitä, että sumeista vaatimuksista syntyy ohjelmistoa, joka tuntuu tasaiselta - selkeä rakenne kun se auttaa, testit kun ne maksavat itsensä takaisin, ja UX joka on lempeä sekä käyttäjille että seuraavalle, joka avaa repon.",
 
@@ -149,22 +150,22 @@ export const finnishOverrides: Record<string, string> = {
   "skills.emphasisSubtitle":
     "Itsearvioidut syvyydet - parasta lukea CV:n tai keskustelun rinnalla.",
   "skills.stackAria": "Teknologiat: {title}",
-  "skills.stack.languagesWeb.title": "Kielet ja web-perusteet",
+  "skills.stack.languagesWeb.title": "Ohjelmointikielet",
   "skills.stack.languagesWeb.description":
-    "Kielet, merkkaus ja tyylikerrokset, joihin tartun kun muotoilen tuotteen käyttöliittymää.",
+    "Kielet, joita kirjoitan päivittäin - tuotekoodista skripteihin ja silloin tällöin mikrokontrolleriin.",
   "skills.stack.frontendUi.title": "Frontend-kehykset ja UI-toimitus",
   "skills.stack.frontendUi.description":
-    "Miten rakennan UI-työtä - komponentit, SPA tai SSR, tila ja build-työkalut, jotka pysyvät lähestyttävinä.",
-  "skills.stack.backendApis.title": "Backend, API:t ja sovellusdatan kerros",
+    "Merkkaus, tyylit ja komponenttikehykset, joilla rakennan käyttöliittymiä, jotka pysyvät selkeinä niin suunnittelijoille, kehittäjille kuin oikeille käyttäjille.",
+  "skills.stack.backendApis.title": "Backend, API:t ja integraatiot",
   "skills.stack.backendApis.description":
-    "Palvelut, ORM:t ja integraatiot - ystävällisistä monoliiteista pienempiin modulaarisiin rajapintoihin.",
+    "Palvelut, ORM:t ja integraatiot - tyypitetty REST tai GraphQL, validoidut payloadit, webhookit sekä kolmannet osapuolet kuten HubSpot, kun tuote sitä kaipaa.",
   "skills.stack.datastores.title": "Tietovarastot ja välimuisti",
   "skills.stack.datastores.description":
     "Relaatio- ja dokumenttimallit, migraatiot ja kevyt välimuistitus kun sivulle tarvitaan hieman lisähengitystilaa.",
-  "skills.stack.mobileRealtime.title": "Mobiili ja reaaliaikainen asiakas",
+  "skills.stack.mobileRealtime.title": "Mobiili, IoT ja reaaliaikaiset asiakkaat",
   "skills.stack.mobileRealtime.description":
-    "Flutter-sovelluksia reaktiivisella tilalla, kartoilla, push-viestinnällä sekä Supabasella tai Firebaseilla kun tuote sitä kaipaa.",
-  "skills.stack.cloudPlatform.title": "Pilvi, kontit ja alusta",
+    "Flutter-sovelluksia reaktiivisella tilalla, kartoilla, push-viestinnällä sekä Firebase- tai Supabase-taustoilla - lähisukulaisia sille embedded- ja smart home -työlle, josta uraani aloitin.",
+  "skills.stack.cloudPlatform.title": "Pilvi, kontit ja toimitus",
   "skills.stack.cloudPlatform.description":
     "Paketointi, orkestrointi, IaC ja hostausvalinnat, jotka pitävät deployt tylsinä hyvällä tavalla.",
 
@@ -189,10 +190,16 @@ export const finnishOverrides: Record<string, string> = {
   "proj.ariaTechnologies": "Teknologiat",
   "proj.items.portfolio.title": "Portfolioalusta",
   "proj.items.portfolio.description":
-    "Rauhallinen portfolio Next.jsistä tyypitetystä konfigista, App Router -kuvioilla, Docker-paketoinnilla ja CV-viennillä kun joku pyytää PDF:ää.",
+    "Tämä sivu - rauhallinen, tyypitetystä konfigista ajettu Next.js-sovellus App Router -kuvioilla, neljän kielen i18n:llä, Docker-paketoinnilla ja staattisella CV:llä, jonka kävijä saa yhdellä klikkauksella.",
   "proj.items.apiToolkit.title": "API-työkalupakki",
   "proj.items.apiToolkit.description":
-    "Tyypitettyjä REST-käsittelijöitä, validointia ja jäsenneltyjä virheitä, jotta asiakkaat tietävät aina mitä tapahtui.",
+    "Tyypitettyjä REST-käsittelijöitä, runtime-validointia ja jäsenneltyjä virheitä, jotta asiakkaat - ihmiset tai koneet - tietävät aina tarkalleen mitä tapahtui.",
+  "proj.items.iotAttendance.title": "IoT-läsnäoloalusta",
+  "proj.items.iotAttendance.description":
+    "Itse rakennetut RFID-lukijat yhdistettynä Laravel-pohjaiseen läsnäolo-API:in ja sisäiseen admin-näkymään. Laitteisto, firmware, palvelin ja UI suunniteltiin yhdessä, jotta henkilöstön sisäänkirjautuminen pysyy sekunnin näpäytyksenä.",
+  "proj.items.smartHome.title": "Smart home -alusta",
+  "proj.items.smartHome.description":
+    "Yksityisyyttä korostava smart home -stack: paikallinen kotipalvelin MQTT:n yli yhdistämässä Bluetooth-, Wi-Fi- ja Zigbee-laitteita, sekä Flutter-kumppanisovellus asennukseen, automaatioihin ja jokapäiväiseen ohjaukseen.",
 
   "oss.eyebrow": "GitHub",
   "oss.title": "Avoin lähdekoodi",

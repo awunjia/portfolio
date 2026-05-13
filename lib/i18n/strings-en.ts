@@ -59,7 +59,7 @@ export const englishMessages: Record<string, string> = {
     "This site is a small Next.js app on a VPS behind Dokploy, with Cloudflare out front for TLS and a little extra peace of mind. Nothing fancy - just a simple setup I am comfortable maintaining.",
   "home.cardStackTitle": "Application stack",
   "home.cardStackBody":
-    "Next.js App Router, TypeScript, React, Tailwind CSS, and a few API routes for things like contact mail and CV export.",
+    "Next.js App Router, TypeScript, React, Tailwind CSS, and a few API routes for things like contact mail, plus a static résumé served straight from the public folder.",
   "home.cardHostTitle": "Hosting and delivery",
   "home.cardHostBody":
     "Packaged with Docker on a VPS and released through Dokploy so deploys stay predictable and easy to roll back if needed.",
@@ -136,6 +136,7 @@ export const englishMessages: Record<string, string> = {
   "about.sectionSubtitle":
     "Recent roles, newest first - happy to go deeper in conversation.",
   "about.techAria": "Technologies at {company}",
+  "about.highlightsAria": "Highlights at {company}",
   "about.bio":
     "I like turning fuzzy requirements into software that feels steady - clear structure where it helps, tests where they earn their keep, and UX that stays kind to both users and whoever opens the repo next.",
 
@@ -149,22 +150,22 @@ export const englishMessages: Record<string, string> = {
   "skills.emphasisSubtitle":
     "Self-assessed comfort levels - best read next to a CV or chat.",
   "skills.stackAria": "Technologies: {title}",
-  "skills.stack.languagesWeb.title": "Languages & web foundations",
+  "skills.stack.languagesWeb.title": "Programming languages",
   "skills.stack.languagesWeb.description":
-    "The languages, markup, and styling layers I reach for when shaping product UI.",
+    "Languages I write in day-to-day - from product code to scripts and the occasional microcontroller.",
   "skills.stack.frontendUi.title": "Frontend frameworks & UI delivery",
   "skills.stack.frontendUi.description":
-    "How I like to structure UI work - components, SPA or SSR stacks, state, and build tooling that stays approachable.",
-  "skills.stack.backendApis.title": "Backend, APIs & application data",
+    "Markup, styling, and component frameworks I use to shape interfaces that stay readable for designers, developers, and the people who actually use them.",
+  "skills.stack.backendApis.title": "Backend, APIs & integrations",
   "skills.stack.backendApis.description":
-    "Services, ORMs, and integration patterns - from friendly monoliths to smaller modular APIs.",
+    "Services, ORMs, and integration patterns - typed REST or GraphQL, validated payloads, webhooks, and third-party platforms like HubSpot when the product calls for it.",
   "skills.stack.datastores.title": "Datastores & caching",
   "skills.stack.datastores.description":
     "Relational and document models, migrations, and light caching when a page needs a little extra air.",
-  "skills.stack.mobileRealtime.title": "Mobile & real-time client",
+  "skills.stack.mobileRealtime.title": "Mobile, IoT & real-time clients",
   "skills.stack.mobileRealtime.description":
-    "Flutter apps with reactive state, maps, push messaging, and Supabase or Firebase when the product calls for it.",
-  "skills.stack.cloudPlatform.title": "Cloud, containers & platform",
+    "Flutter apps with reactive state, maps, push messaging, and Firebase or Supabase backends - close kin to the embedded and smart-home work that started my career.",
+  "skills.stack.cloudPlatform.title": "Cloud, containers & delivery",
   "skills.stack.cloudPlatform.description":
     "Packaging, orchestration, IaC, and hosting choices that keep deploys boring in a good way.",
 
@@ -189,10 +190,16 @@ export const englishMessages: Record<string, string> = {
   "proj.ariaTechnologies": "Technologies",
   "proj.items.portfolio.title": "Portfolio platform",
   "proj.items.portfolio.description":
-    "A calm portfolio site driven from typed config, with App Router patterns, Docker packaging, and a CV export when someone asks for a PDF.",
+    "This site - a calm, typed-config-driven Next.js app with App Router patterns, four-locale i18n, Docker packaging, and a static résumé visitors can grab in one click.",
   "proj.items.apiToolkit.title": "API toolkit",
   "proj.items.apiToolkit.description":
-    "Typed REST handlers, validation, and structured errors so clients always know what happened.",
+    "Typed REST handlers, runtime validation, and structured errors so clients - human or machine - always know exactly what happened.",
+  "proj.items.iotAttendance.title": "IoT attendance platform",
+  "proj.items.iotAttendance.description":
+    "Custom-built RFID readers paired with a Laravel attendance API and an internal admin dashboard. Hardware, firmware, server, and UI co-designed so the staff check-in flow stays a one-second tap.",
+  "proj.items.smartHome.title": "Smart-home platform",
+  "proj.items.smartHome.description":
+    "A privacy-first smart-home stack: a local home-server gateway over MQTT bridging Bluetooth, Wi-Fi, and Zigbee devices, plus a Flutter companion app for setup, automations, and everyday control.",
 
   "oss.eyebrow": "GitHub",
   "oss.title": "Open source",
