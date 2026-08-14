@@ -20,7 +20,7 @@ const TURNSTILE_SCRIPT_OPTIONS = { appendTo: "body" as const };
 
 export function ContactForm() {
   const reduceMotion = useReducedMotion();
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
   const [state, setState] = useState<FormState>("idle");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
@@ -93,6 +93,7 @@ export function ContactForm() {
     }
 
     const data = new FormData(form);
+    data.set("locale", locale);
     if (turnstileToken) {
       data.set("cf-turnstile-response", turnstileToken);
     }

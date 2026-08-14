@@ -127,14 +127,14 @@ const FI: CvLocaleBundle = {
     },
     {
       school: "Novia ammattikorkeakoulu",
-      field: "Tietotekniikka",
+      field: "Insinööri (AMK), tietotekniikka",
       summary:
-        "Sovellettu IT-tutkinto ohjelmistosuunnittelun ytimellä: web-pinat, rajapinnat, tietokannat ja ketterä toimitus tiimeissä. Painotus versionhallintaan, testaukseen, luettavaan arkkitehtuuriin ja monialaisiin projekteihin, jotka muistuttavat alan toimitustapaa.",
+        "Sovellettu IT-tutkinto ohjelmistosuunnittelun ytimellä: web-pinat, rajapinnat, tietokannat ja ketterä toimitus tiimeissä. Opinnäytetyönä RFID-pohjainen läsnäolo- ja palkanlaskentajärjestelmä yritykselle, julkaistu Theseus-tietokannassa.",
       highlights: [
         "Fullstack-webkehitys ja palvelupohjainen suunnittelu",
         "REST-rajapinnat, SQL ja käytännönläheinen tietomallinnus",
         "Ketterä yhteistyö, Git-työnkulut ja koodikatselmointi",
-        "Opinnäytetyöpainotteinen työ ja ammattimainen raportointi",
+        "Opinnäytetyö: RFID-läsnäolo, IoT-laitteisto ja palkanlaskennan automatio",
         "Opinnot englanniksi pohjoismaisessa AMK-ympäristössä",
       ],
     },
@@ -257,14 +257,14 @@ const SV: CvLocaleBundle = {
     },
     {
       school: "Yrkeshögskolan Novia",
-      field: "Informationsteknik",
+      field: "Ingenjör (YH), informationsteknik",
       summary:
-        "Tillämpad IT-examen med mjukvaruutveckling i centrum: webbstackar, API:er, databaser och agil leverans i team. Tyngdpunkt på versionshantering, testning, läsbar arkitektur och tvärvetenskapliga projekt som speglar branschleverans.",
+        "Tillämpad IT-examen med mjukvaruutveckling i centrum: webbstackar, API:er, databaser och agil leverans i team. Examensarbete: RFID-baserat närvaro- och lönesystem för näringslivet, publicerat i Theseus öppna arkiv.",
       highlights: [
         "Fullstack webbutveckling och serviceorienterad design",
         "REST-API:er, SQL och pragmatisk datamodellering",
         "Agilt samarbete, Git-flöden och kodgranskning",
-        "Examensnära arbete och rapportskrivning i yrkesstil",
+        "Examensarbete: RFID-närvaro, IoT-hårdvara och löneautomation",
         "Studier på engelska i en nordisk YH-miljö",
       ],
     },
@@ -319,6 +319,127 @@ const SV: CvLocaleBundle = {
       "Git",
       "GitHub",
       "CI-vänliga builds",
+    ],
+  ],
+};
+
+const FR: CvLocaleBundle = {
+  role: "Ingénieur logiciel full-stack",
+  cityCountry: "Helsinki, Finlande",
+  profileTimezone: "Heure d'Europe de l'Est (EET)",
+  profileLanguages: "anglais, finnois",
+  profileAvailability:
+    "Ouvert à échanger sur un poste à temps plein ou en contrat - remote ou hybride.",
+  contactAddress: "Helsinki, Finlande",
+  proficiency: [
+    { label: "Frontend", percentage: 65 },
+    { label: "Backend", percentage: 80 },
+    { label: "Programmation", percentage: 95 },
+  ],
+  experience: [
+    {
+      role: "Développeur full-stack",
+      summary:
+        "Livraison full-stack sur une plateforme interne adossée au CRM pour la gestion clients et projets.",
+      location: "Helsinki, Finlande",
+    },
+    {
+      role: "Développeur full-stack",
+      summary:
+        "Conception et maintenance du système interne de gestion des utilisateurs et d'une plateforme de présence IoT avec matériel RFID sur mesure.",
+      location: "Helsinki, Finlande",
+    },
+    {
+      role: "Ingénieur logiciel",
+      summary:
+        "Pilotage de la conception de bout en bout de l'écosystème et du site Aeco Limited, avec scalabilité et sécurité au centre.",
+      location: "Douala, Cameroun",
+    },
+    {
+      role: "Développeur d'applications mobiles",
+      summary:
+        "Développement d'une plateforme maison intelligente avec serveur local et application compagnon pour appareils connectés, en privilégiant vie privée et sécurité.",
+      location: "Buea, Cameroun",
+    },
+  ],
+  education: [
+    {
+      school: "Autoformation - cours, documentation et projets",
+      field: "Intelligence artificielle et apprentissage automatique appliqué",
+      summary:
+        "Étude structurée en parallèle d'un emploi à temps plein : articles et docs fournisseurs transformés en petites expériences exécutables. Focus sur le comportement des modèles en produit, retrieval et limites de contexte, évaluation, latence et coût, et fonctionnalités sûres et maintenables plutôt que des démos ponctuelles.",
+      highlights: [
+        "Motifs LLM : RAG, outils, sorties structurées",
+        "Embeddings, recherche vectorielle, chunking et compromis de pertinence",
+        "Évaluation, contrôles de régression et monitoring d'apps proches de la prod",
+        "Stack ML Python (notebooks, PyTorch niveau praticien)",
+        "Usage responsable : vie privée, fuites et conception human-in-the-loop",
+      ],
+    },
+    {
+      school: "Université des sciences appliquées Novia (UAS)",
+      field: "Bachelor of Engineering, technologies de l'information",
+      summary:
+        "Diplôme IT appliqué centré sur le génie logiciel : stacks web, API, bases de données et livraison agile en équipe. Mémoire : système RFID de présence et de paie pour l'industrie, publié dans l'archive ouverte Theseus.",
+      highlights: [
+        "Développement web full-stack et conception orientée services",
+        "API REST, SQL et modélisation pragmatique des données",
+        "Collaboration agile, workflows Git et revue de code",
+        "Mémoire : présence RFID, matériel IoT et automatisation de la paie",
+        "Études en anglais dans un environnement UAS nordique",
+      ],
+    },
+    {
+      school: "University of Buea",
+      field: "Informatique",
+      summary:
+        "Cursus CS fondamental : mathématiques discrètes et logique, algorithmes, langages, systèmes et génie logiciel. Renforcement de la décomposition de problèmes, de la discipline d'implémentation et de la communication via labs, examens et projets d'équipe.",
+      highlights: [
+        "Algorithmes, structures de données et complexité",
+        "Paradigmes de programmation et pratique du génie logiciel",
+        "Bases de données, réseaux et fondamentaux des systèmes d'exploitation",
+        "Fondements mathématiques de l'informatique",
+        "Projets de groupe, rédaction technique et présentations",
+      ],
+    },
+  ],
+  projects: [
+    {
+      title: "Plateforme portfolio",
+      description:
+        "Un site portfolio calme piloté par une configuration typée, avec motifs App Router, packaging Docker et export CV PDF à la demande.",
+    },
+    {
+      title: "Boîte à outils API",
+      description:
+        "Handlers REST typés, validation et erreurs structurées pour que les clients sachent toujours ce qui s'est passé.",
+    },
+  ],
+  skillGroups: [
+    [...CV_DEFAULT_SKILL_GROUP_ITEMS[0]!],
+    [...CV_DEFAULT_SKILL_GROUP_ITEMS[1]!],
+    [
+      "API REST",
+      "GraphQL",
+      "validation JSON",
+      "webhooks",
+      "Firebase",
+      "Supabase",
+      "FCM",
+      "MapSDK",
+      "HubSpot",
+    ],
+    ["C", "C++", "Arduino", "Java", "Dart", "Python", "Bash", "outillage proche de l'embarqué"],
+    [
+      "Docker",
+      "Kubernetes",
+      "Terraform",
+      "AWS",
+      "Vercel",
+      "Linux",
+      "Git",
+      "GitHub",
+      "builds adaptés au CI",
     ],
   ],
 };
@@ -378,14 +499,14 @@ const DA: CvLocaleBundle = {
     },
     {
       school: "Novia University of Applied Sciences (UAS)",
-      field: "Informationsteknologi",
+      field: "Professionsbachelor, informationsteknologi",
       summary:
-        "Anvendt IT-grad med software engineering som rygrad: webstacks, API'er, databaser og agil levering i teams. Vægt på versionsstyring, testning, læsbar arkitektur og tværfaglige projekter der spejler branchens leverance.",
+        "Anvendt IT-grad med software engineering som rygrad: webstacks, API'er, databaser og agil levering i teams. Bachelorprojekt: RFID-baseret fremmøde- og lønsystem til erhvervslivet, publiceret i Theseus' åbne arkiv.",
       highlights: [
         "Fullstack webudvikling og serviceorienteret design",
         "REST API'er, SQL og pragmatisk datamodellering",
         "Agilt samarbejde, Git-workflows og code review",
-        "Speciale-nært arbejde og professionel rapportering",
+        "Bachelorprojekt: RFID-fremmøde, IoT-hardware og lønautomatisering",
         "Undervisning på engelsk i et nordisk UAS-miljø",
       ],
     },
@@ -447,6 +568,7 @@ const DA: CvLocaleBundle = {
 const BUNDLES: Record<Exclude<Locale, "en">, CvLocaleBundle> = {
   fi: FI,
   sv: SV,
+  fr: FR,
   da: DA,
 };
 

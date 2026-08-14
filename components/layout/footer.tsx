@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import { HiOutlineAdjustmentsHorizontal } from "react-icons/hi2";
 import { siteConfig } from "@/config/site";
+import { LocaleLink } from "@/components/locale-link";
 import { useCookieConsent } from "@/components/providers/cookie-consent-provider";
 import { useI18n } from "@/components/providers/i18n-provider";
 
@@ -22,24 +22,24 @@ export function Footer() {
           className="footer-text mt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs text-muted"
           aria-label="Legal"
         >
-          <Link
+          <LocaleLink
             href="/legal/cookies"
             className="font-medium text-accent underline-offset-2 transition-colors hover:text-accent-hover hover:underline"
           >
             {t("footer.legalCookies")}
-          </Link>
-          <Link
+          </LocaleLink>
+          <LocaleLink
             href="/legal/privacy"
             className="font-medium text-accent underline-offset-2 transition-colors hover:text-accent-hover hover:underline"
           >
             {t("footer.legalPrivacy")}
-          </Link>
-          <Link
+          </LocaleLink>
+          <LocaleLink
             href="/legal/terms"
             className="font-medium text-accent underline-offset-2 transition-colors hover:text-accent-hover hover:underline"
           >
             {t("footer.legalTerms")}
-          </Link>
+          </LocaleLink>
           {hydrated && consent !== null ? (
             <button
               type="button"

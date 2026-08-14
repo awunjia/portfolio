@@ -14,6 +14,7 @@ export const swedishOverrides: Record<string, string> = {
   "lang.en": "Engelska",
   "lang.fi": "Finska",
   "lang.sv": "Svenska",
+  "lang.fr": "Franska",
   "lang.da": "Danska",
 
   "footer.tagline": "Byggd med omsorg i Helsingfors.",
@@ -105,6 +106,47 @@ export const swedishOverrides: Record<string, string> = {
   "form.send": "Skicka meddelande",
   "form.sending": "Skickar…",
   "form.success": "Tack - ditt meddelande är på väg.",
+
+  "email.shell.kindRegards": "Vänliga hälsningar,",
+  "email.shell.secureTitle": "Säkerhetsmeddelande.",
+  "email.shell.secureBody":
+    "Detta e-postmeddelande skickades via en skyddad postkanal från ett autentiserat kontaktformulär. Vi ber aldrig om lösenord, bankuppgifter eller engångskoder via e-post. Om något ser oväntat ut, klicka inte på länkar utan kontakta {email} direkt.",
+  "email.shell.legalIntro": "Din förfrågan hanteras enligt vår",
+  "email.shell.legalAnd": "och",
+  "email.shell.privacy": "integritets- och GDPR-information",
+  "email.shell.terms": "användarvillkor",
+  "email.shell.legalOutro":
+    ". Uppgifter används endast för att läsa och svara på ditt meddelande.",
+  "email.confirm.subject":
+    "Bekräftelse: vi har tagit emot ditt meddelande · {ownerName}",
+  "email.confirm.preheader":
+    "Vi har tagit emot ditt meddelande - {ownerName} svarar så snart som möjligt.",
+  "email.confirm.headerTitle": "Meddelande mottaget",
+  "email.confirm.headerSubtitle": "Officiell bekräftelse på din förfrågan",
+  "email.confirm.hello": "Hej {firstName},",
+  "email.confirm.thankYou":
+    "Tack för att du kontaktade mig via {site}. Detta e-postmeddelande bekräftar att ditt meddelande har tagits emot.",
+  "email.confirm.attachmentNote":
+    " Eventuell bifogad fil togs också emot säkert.",
+  "email.confirm.nextTitle": "Vad händer härnäst",
+  "email.confirm.nextBody":
+    "Jag går igenom ditt meddelande och återkommer så snart som möjligt - vanligtvis inom några vardagar.",
+  "email.confirm.yourMessage": "Ditt meddelande",
+  "email.confirm.referenceLabel": "Referens-ID:",
+  "email.confirm.addAnything":
+    "Behöver du lägga till något? Svara bara på det här mejlet eller skriv till {email}.",
+  "email.confirm.footerRef":
+    "Bekräftelsereferens {ref} · Automatiskt kvitto från {ownerName}s kontaktformulär",
+  "email.confirm.securityHeader": "- Säkerhetsmeddelande -",
+  "email.confirm.forYourRecords":
+    "För din egen dokumentation följer här en kopia av det du skickade:",
+  "email.confirm.textThankYou":
+    "Tack för att du kontaktade {ownerName} via {site}. Detta är en automatisk bekräftelse på att ditt meddelande har tagits emot.",
+  "email.confirm.textNext":
+    "Jag går igenom ditt meddelande och svarar så snart som möjligt - vanligtvis inom några vardagar.",
+  "email.confirm.textAddAnything":
+    "Om du behöver lägga till något, svara på det här mejlet eller skriv till {email}.",
+
   "form.required": "obligatoriskt",
   "form.fileTooLarge": "Bilagan är för stor. Max {size} MB.",
   "form.selectedFile": "Vald: {name}",
@@ -165,6 +207,8 @@ export const swedishOverrides: Record<string, string> = {
   "edu.sectionTitle": "Skolor och program",
   "edu.sectionSubtitle": "Studier och kurser, nyast först.",
   "edu.highlightsAria": "Fokusområden vid {school}",
+  "edu.thesisLabel": "Examensarbete · {year}",
+  "edu.thesisLink": "Läs på Theseus →",
 
   "proj.title": "Projekt",
   "proj.intro1": "Allt här redigeras i",
@@ -177,7 +221,7 @@ export const swedishOverrides: Record<string, string> = {
   "proj.ariaTechnologies": "Tekniker",
   "proj.items.portfolio.title": "Portföljplattform",
   "proj.items.portfolio.description":
-    "Den här sajten - en lugn Next.js-app driven av typad konfiguration, med App Router-mönster, fyra språk i18n, Docker-paket och en statisk CV som besökare kan hämta med ett klick.",
+    "Den här sajten - en lugn Next.js-app driven av typad konfiguration, med App Router-mönster, flerspråkig i18n, Docker-paket och en statisk CV som besökare kan hämta med ett klick.",
   "proj.items.apiToolkit.title": "API-verktygslåda",
   "proj.items.apiToolkit.description":
     "Typade REST-handlers, runtime-validering och strukturerade fel så klienter - människor eller maskiner - alltid vet exakt vad som hände.",

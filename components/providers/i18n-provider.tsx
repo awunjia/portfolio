@@ -9,15 +9,17 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { useCookieConsent } from "@/components/providers/cookie-consent-provider";
 import { clearLocaleCookie } from "@/lib/cookies/consent";
 import { dictionaries } from "@/lib/i18n/dictionaries";
 import {
+  DEFAULT_LOCALE,
   LOCALE_STORAGE_KEY,
-  detectBrowserLocale,
-  isLocale,
   type Locale,
 } from "@/lib/i18n/locale";
+import { replaceLocaleInPathname } from "@/lib/i18n/paths";
+import { htmlLangAttribute } from "@/lib/i18n/seo-locale";
 
 type I18nContextValue = {
   locale: Locale;
@@ -35,51 +37,28 @@ export function useI18n(): I18nContextValue {
   return ctx;
 }
 
-function readPersistedLocale(): Locale | null {
-  if (typeof window === "undefined") return null;
-  try {
-    const raw = localStorage.getItem(LOCALE_STORAGE_KEY);
-    if (isLocale(raw)) return raw;
-  } catch {
-    /* ignore */
-  }
-  return null;
-}
+type I18nProviderProps = {
+  children: ReactNode;
+  /** Locale from the `/[locale]/...` route (source of truth). */
+  locale: Locale;
+};
 
-function htmlLangFor(locale: Locale): string {
-  if (locale === "fi") return "fi";
-  if (locale === "sv") return "sv";
-  if (locale === "da") return "da";
-  return "en";
-}
-
-export function I18nProvider({ children }: { children: ReactNode }) {
-  const { hydrated, preferencesEnabled, consent } = useCookieConsent();
-  const [locale, setLocaleState] = useState<Locale>("en");
+export function I18nProvider({
+  children,
+  locale: localeFromRoute,
+}: I18nProviderProps) {
+  const { preferencesEnabled } = useCookieConsent();
+  const router = useRouter();
+  const pathname = usePathname();
+  const [locale, setLocaleState] = useState<Locale>(localeFromRoute);
 
   useEffect(() => {
-    if (!hydrated) return;
-    if (preferencesEnabled) {
-      const stored = readPersistedLocale();
-      const next = stored ?? detectBrowserLocale();
-      setLocaleState(next);
-      try {
-        document.cookie = `${LOCALE_STORAGE_KEY}=${next}; Path=/; Max-Age=31536000; SameSite=Lax`;
-      } catch {
-        /* ignore */
-      }
-      document.documentElement.lang = htmlLangFor(next);
-    } else {
-      const next = detectBrowserLocale();
-      setLocaleState(next);
-      clearLocaleCookie();
-      document.documentElement.lang = htmlLangFor(next);
-    }
-  }, [hydrated, preferencesEnabled, consent?.at]);
+    setLocaleState(localeFromRoute);
+    document.documentElement.lang = htmlLangAttribute(localeFromRoute);
+  }, [localeFromRoute]);
 
   const setLocale = useCallback(
     (next: Locale) => {
-      setLocaleState(next);
       if (preferencesEnabled) {
         try {
           localStorage.setItem(LOCALE_STORAGE_KEY, next);
@@ -94,9 +73,14 @@ export function I18nProvider({ children }: { children: ReactNode }) {
       } else {
         clearLocaleCookie();
       }
-      document.documentElement.lang = htmlLangFor(next);
+      document.documentElement.lang = htmlLangAttribute(next);
+      setLocaleState(next);
+      const target = replaceLocaleInPathname(pathname || `/${DEFAULT_LOCALE}`, next);
+      if (target !== pathname) {
+        router.push(target);
+      }
     },
-    [preferencesEnabled],
+    [pathname, preferencesEnabled, router],
   );
 
   const t = useCallback(

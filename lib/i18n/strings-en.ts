@@ -14,6 +14,7 @@ export const englishMessages: Record<string, string> = {
   "lang.en": "English",
   "lang.fi": "Finnish",
   "lang.sv": "Swedish",
+  "lang.fr": "French",
   "lang.da": "Danish",
 
   "footer.tagline": "Built with care in Helsinki.",
@@ -117,6 +118,46 @@ export const englishMessages: Record<string, string> = {
   "form.send": "Send message",
   "form.sending": "Sending…",
   "form.success": "Thanks - your message is on its way.",
+
+  "email.shell.kindRegards": "Kind regards,",
+  "email.shell.secureTitle": "Secure message notice.",
+  "email.shell.secureBody":
+    "This email was sent over a protected mail channel from an authenticated portfolio contact form. We never ask for passwords, bank details, or one-time codes by email. If anything in this message looks unexpected, do not click links and contact {email} directly.",
+  "email.shell.legalIntro": "Your enquiry is handled under our",
+  "email.shell.legalAnd": "and",
+  "email.shell.privacy": "Privacy & GDPR notice",
+  "email.shell.terms": "Terms of use",
+  "email.shell.legalOutro":
+    ". Data is used only to read and respond to your message.",
+  "email.confirm.subject": "Confirmation: we received your message · {ownerName}",
+  "email.confirm.preheader":
+    "We received your message - {ownerName} will reply ASAP.",
+  "email.confirm.headerTitle": "Message received",
+  "email.confirm.headerSubtitle": "Official confirmation from your enquiry",
+  "email.confirm.hello": "Hello {firstName},",
+  "email.confirm.thankYou":
+    "Thank you for contacting me via {site}. This email confirms that your message has been received successfully.",
+  "email.confirm.attachmentNote":
+    " Any file you attached was received securely as well.",
+  "email.confirm.nextTitle": "What happens next",
+  "email.confirm.nextBody":
+    "I will review your note and get back to you as soon as possible - usually within a few business days.",
+  "email.confirm.yourMessage": "Your message",
+  "email.confirm.referenceLabel": "Reference ID:",
+  "email.confirm.addAnything":
+    "Need to add anything? Simply reply to this email or write to {email}.",
+  "email.confirm.footerRef":
+    "Confirmation reference {ref} · Automated receipt from the {ownerName} contact form",
+  "email.confirm.securityHeader": "- Security notice -",
+  "email.confirm.forYourRecords":
+    "For your records, here is a copy of what you sent:",
+  "email.confirm.textThankYou":
+    "Thank you for contacting {ownerName} via {site}. This is an automated confirmation that your message has been received successfully.",
+  "email.confirm.textNext":
+    "I will review your note and reply as soon as possible - typically within a few business days.",
+  "email.confirm.textAddAnything":
+    "If you need to add anything, reply to this email or write to {email}.",
+
   "form.required": "required",
   "form.fileTooLarge": "Attachment is too large. Maximum size is {size} MB.",
   "form.selectedFile": "Selected: {name}",
@@ -177,6 +218,8 @@ export const englishMessages: Record<string, string> = {
   "edu.sectionTitle": "Schools and programs",
   "edu.sectionSubtitle": "Studies and courses, newest first.",
   "edu.highlightsAria": "Focus areas at {school}",
+  "edu.thesisLabel": "Bachelor's thesis · {year}",
+  "edu.thesisLink": "Read on Theseus →",
 
   "proj.title": "Projects",
   "proj.intro1": "Everything here is edited in",
@@ -190,7 +233,7 @@ export const englishMessages: Record<string, string> = {
   "proj.ariaTechnologies": "Technologies",
   "proj.items.portfolio.title": "Portfolio platform",
   "proj.items.portfolio.description":
-    "This site - a calm, typed-config-driven Next.js app with App Router patterns, four-locale i18n, Docker packaging, and a static résumé visitors can grab in one click.",
+    "This site - a calm, typed-config-driven Next.js app with App Router patterns, multi-locale i18n, Docker packaging, and a static résumé visitors can grab in one click.",
   "proj.items.apiToolkit.title": "API toolkit",
   "proj.items.apiToolkit.description":
     "Typed REST handlers, runtime validation, and structured errors so clients - human or machine - always know exactly what happened.",

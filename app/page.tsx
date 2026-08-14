@@ -1,15 +1,21 @@
-import type { Metadata } from "next";
-import { HomePageContent } from "@/components/pages/home-page-content";
-import { buildLocaleMetadata } from "@/lib/i18n/page-metadata";
+import { cookies, headers } from "next/headers";
+import { redirect } from "next/navigation";
+import {
+  DEFAULT_LOCALE,
+  LOCALE_STORAGE_KEY,
+  detectLocaleFromAcceptLanguage,
+  isLocale,
+} from "@/lib/i18n/locale";
+import { localizedPath } from "@/lib/i18n/paths";
 
-export async function generateMetadata(): Promise<Metadata> {
-  return buildLocaleMetadata({
-    titleKey: "meta.home.title",
-    descriptionKey: "meta.home.description",
-    path: "/",
-  });
-}
-
-export default function HomePage() {
-  return <HomePageContent />;
+/** `/` → preferred locale home (`/en`, …). */
+export default async function RootPage() {
+  const jar = await cookies();
+  const cookieLocale = jar.get(LOCALE_STORAGE_KEY)?.value;
+  if (isLocale(cookieLocale)) {
+    redirect(localizedPath(cookieLocale, "/"));
+  }
+  const accept = (await headers()).get("accept-language");
+  const detected = detectLocaleFromAcceptLanguage(accept);
+  redirect(localizedPath(detected || DEFAULT_LOCALE, "/"));
 }

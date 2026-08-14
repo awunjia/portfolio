@@ -1,13 +1,13 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import Link from "next/link";
 import { HiOutlineChatBubbleLeftRight } from "react-icons/hi2";
 import { Section } from "@/components/section";
 import { HomeHero } from "@/components/home-hero";
 import { TechMarquee } from "@/components/tech-marquee";
 import { ProficiencyShowcase } from "@/components/proficiency-showcase";
 import { ProfileSpotlight } from "@/components/profile-spotlight";
+import { LocaleLink } from "@/components/locale-link";
 import { useI18n } from "@/components/providers/i18n-provider";
 
 const SkillsLottie = dynamic(
@@ -69,12 +69,12 @@ export function HomePageContent() {
           <div className="min-w-0 space-y-6 lg:col-span-6">
             <TechMarquee />
             <p className="text-center text-sm text-muted lg:text-left">
-              <Link
+              <LocaleLink
                 href="/skills"
                 className="font-medium text-accent underline-offset-4 transition-colors hover:text-accent-hover hover:underline"
               >
                 {t("home.skillsLink")}
-              </Link>{" "}
+              </LocaleLink>{" "}
               {t("home.skillsLinkSuffix")}
             </p>
           </div>
@@ -105,13 +105,13 @@ export function HomePageContent() {
         <div className="mx-auto flex max-w-5xl flex-col items-center px-4 text-center sm:px-6 lg:px-8">
           <h2 className="text-2xl font-semibold tracking-tight">{t("home.ctaTitle")}</h2>
           <p className="mx-auto mt-3 max-w-xl text-muted">{t("home.ctaBody")}</p>
-          <Link
+          <LocaleLink
             href="/contact"
             className="mt-8 inline-flex h-11 w-full max-w-xs items-center justify-center gap-2 rounded-lg bg-accent px-6 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent-hover sm:w-auto sm:max-w-none sm:px-8"
           >
             <HiOutlineChatBubbleLeftRight className="size-4 shrink-0" aria-hidden />
             {t("home.ctaButton")}
-          </Link>
+          </LocaleLink>
         </div>
       </section>
 

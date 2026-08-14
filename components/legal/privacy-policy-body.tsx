@@ -1,6 +1,8 @@
-import Link from "next/link";
+"use client";
+
 import { siteConfig } from "@/config/site";
 import { LegalArticle } from "@/components/legal/legal-article";
+import { LocaleLink } from "@/components/locale-link";
 
 export function PrivacyPolicyBody() {
   const domain = siteConfig.domain.replace(/^https?:\/\//, "").replace(/\/$/, "");
@@ -40,7 +42,7 @@ export function PrivacyPolicyBody() {
       <p>
         If you use the cookie banner, we record your choices in a first-party cookie. If you enable
         preferences, we store language and theme selections as described in the{" "}
-        <Link href="/legal/cookies">Cookie policy</Link>. Legal bases: <strong>consent</strong> (Article
+        <LocaleLink href="/legal/cookies">Cookie policy</LocaleLink>. Legal bases: <strong>consent</strong> (Article
         6(1)(a) GDPR) for non-essential storage, and where applicable <strong>legitimate interests</strong>{" "}
         for minimal operational cookies.
       </p>
@@ -101,8 +103,9 @@ export function PrivacyPolicyBody() {
           proxy) that stores or transmits log files and site content.
         </li>
         <li>
-          <strong>Cloudflare</strong> (Turnstile, DNS, TLS, or CDN if used) under their terms and privacy
-          documentation.
+          <strong>Cloudflare</strong> (Turnstile, DNS, TLS, CDN, and{" "}
+          <strong>R2 object storage</strong> for optional contact-form attachments) under their terms and
+          privacy documentation.
         </li>
         <li>
           <strong>Email delivery</strong> providers or self-hosted mail transport used to forward contact

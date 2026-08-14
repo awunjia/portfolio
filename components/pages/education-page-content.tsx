@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { siteConfig, type EducationItem } from "@/config/site";
+import { LocaleLink } from "@/components/locale-link";
 import { Section } from "@/components/section";
 import { useI18n } from "@/components/providers/i18n-provider";
 
@@ -36,12 +37,12 @@ export function EducationPageContent() {
           <div className="min-w-0 space-y-4">
             <p className="text-lg text-muted">
               {t("edu.intro")}{" "}
-              <Link
+              <LocaleLink
                 href="/about"
                 className="font-medium text-foreground underline-offset-4 transition-colors hover:text-accent hover:underline"
               >
                 {t("edu.workLink")}
-              </Link>
+              </LocaleLink>
               .
             </p>
           </div>
@@ -94,6 +95,29 @@ export function EducationPageContent() {
                   <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted">
                     {item.summary}
                   </p>
+                  {item.thesis ? (
+                    <aside className="mt-5 max-w-2xl border-l-2 border-accent/70 pl-4">
+                      <p className="text-xs font-semibold uppercase tracking-wide text-accent">
+                        {t("edu.thesisLabel").replace("{year}", item.thesis.year)}
+                      </p>
+                      <h4 className="mt-1.5 text-base font-semibold tracking-tight text-foreground">
+                        {item.thesis.title}
+                      </h4>
+                      <p className="mt-2 text-sm leading-relaxed text-muted">
+                        {item.thesis.summary}
+                      </p>
+                      <p className="mt-3">
+                        <Link
+                          href={item.thesis.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm font-medium text-accent underline-offset-4 transition-colors hover:text-accent-hover hover:underline"
+                        >
+                          {t("edu.thesisLink")}
+                        </Link>
+                      </p>
+                    </aside>
+                  ) : null}
                   {item.highlights && item.highlights.length > 0 ? (
                     <ul
                       className="mt-4 flex flex-wrap gap-2"

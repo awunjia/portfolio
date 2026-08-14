@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useId, useState } from "react";
 import {
   HiOutlineAdjustmentsHorizontal,
@@ -8,6 +7,7 @@ import {
   HiOutlineDocumentCheck,
   HiOutlineXMark,
 } from "react-icons/hi2";
+import { LocaleLink } from "@/components/locale-link";
 import { useCookieConsent } from "@/components/providers/cookie-consent-provider";
 import { useI18n } from "@/components/providers/i18n-provider";
 
@@ -64,13 +64,13 @@ export function CookieConsentBanner() {
               </p>
               <p className="mt-2 text-xs text-muted">
                 {t("cookies.legalIntro")}{" "}
-                <Link href="/legal/cookies" className="font-medium text-accent underline-offset-2 hover:underline">
+                <LocaleLink href="/legal/cookies" className="font-medium text-accent underline-offset-2 hover:underline">
                   {t("footer.legalCookies")}
-                </Link>{" "}
+                </LocaleLink>{" "}
                 {t("cookies.and")}{" "}
-                <Link href="/legal/privacy" className="font-medium text-accent underline-offset-2 hover:underline">
+                <LocaleLink href="/legal/privacy" className="font-medium text-accent underline-offset-2 hover:underline">
                   {t("footer.legalPrivacy")}
-                </Link>
+                </LocaleLink>
                 .
               </p>
             </div>

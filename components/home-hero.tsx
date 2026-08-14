@@ -1,10 +1,10 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { HiOutlineArrowDownTray, HiOutlineChatBubbleLeftRight } from "react-icons/hi2";
 import { siteConfig } from "@/config/site";
+import { LocaleLink } from "@/components/locale-link";
 import { useI18n } from "@/components/providers/i18n-provider";
 import { SocialMedia } from "@/components/devfolio/social-media";
 
@@ -44,13 +44,13 @@ export function HomeHero() {
           {t("home.tagline")}
         </p>
         <div className="button-greeting-div mt-10 flex w-full min-w-0 flex-row flex-wrap items-stretch gap-3 sm:items-center">
-          <Link
+          <LocaleLink
             href="/contact"
             className="inline-flex h-11 min-w-0 flex-1 items-center justify-center gap-2 rounded-lg bg-accent px-4 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent-hover sm:flex-none sm:px-8"
           >
             <HiOutlineChatBubbleLeftRight className="size-4 shrink-0" aria-hidden />
             {t("home.sayHello")}
-          </Link>
+          </LocaleLink>
           <a
             href={siteConfig.cvDownloadPath}
             download={siteConfig.cvDownloadFilename}

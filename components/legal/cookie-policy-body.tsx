@@ -1,6 +1,8 @@
-import Link from "next/link";
+"use client";
+
 import { siteConfig } from "@/config/site";
 import { LegalArticle } from "@/components/legal/legal-article";
+import { LocaleLink } from "@/components/locale-link";
 
 export function CookiePolicyBody() {
   const domain = siteConfig.domain.replace(/^https?:\/\//, "").replace(/\/$/, "");
@@ -87,7 +89,7 @@ export function CookiePolicyBody() {
         <li>
           Contact form: when you write to us, we may process your name, email, message, uploaded files, and
           technical data such as your IP address as explained in the{" "}
-          <Link href="/legal/privacy">Privacy &amp; GDPR notice</Link>. We use that information only to
+          <LocaleLink href="/legal/privacy">Privacy &amp; GDPR notice</LocaleLink>. We use that information only to
           reply; we do not sell it to third parties.
         </li>
       </ul>

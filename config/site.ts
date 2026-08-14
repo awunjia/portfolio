@@ -22,6 +22,15 @@ export type ExperienceItem = {
   highlights?: string[];
 };
 
+export type EducationThesis = {
+  title: string;
+  /** Permanent public URL (e.g. Theseus handle) */
+  url: string;
+  year: string;
+  /** Short professional abstract for the education page */
+  summary: string;
+};
+
 export type EducationItem = {
   school: string;
   period: string;
@@ -33,6 +42,8 @@ export type EducationItem = {
   summary: string;
   /** Course areas, methods, tools, or notable modules */
   highlights?: string[];
+  /** Published thesis / final project when relevant */
+  thesis?: EducationThesis;
 };
 
 export type SkillStack = {
@@ -82,16 +93,16 @@ export const siteConfig = {
   country: "Finland",
   /**
    * Professional snapshot for the home profile section.
-   * Add `public/images/avatar.jpg` (or change path) - initials show if the image is missing.
+   * Add `public/images/portrait.jpg` (or change path) - initials show if the image is missing.
    */
   profile: {
-    avatarSrc: "/images/avatar.jpg",
+    avatarSrc: "/images/portrait.jpg",
     timezone: "Eastern European Time (EET)",
     languages: "English, Finnish",
     availability:
       "Happy to chat about full-time or contract work - remote or hybrid.",
   },
-  email: "sawunjia@gmail.com",
+  email: "contact@awunjia.com",
   github: "https://github.com/awunjia",
   linkedin: "https://www.linkedin.com/in/awunjia-serge-atabong/",
   social: {
@@ -276,7 +287,7 @@ export const siteConfig = {
       i18nKey: "portfolio",
       title: "Portfolio platform",
       description:
-        "This site - a calm, typed-config-driven Next.js app with App Router patterns, four-locale i18n, Docker packaging, and a static résumé visitors can grab in one click.",
+        "This site - a calm, typed-config-driven Next.js app with App Router patterns, multi-locale i18n, Docker packaging, and a static résumé visitors can grab in one click.",
       techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Docker"],
       githubUrl: "https://github.com/awunjia",
       liveUrl: "https://awunjia.com",
@@ -442,19 +453,27 @@ export const siteConfig = {
       ],
     },
     {
-      school: "Novia University of Applied Science (UAS)",
+      school: "Novia University of Applied Sciences (UAS)",
+      schoolUrl: "https://www.novia.fi",
       period: "Aug 2023 – Apr 2025",
       location: "Vaasa, Finland",
-      field: "Information Technology",
+      field: "Bachelor of Engineering, Information Technology",
       summary:
-        "Applied IT degree with a software-engineering spine: web stacks, APIs, databases, and agile delivery in team settings. Emphasis on version control, testing, readable architecture, and multidisciplinary projects that mirror how industry ships features.",
+        "Applied IT degree with a software-engineering spine: web stacks, APIs, databases, and agile delivery in team settings. Capstone work delivered an end-to-end RFID attendance and payroll platform for industry, published in the Theseus open repository.",
       highlights: [
         "Full-stack web development and service-oriented design",
         "REST APIs, SQL, and pragmatic data modelling",
         "Agile collaboration, Git workflows, and code review habits",
-        "Thesis-oriented work and professional-style reporting",
+        "Industry thesis: RFID attendance, IoT hardware, and payroll automation",
         "Studies in English within a Nordic UAS environment",
       ],
+      thesis: {
+        title: "RFID-Based Employee Management System for Sbotech Oy",
+        url: "https://www.theseus.fi/handle/10024/894399",
+        year: "2025",
+        summary:
+          "Designed and built an automated attendance and payroll system for Sbotech Oy: NodeMCU RFID readers stream check-in and check-out events over Wi-Fi into a Laravel and MySQL web application, with configurable pay rates, overtime, and weekend or holiday compensation for HR and employees.",
+      },
     },
     {
       school: "University of Buea",

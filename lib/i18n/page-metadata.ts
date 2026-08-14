@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
-import { cookies } from "next/headers";
 import { siteConfig } from "@/config/site";
 import { getBaseUrl } from "@/lib/base-url";
 import { dictionaries } from "@/lib/i18n/dictionaries";
-import { isLocale, LOCALE_STORAGE_KEY, type Locale } from "@/lib/i18n/locale";
+import {
+  DEFAULT_LOCALE,
+  SUPPORTED_LOCALES,
+  type Locale,
+} from "@/lib/i18n/locale";
+import { localizedPath } from "@/lib/i18n/paths";
 import { OG_LOCALE, openGraphAlternateLocales } from "@/lib/i18n/seo-locale";
 import { siteMetaKeywords } from "@/lib/seo";
 
@@ -27,12 +31,6 @@ function parseKeywordCsv(raw: string): string[] {
     .filter(Boolean);
 }
 
-async function readLocaleForMetadata(): Promise<Locale> {
-  const jar = await cookies();
-  const raw = jar.get(LOCALE_STORAGE_KEY)?.value;
-  return isLocale(raw) ? raw : "en";
-}
-
 function absoluteUrl(path: string): string {
   const base = getBaseUrl();
   if (path === "/" || path === "") return `${base}/`;
@@ -47,13 +45,14 @@ function defaultOgImage(): string {
 export async function buildLocaleMetadata(opts: {
   titleKey: string;
   descriptionKey: string;
+  /** Locale-agnostic path, e.g. `/contact` or `/` */
   path: string;
+  locale: Locale;
   /** When set, Open Graph `description` uses this key instead of the main description. */
   ogDescriptionKey?: string;
-  /** Comma/semicolon-separated extra keywords (merged with site + `meta.keywords`). */
   extraVars?: Record<string, string>;
 }): Promise<Metadata> {
-  const locale = await readLocaleForMetadata();
+  const locale = opts.locale;
   const sectionTitle = t(locale, opts.titleKey);
   const vars: Record<string, string> = {
     name: siteConfig.fullName,
@@ -79,24 +78,32 @@ export async function buildLocaleMetadata(opts: {
     ...new Set([...parseKeywordCsv(keywordsCsv), ...siteMetaKeywords()]),
   ];
 
-  const canonical = absoluteUrl(opts.path);
+  const localized = localizedPath(locale, opts.path);
+  const canonical = absoluteUrl(localized);
   const brandedSocialTitle = `${sectionTitle} | ${siteConfig.fullName}`;
   const ogImage = defaultOgImage();
   const isHome = opts.path === "/" || opts.path === "";
 
+  const languages: Record<string, string> = {
+    "x-default": absoluteUrl(localizedPath(DEFAULT_LOCALE, opts.path)),
+  };
+  for (const loc of SUPPORTED_LOCALES) {
+    languages[loc] = absoluteUrl(localizedPath(loc, opts.path));
+  }
+
   return {
-    // Root `app/page.tsx` does not reliably inherit `title.template` from the layout; `absolute` fixes the document title.
     title: isHome ? { absolute: brandedSocialTitle } : sectionTitle,
     description,
     keywords,
     alternates: {
       canonical,
-      languages: {
-        "x-default": canonical,
+      languages,
+      types: {
+        "text/plain": [{ url: absoluteUrl("/llms.txt"), title: "llms.txt" }],
       },
     },
     openGraph: {
-      type: "website",
+      type: isHome ? "profile" : "website",
       locale: OG_LOCALE[locale],
       alternateLocale: openGraphAlternateLocales(locale),
       url: canonical,
@@ -106,7 +113,9 @@ export async function buildLocaleMetadata(opts: {
       images: [
         {
           url: ogImage,
-          alt: siteConfig.fullName,
+          alt: `${siteConfig.fullName} portrait`,
+          width: 880,
+          height: 880,
         },
       ],
     },

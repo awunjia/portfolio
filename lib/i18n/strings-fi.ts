@@ -14,6 +14,7 @@ export const finnishOverrides: Record<string, string> = {
   "lang.en": "Englanti",
   "lang.fi": "Suomi",
   "lang.sv": "Ruotsi",
+  "lang.fr": "Ranska",
   "lang.da": "Tanska",
 
   "footer.tagline": "Rakennettu huolella Helsingissä.",
@@ -117,6 +118,47 @@ export const finnishOverrides: Record<string, string> = {
   "form.send": "Lähetä viesti",
   "form.sending": "Lähetetään…",
   "form.success": "Kiitos - viestisi on matkalla.",
+
+  "email.shell.kindRegards": "Ystävällisin terveisin,",
+  "email.shell.secureTitle": "Turvallisuusilmoitus.",
+  "email.shell.secureBody":
+    "Tämä sähköposti lähetettiin suojattua postikanavaa pitkin todennetusta portfolioyhteydenottolomakkeesta. Emme koskaan pyydä salasanoja, pankkitietoja tai kertakäyttökoodeja sähköpostitse. Jos jokin näyttää epäilyttävältä, älä klikkaa linkkejä vaan ota yhteyttä suoraan osoitteeseen {email}.",
+  "email.shell.legalIntro": "Yhteydenottosi käsitellään",
+  "email.shell.legalAnd": "ja",
+  "email.shell.privacy": "tietosuoja- ja GDPR-ilmoituksemme",
+  "email.shell.terms": "käyttöehtojemme",
+  "email.shell.legalOutro":
+    " mukaisesti. Tietoja käytetään vain viestin lukemiseen ja siihen vastaamiseen.",
+  "email.confirm.subject":
+    "Vahvistus: olemme vastaanottaneet viestisi · {ownerName}",
+  "email.confirm.preheader":
+    "Vastaanotimme viestisi - {ownerName} vastaa mahdollisimman pian.",
+  "email.confirm.headerTitle": "Viesti vastaanotettu",
+  "email.confirm.headerSubtitle": "Virallinen vahvistus yhteydenotostasi",
+  "email.confirm.hello": "Hei {firstName},",
+  "email.confirm.thankYou":
+    "Kiitos yhteydenotosta sivuston {site} kautta. Tämä sähköposti vahvistaa, että viestisi on vastaanotettu onnistuneesti.",
+  "email.confirm.attachmentNote":
+    " Mahdollinen liitetiedosto vastaanotettiin myös turvallisesti.",
+  "email.confirm.nextTitle": "Seuraavat vaiheet",
+  "email.confirm.nextBody":
+    "Käyn viestisi läpi ja vastaan mahdollisimman pian - yleensä muutamassa arkipäivässä.",
+  "email.confirm.yourMessage": "Viestisi",
+  "email.confirm.referenceLabel": "Viitenumero:",
+  "email.confirm.addAnything":
+    "Haluatko lisätä jotain? Vastaa tähän sähköpostiin tai kirjoita osoitteeseen {email}.",
+  "email.confirm.footerRef":
+    "Vahvistusviite {ref} · Automaattinen kuittaus henkilön {ownerName} yhteydenottolomakkeelta",
+  "email.confirm.securityHeader": "- Turvallisuusilmoitus -",
+  "email.confirm.forYourRecords":
+    "Tiedoksesi tässä kopio lähettämästäsi viestistä:",
+  "email.confirm.textThankYou":
+    "Kiitos yhteydenotosta henkilölle {ownerName} sivuston {site} kautta. Tämä on automaattinen vahvistus siitä, että viestisi on vastaanotettu onnistuneesti.",
+  "email.confirm.textNext":
+    "Käyn viestisi läpi ja vastaan mahdollisimman pian - yleensä muutamassa arkipäivässä.",
+  "email.confirm.textAddAnything":
+    "Jos haluat lisätä jotain, vastaa tähän sähköpostiin tai kirjoita osoitteeseen {email}.",
+
   "form.required": "pakollinen",
   "form.fileTooLarge": "Liite on liian suuri. Enintään {size} Mt.",
   "form.selectedFile": "Valittu: {name}",
@@ -177,6 +219,8 @@ export const finnishOverrides: Record<string, string> = {
   "edu.sectionTitle": "Koulut ja ohjelmat",
   "edu.sectionSubtitle": "Opinnot ja kurssit, uusin ensin.",
   "edu.highlightsAria": "Painopisteet: {school}",
+  "edu.thesisLabel": "Opinnäytetyö · {year}",
+  "edu.thesisLink": "Lue Theseuksessa →",
 
   "proj.title": "Projektit",
   "proj.intro1": "Kaikki tämä muokataan tiedostossa",
@@ -190,7 +234,7 @@ export const finnishOverrides: Record<string, string> = {
   "proj.ariaTechnologies": "Teknologiat",
   "proj.items.portfolio.title": "Portfolioalusta",
   "proj.items.portfolio.description":
-    "Tämä sivu - rauhallinen, tyypitetystä konfigista ajettu Next.js-sovellus App Router -kuvioilla, neljän kielen i18n:llä, Docker-paketoinnilla ja staattisella CV:llä, jonka kävijä saa yhdellä klikkauksella.",
+    "Tämä sivu - rauhallinen, tyypitetystä konfigista ajettu Next.js-sovellus App Router -kuvioilla, monikielisellä i18n:llä, Docker-paketoinnilla ja staattisella CV:llä, jonka kävijä saa yhdellä klikkauksella.",
   "proj.items.apiToolkit.title": "API-työkalupakki",
   "proj.items.apiToolkit.description":
     "Tyypitettyjä REST-käsittelijöitä, runtime-validointia ja jäsenneltyjä virheitä, jotta asiakkaat - ihmiset tai koneet - tietävät aina tarkalleen mitä tapahtui.",

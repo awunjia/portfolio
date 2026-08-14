@@ -9,6 +9,7 @@ import type { Locale } from "@/lib/i18n/locale";
 function localeToBcp47(locale: Locale): string {
   if (locale === "fi") return "fi-FI";
   if (locale === "sv") return "sv-SE";
+  if (locale === "fr") return "fr-FR";
   if (locale === "da") return "da-DK";
   return "en-GB";
 }

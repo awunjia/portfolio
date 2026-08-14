@@ -1,11 +1,15 @@
 import { randomUUID } from "node:crypto";
-import { mkdir, writeFile } from "node:fs/promises";
 import nodemailer from "nodemailer";
-import { tmpdir } from "node:os";
-import { join } from "node:path";
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { buildContactEmailTemplate } from "@/lib/contact-email-template";
+import { buildContactEmailTemplate, buildContactConfirmationTemplate } from "@/lib/contact-email-template";
+import {
+  contactR2ObjectKey,
+  isContactR2Configured,
+  uploadContactAttachmentToR2,
+} from "@/lib/contact-r2";
+import { siteConfig } from "@/config/site";
+import { isLocale, type Locale } from "@/lib/i18n/locale";
 import { verifyTurnstileToken } from "@/lib/verify-turnstile";
 
 export const runtime = "nodejs";
@@ -39,14 +43,6 @@ const contactSchema = z.object({
   email: z.string().trim().email().max(254),
   message: z.string().trim().min(10).max(5000),
 });
-
-function contactUploadDir(): string {
-  const fromEnv = process.env.CONTACT_UPLOAD_DIR?.trim();
-  if (fromEnv) {
-    return fromEnv;
-  }
-  return join(tmpdir(), "portfolio-contact-uploads");
-}
 
 function safeOriginalFilename(name: string): string {
   const base = name
@@ -135,13 +131,22 @@ function smtpHintFromError(err: unknown): string {
   if (/wrong version number|tls_validate_record_header/i.test(message)) {
     return "TLS mode does not match the port - use SMTP_PORT=587 with SMTP_SECURE=false (STARTTLS), or SMTP_PORT=465 with SMTP_SECURE=true (implicit TLS). This server picks safe defaults from SMTP_PORT for 465, 587, and 2525.";
   }
+  if (/certificate has expired/i.test(message)) {
+    return "The SMTP server's TLS certificate has expired (host-side). Switch to another SMTP provider, renew the cert, or for local/dev only set SMTP_TLS_REJECT_UNAUTHORIZED=false.";
+  }
   if (/certificate|CERT|SSL|TLS|self signed/i.test(message)) {
-    return "TLS or certificate issue - try SMTP_PORT=587 with SMTP_SECURE=false, or fix the host certificate chain.";
+    return "TLS or certificate issue - try SMTP_PORT=587 with SMTP_SECURE=false, or fix the host certificate chain. For local/dev against a broken cert, set SMTP_TLS_REJECT_UNAUTHORIZED=false.";
   }
   if (/spam|blocked|550|553|554/i.test(message)) {
     return "The SMTP server rejected the message - check CONTACT_FROM_EMAIL and CONTACT_TO_EMAIL, and your provider's sending rules.";
   }
   return "Check SMTP_HOST, SMTP_PORT, SMTP_SECURE, SMTP_USER, SMTP_PASS, CONTACT_FROM_EMAIL, and CONTACT_TO_EMAIL in your environment.";
+}
+
+function smtpRejectUnauthorized(): boolean {
+  // Default: verify TLS certs. Set SMTP_TLS_REJECT_UNAUTHORIZED=false only for
+  // local/dev against a provider with a broken or expired certificate.
+  return process.env.SMTP_TLS_REJECT_UNAUTHORIZED?.trim().toLowerCase() !== "false";
 }
 
 function smtpTransportOptions() {
@@ -157,6 +162,12 @@ function smtpTransportOptions() {
       `[api/contact] SMTP: ignoring SMTP_SECURE=${envWantsSecure} for port ${port} - using secure=${secure} (implicit TLS on 465 only, STARTTLS on 587/2525).`,
     );
   }
+  const rejectUnauthorized = smtpRejectUnauthorized();
+  if (!rejectUnauthorized) {
+    console.warn(
+      "[api/contact] SMTP: TLS certificate verification is disabled (SMTP_TLS_REJECT_UNAUTHORIZED=false). Do not use this in production.",
+    );
+  }
   return {
     host,
     port,
@@ -165,6 +176,11 @@ function smtpTransportOptions() {
     auth: {
       user: process.env.SMTP_USER?.trim(),
       pass: process.env.SMTP_PASS?.trim(),
+    },
+    tls: {
+      rejectUnauthorized,
+      // mailhog.site and some relays present a cert for a different hostname
+      servername: host || undefined,
     },
   };
 }
@@ -219,6 +235,8 @@ export async function POST(request: Request) {
   const file = formData.get("attachment");
   let attachmentBuffer: Buffer | null = null;
   let attachmentName: string | null = null;
+  let attachmentUrl: string | null = null;
+  let attachmentKey: string | null = null;
 
   if (file instanceof File && file.size > 0) {
     if (file.size > MAX_ATTACHMENT_BYTES) {
@@ -237,20 +255,37 @@ export async function POST(request: Request) {
       );
     }
 
-    const original = safeOriginalFilename(file.name);
-    const stored = `${randomUUID()}-${original}`;
-    const dir = contactUploadDir();
-
-    try {
-      await mkdir(dir, { recursive: true });
-      attachmentBuffer = Buffer.from(await file.arrayBuffer());
-      attachmentName = original;
-      await writeFile(join(dir, stored), attachmentBuffer);
-    } catch {
+    if (!isContactR2Configured()) {
       return NextResponse.json(
         {
           error:
-            "I could not save the attachment - you can try again without a file if that helps.",
+            "File uploads are not configured yet - send without an attachment, or try again later.",
+        },
+        { status: 500 },
+      );
+    }
+
+    const original = safeOriginalFilename(file.name);
+    const stored = `${randomUUID()}-${original}`;
+    const key = contactR2ObjectKey(stored);
+
+    try {
+      attachmentBuffer = Buffer.from(await file.arrayBuffer());
+      attachmentName = original;
+      const uploaded = await uploadContactAttachmentToR2({
+        key,
+        body: attachmentBuffer,
+        contentType: file.type || "application/octet-stream",
+        originalFilename: original,
+      });
+      attachmentUrl = uploaded.url;
+      attachmentKey = uploaded.key;
+    } catch (err) {
+      console.error("[api/contact] Cloudflare R2 upload failed:", err);
+      return NextResponse.json(
+        {
+          error:
+            "I could not save the attachment to storage - you can try again without a file if that helps.",
         },
         { status: 500 },
       );
@@ -277,11 +312,28 @@ export async function POST(request: Request) {
     email: parsed.data.email,
     message: parsed.data.message,
     hasAttachment: Boolean(attachmentBuffer && attachmentName),
+    attachmentUrl,
+    attachmentKey,
+  });
+
+  const formLocaleRaw = String(formData.get("locale") ?? "");
+  const formLocale: Locale = isLocale(formLocaleRaw) ? formLocaleRaw : "en";
+
+  const confirmation = buildContactConfirmationTemplate({
+    name: parsed.data.name,
+    message: parsed.data.message,
+    hasAttachment: Boolean(attachmentBuffer && attachmentName),
+    ownerName: siteConfig.fullName,
+    ownerEmail: siteConfig.email,
+    siteUrl: siteConfig.domain,
+    referenceId: `CF-${randomUUID().slice(0, 8).toUpperCase()}`,
+    locale: formLocale,
   });
 
   const transporter = nodemailer.createTransport(smtpTransportOptions());
 
   try {
+    // 1) Notify inbox (contact@ / CONTACT_TO_EMAIL)
     await transporter.sendMail({
       from: contactFrom,
       to: contactTo,
@@ -316,6 +368,21 @@ export async function POST(request: Request) {
       },
       { status: 502 },
     );
+  }
+
+  try {
+    // 2) Confirmation to the sender (read-receipt style)
+    await transporter.sendMail({
+      from: `"${siteConfig.fullName}" <${contactFrom}>`,
+      to: parsed.data.email,
+      replyTo: contactFrom,
+      subject: confirmation.subject,
+      text: confirmation.text,
+      html: confirmation.html,
+    });
+  } catch (err) {
+    // Owner mail already succeeded - do not fail the submission.
+    console.error("[api/contact] Confirmation email to sender failed:", err);
   }
 
   return NextResponse.json({ ok: true }, { status: 201 });

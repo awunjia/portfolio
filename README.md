@@ -29,11 +29,23 @@ npm run dev
 Copy `.env.example` to `.env` and set values as needed:
 
 - `NEXT_PUBLIC_BASE_URL` - canonical site URL (metadata, CV links)
-- Contact mail - SMTP variables and optional `CONTACT_UPLOAD_DIR`
+- Contact mail - SMTP variables
+- Cloudflare R2 (`CF_R2_*`) - contact form attachment storage
 - `NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY` / `CLOUDFLARE_TURNSTILE_SECRET_KEY` - Turnstile on the contact form
 - `GITHUB_TOKEN` - optional; raises GitHub API rate limits for the Open Source page
 
 Site copy, projects, and experience are driven from `config/site.ts`.
+
+## SEO & AEO
+
+- Locale-prefixed routes: `/en`, `/en/contact`, `/fr/about`, etc. (`en` \| `fi` \| `sv` \| `fr` \| `da`)
+- Bare paths (`/contact`) redirect to the preferred locale via middleware
+- `/sitemap.xml` - every public page × every locale
+- `/robots.txt` - allows search and major AI crawlers; blocks `/api/`
+- `/llms.txt` (also `/.well-known/llms.txt`) - machine-readable bio for answer engines
+- JSON-LD: Person / WebSite / Occupation; FAQ on home; skills ItemList on `/skills`
+
+Set `NEXT_PUBLIC_BASE_URL=https://awunjia.com` in production so sitemap and canonical URLs stay absolute and correct.
 
 ## Scripts
 

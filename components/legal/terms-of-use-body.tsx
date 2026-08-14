@@ -1,6 +1,8 @@
-import Link from "next/link";
+"use client";
+
 import { siteConfig } from "@/config/site";
 import { LegalArticle } from "@/components/legal/legal-article";
+import { LocaleLink } from "@/components/locale-link";
 
 export function TermsOfUseBody() {
   const domain = siteConfig.domain.replace(/^https?:\/\//, "").replace(/\/$/, "");
@@ -55,8 +57,8 @@ export function TermsOfUseBody() {
       <h2>6. Privacy</h2>
       <p>
         Personal data is processed as described in our{" "}
-        <Link href="/legal/privacy">Privacy &amp; GDPR notice</Link> and{" "}
-        <Link href="/legal/cookies">Cookie policy</Link>.
+        <LocaleLink href="/legal/privacy">Privacy &amp; GDPR notice</LocaleLink> and{" "}
+        <LocaleLink href="/legal/cookies">Cookie policy</LocaleLink>.
       </p>
 
       <h2>7. Changes</h2>

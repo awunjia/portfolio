@@ -14,6 +14,7 @@ export const danishOverrides: Record<string, string> = {
   "lang.en": "Engelsk",
   "lang.fi": "Finsk",
   "lang.sv": "Svensk",
+  "lang.fr": "Fransk",
   "lang.da": "Dansk",
 
   "footer.tagline": "Bygget med omtanke i Helsinki.",
@@ -105,6 +106,47 @@ export const danishOverrides: Record<string, string> = {
   "form.send": "Send besked",
   "form.sending": "Sender…",
   "form.success": "Tak - din besked er på vej.",
+
+  "email.shell.kindRegards": "Venlig hilsen,",
+  "email.shell.secureTitle": "Sikkerhedsmeddelelse.",
+  "email.shell.secureBody":
+    "Denne e-mail er sendt via en beskyttet postkanal fra en autentificeret kontaktformular. Vi beder aldrig om adgangskoder, bankoplysninger eller engangskoder pr. e-mail. Hvis noget ser uventet ud, skal du ikke klikke på links, men kontakte {email} direkte.",
+  "email.shell.legalIntro": "Din henvendelse behandles efter vores",
+  "email.shell.legalAnd": "og",
+  "email.shell.privacy": "privatlivs- og GDPR-meddelelse",
+  "email.shell.terms": "vilkår for brug",
+  "email.shell.legalOutro":
+    ". Data bruges kun til at læse og besvare din besked.",
+  "email.confirm.subject":
+    "Bekræftelse: vi har modtaget din besked · {ownerName}",
+  "email.confirm.preheader":
+    "Vi har modtaget din besked - {ownerName} svarer snarest muligt.",
+  "email.confirm.headerTitle": "Besked modtaget",
+  "email.confirm.headerSubtitle": "Officiel bekræftelse på din henvendelse",
+  "email.confirm.hello": "Hej {firstName},",
+  "email.confirm.thankYou":
+    "Tak fordi du kontaktede mig via {site}. Denne e-mail bekræfter, at din besked er blevet modtaget.",
+  "email.confirm.attachmentNote":
+    " Eventuel vedhæftet fil blev også modtaget sikkert.",
+  "email.confirm.nextTitle": "Hvad sker der nu",
+  "email.confirm.nextBody":
+    "Jeg gennemgår din besked og vender tilbage snarest muligt - typisk inden for nogle hverdage.",
+  "email.confirm.yourMessage": "Din besked",
+  "email.confirm.referenceLabel": "Reference-ID:",
+  "email.confirm.addAnything":
+    "Skal du tilføje noget? Svar blot på denne e-mail eller skriv til {email}.",
+  "email.confirm.footerRef":
+    "Bekræftelsesreference {ref} · Automatisk kvittering fra {ownerName}s kontaktformular",
+  "email.confirm.securityHeader": "- Sikkerhedsmeddelelse -",
+  "email.confirm.forYourRecords":
+    "Til dine egne optegnelser følger her en kopi af det, du sendte:",
+  "email.confirm.textThankYou":
+    "Tak fordi du kontaktede {ownerName} via {site}. Dette er en automatisk bekræftelse på, at din besked er blevet modtaget.",
+  "email.confirm.textNext":
+    "Jeg gennemgår din besked og svarer snarest muligt - typisk inden for nogle hverdage.",
+  "email.confirm.textAddAnything":
+    "Hvis du skal tilføje noget, så svar på denne e-mail eller skriv til {email}.",
+
   "form.required": "påkrævet",
   "form.fileTooLarge": "Vedhæftningen er for stor. Maks {size} MB.",
   "form.selectedFile": "Valgt: {name}",
@@ -165,6 +207,8 @@ export const danishOverrides: Record<string, string> = {
   "edu.sectionTitle": "Skoler og forløb",
   "edu.sectionSubtitle": "Studier og kurser, nyeste først.",
   "edu.highlightsAria": "Fokusområder ved {school}",
+  "edu.thesisLabel": "Bachelorprojekt · {year}",
+  "edu.thesisLink": "Læs på Theseus →",
 
   "proj.title": "Projekter",
   "proj.intro1": "Alt her redigeres i",
@@ -177,7 +221,7 @@ export const danishOverrides: Record<string, string> = {
   "proj.ariaTechnologies": "Teknologier",
   "proj.items.portfolio.title": "Portfolio-platform",
   "proj.items.portfolio.description":
-    "Denne side - en rolig Next.js-app drevet af typet konfiguration, med App Router-mønstre, fire sprog i18n, Docker-pakning og et statisk CV besøgende kan hente med ét klik.",
+    "Denne side - en rolig Next.js-app drevet af typet konfiguration, med App Router-mønstre, flersproget i18n, Docker-pakning og et statisk CV besøgende kan hente med ét klik.",
   "proj.items.apiToolkit.title": "API-værktøjssæt",
   "proj.items.apiToolkit.description":
     "Typede REST-handlers, runtime-validering og strukturerede fejl så klienter - mennesker eller maskiner - altid ved præcis, hvad der skete.",

@@ -6,6 +6,7 @@ export const OG_LOCALE: Record<Locale, string> = {
   en: "en_US",
   fi: "fi_FI",
   sv: "sv_SE",
+  fr: "fr_FR",
   da: "da_DK",
 };
 
@@ -17,6 +18,7 @@ export function openGraphAlternateLocales(locale: Locale): string[] {
 export function htmlLangAttribute(locale: Locale): string {
   if (locale === "fi") return "fi";
   if (locale === "sv") return "sv";
+  if (locale === "fr") return "fr";
   if (locale === "da") return "da";
   return "en";
 }

@@ -53,6 +53,10 @@ function personNode(employerRef: string | undefined): Person {
   const base = getBaseUrl();
   const imageUrl = new URL(siteConfig.profile.avatarSrc, `${base}/`).toString();
   const sameAs = [siteConfig.github, siteConfig.linkedin].filter(Boolean) as string[];
+  const novia = siteConfig.education.find((e) =>
+    e.school.toLowerCase().includes("novia"),
+  );
+  const thesis = novia?.thesis;
 
   return {
     "@type": "Person",
@@ -79,27 +83,58 @@ function personNode(employerRef: string | undefined): Person {
     homeLocation: {
       "@type": "Place",
       name: `${siteConfig.city}, ${siteConfig.country}`,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: siteConfig.city,
+        addressCountry: siteConfig.country,
+      },
     },
-    mainEntityOfPage: { "@type": "WebPage", "@id": `${siteConfig.domain}/` },
+    alumniOf: novia
+      ? {
+          "@type": "CollegeOrUniversity",
+          name: novia.school,
+          ...(novia.schoolUrl ? { url: novia.schoolUrl } : {}),
+        }
+      : undefined,
+    ...(thesis
+      ? {
+          hasCredential: {
+            "@type": "EducationalOccupationalCredential",
+            name: novia?.field ?? siteConfig.degree,
+            credentialCategory: "degree",
+            educationalLevel: "Bachelor's degree",
+            about: thesis.title,
+            url: thesis.url,
+            dateCreated: thesis.year,
+          },
+        }
+      : {}),
+    mainEntityOfPage: { "@type": "WebPage", "@id": `${siteConfig.domain}/en` },
   };
 }
 
 function websiteNode(): WebSite {
-  const contactUrl = `${siteConfig.domain}/contact`;
+  const contactUrl = `${siteConfig.domain}/en/contact`;
   return {
     "@type": "WebSite",
     "@id": WEBSITE_ENTITY_ID,
-    url: siteConfig.domain,
+    url: `${siteConfig.domain}/en`,
     name: siteConfig.fullName,
+    alternateName: `${siteConfig.firstName} ${siteConfig.lastName} portfolio`,
     description: siteMetaDescription(),
-    inLanguage: ["en", "fi", "sv", "da"],
+    inLanguage: ["en", "fi", "sv", "fr", "da"],
     publisher: { "@id": PERSON_ENTITY_ID },
+    about: { "@id": PERSON_ENTITY_ID },
     potentialAction: {
       "@type": "CommunicateAction",
       name: "Contact regarding work opportunities",
       target: {
         "@type": "EntryPoint",
         urlTemplate: contactUrl,
+        actionPlatform: [
+          "http://schema.org/DesktopWebPlatform",
+          "http://schema.org/MobileWebPlatform",
+        ],
       },
     },
   };

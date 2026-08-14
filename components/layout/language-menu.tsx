@@ -5,7 +5,7 @@ import { HiOutlineCheck, HiOutlineChevronDown, HiOutlineLanguage } from "react-i
 import { useI18n } from "@/components/providers/i18n-provider";
 import { LOCALE_ENDONYM, type Locale } from "@/lib/i18n/locale";
 
-const LANGUAGES: readonly Locale[] = ["en", "fi", "sv", "da"] as const;
+const LANGUAGES: readonly Locale[] = ["en", "fi", "sv", "fr", "da"] as const;
 
 export function LanguageMenu() {
   const [open, setOpen] = useState(false);

@@ -98,12 +98,13 @@ export function ProfileSpotlight() {
             <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-gradient-to-br from-skills/25 to-accent/20 ring-1 ring-border shadow-md dark:from-skills/15 dark:to-accent/15">
               {showImage ? (
                 <Image
+                  key={profile.avatarSrc}
                   src={profile.avatarSrc}
                   alt={t("profile.portraitAlt").replace("{name}", fullName)}
                   fill
-                  className="object-cover"
+                  className="object-cover object-top"
                   sizes="220px"
-                  priority={false}
+                  priority
                   onError={() => setAvatarFailed(true)}
                 />
               ) : (

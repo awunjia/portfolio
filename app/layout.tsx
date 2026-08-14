@@ -1,19 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { cookies } from "next/headers";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { CookieConsentProvider } from "@/components/providers/cookie-consent-provider";
 import { ThemeProvider } from "@/components/providers/theme-provider";
-import { I18nProvider } from "@/components/providers/i18n-provider";
-import { CookieConsentBanner } from "@/components/cookies/cookie-consent-banner";
-import { Navbar } from "@/components/layout/navbar";
-import { Footer } from "@/components/layout/footer";
-import { BackToTop } from "@/components/layout/back-to-top";
 import { RootStructuredData } from "@/components/seo/root-structured-data";
 import { siteConfig } from "@/config/site";
 import { getBaseUrl } from "@/lib/base-url";
-import { isLocale, LOCALE_STORAGE_KEY } from "@/lib/i18n/locale";
-import { htmlLangAttribute } from "@/lib/i18n/seo-locale";
 import { siteMetaDescription, siteMetaKeywords } from "@/lib/seo";
 
 /* DeveloperFolio uses a clean geometric sans; Montserrat matches that stack */
@@ -32,30 +24,48 @@ const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION?.tri
 export const metadata: Metadata = {
   metadataBase: new URL(base),
   title: {
-    default: `${siteConfig.role} — ${siteConfig.fullName}`,
+    default: `${siteConfig.role} - ${siteConfig.fullName}`,
     template: `%s | ${siteConfig.fullName}`,
   },
   description: siteMetaDescription(),
+  applicationName: siteConfig.fullName,
   keywords: siteMetaKeywords(),
   authors: [{ name: siteConfig.fullName, url: siteConfig.domain }],
   creator: siteConfig.fullName,
   publisher: siteConfig.fullName,
   category: "technology",
   referrer: "origin-when-cross-origin",
-  alternates: { canonical: `${base}/` },
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  alternates: {
+    canonical: `${base}/en`,
+    types: {
+      "text/plain": [{ url: `${base}/llms.txt`, title: "llms.txt" }],
+    },
+  },
   openGraph: {
-    type: "website",
+    type: "profile",
     locale: "en_US",
-    alternateLocale: ["fi_FI", "sv_SE", "da_DK"],
-    url: `${base}/`,
+    alternateLocale: ["fi_FI", "sv_SE", "fr_FR", "da_DK"],
+    url: `${base}/en`,
     siteName: siteConfig.fullName,
-    title: `${siteConfig.role} — ${siteConfig.fullName}`,
+    title: `${siteConfig.role} - ${siteConfig.fullName}`,
     description: siteMetaDescription(),
-    images: [{ url: defaultOgImage, alt: siteConfig.fullName }],
+    images: [
+      {
+        url: defaultOgImage,
+        alt: `${siteConfig.fullName} portrait`,
+        width: 880,
+        height: 880,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.role} — ${siteConfig.fullName}`,
+    title: `${siteConfig.role} - ${siteConfig.fullName}`,
     description: siteMetaDescription(),
     images: [defaultOgImage],
   },
@@ -85,18 +95,14 @@ export const viewport: Viewport = {
   ],
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const jar = await cookies();
-  const raw = jar.get(LOCALE_STORAGE_KEY)?.value;
-  const localeCookie = isLocale(raw) ? raw : "en";
-
   return (
     <html
-      lang={htmlLangAttribute(localeCookie)}
+      lang="en"
       suppressHydrationWarning
       data-scroll-behavior="smooth"
       className={`${montserrat.variable} h-full antialiased`}
@@ -104,15 +110,7 @@ export default async function RootLayout({
       <body className="flex min-h-full flex-col bg-background text-foreground">
         <RootStructuredData />
         <CookieConsentProvider>
-          <ThemeProvider>
-            <I18nProvider>
-              <Navbar />
-              <main className="flex-1">{children}</main>
-              <Footer />
-              <BackToTop />
-              <CookieConsentBanner />
-            </I18nProvider>
-          </ThemeProvider>
+          <ThemeProvider>{children}</ThemeProvider>
         </CookieConsentProvider>
       </body>
     </html>
