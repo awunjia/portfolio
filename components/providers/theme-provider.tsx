@@ -6,15 +6,16 @@ import { useCookieConsent } from "@/components/providers/cookie-consent-provider
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const { hydrated, preferencesEnabled } = useCookieConsent();
-  const lockLight = hydrated && !preferencesEnabled;
+  /** Without preference cookies, theme is not persisted - keep a fixed default. */
+  const forceDefaultTheme = hydrated && !preferencesEnabled;
 
   return (
     <NextThemesProvider
       attribute="class"
-      defaultTheme="light"
+      defaultTheme="dark"
       enableSystem={false}
       disableTransitionOnChange
-      forcedTheme={lockLight ? "light" : undefined}
+      forcedTheme={forceDefaultTheme ? "dark" : undefined}
       storageKey="portfolio-theme"
     >
       {children}
