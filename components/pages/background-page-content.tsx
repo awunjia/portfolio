@@ -5,6 +5,7 @@ import Link from "next/link";
 import { siteConfig, type EducationItem, type SkillStack } from "@/config/site";
 import { LocaleLink } from "@/components/locale-link";
 import { Section } from "@/components/section";
+import { CoreExpertise } from "@/components/core-expertise";
 import { useI18n } from "@/components/providers/i18n-provider";
 
 const SkillsHeroLottie = dynamic(
@@ -97,6 +98,15 @@ export function BackgroundPageContent() {
             );
           })}
         </div>
+      </Section>
+
+      <Section
+        id="skills"
+        title={t("home.sectionStackTitle")}
+        subtitle={t("home.sectionStackSubtitle")}
+        titleSize="compact"
+      >
+        <CoreExpertise />
       </Section>
 
       <Section

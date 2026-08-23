@@ -326,4 +326,25 @@ export const danishOverrides: Record<string, string> = {
   "meta.projects.description":
     "Udvalgte sites og produkter bygget af {name} - portfolio, kundesites, API'er og IoT-platforme.",
   "seo.hiringMetaLineClosed": "Ikke åben for nye roller lige nu; kontakt om fremtidige muligheder er velkommen.",
+  "home.whyHire.title": "Hvorfor ansætte mig",
+  "home.whyHire.subtitle": "Hvad du får, når vi arbejder sammen - mere end en stack-liste.",
+  "home.whyHire.aria": "Grunde til at ansætte mig",
+  "home.whyHire.ownership.title": "Ejeransvar fra idé til drift",
+  "home.whyHire.ownership.body":
+    "Jeg tager features fra idé til produktion: designvalg, implementering, reviews, deploy og opfølgning, så de forbliver sunde.",
+  "home.whyHire.fullstack.title": "Full-stack uden unødige overleveringer",
+  "home.whyHire.fullstack.body":
+    "Tryg på tværs af API, UI, data og levering. Færre ventetilstande mellem lag betyder hurtigere feedback og klarere ansvar.",
+  "home.whyHire.shipping.title": "Leverer praktiske produkter",
+  "home.whyHire.shipping.body":
+    "Jeg optimerer for vedligeholdelig kode, ærlige tidsplaner og demoer, du kan vise stakeholders - ikke engangsprototyper, der stopper efter pitchen.",
+  "home.whyHire.communication.title": "Klar kommunikation",
+  "home.whyHire.communication.body":
+    "Du får status, du kan handle på: risici tidligt, valgmuligheder forklaret enkelt og asynkrone opdateringer, der respekterer din tid på tværs af tidszoner.",
+  "home.whyHire.contractTeam.title": "Klar team til kontraktarbejde",
+  "home.whyHire.contractTeam.body":
+    "Ved kontraktarbejde kan jeg medbringe et klar team, når scope kræver flere hænder - så leverancen holder tempo uden at du skal rekruttere midt i projektet.",
+  "home.whyHire.homeOffice.title": "Fokuseret hjemmekontor",
+  "home.whyHire.homeOffice.body":
+    "Jeg arbejder fra et separat kontor derhjemme - et roligt, pålideligt setup til deep work, calls og stabil remote- eller hybrid-samarbejde.",
 };

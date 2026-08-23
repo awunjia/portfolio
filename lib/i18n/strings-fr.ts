@@ -332,4 +332,25 @@ export const frenchOverrides: Record<string, string> = {
     "Sites et produits sélectionnés construits par {name} - portfolio, sites clients, API et plateformes IoT.",
   "seo.hiringMetaLineClosed":
     "Pas ouvert aux nouveaux postes pour le moment ; le contact pour des opportunités futures est bienvenu.",
+  "home.whyHire.title": "Pourquoi m'embaucher",
+  "home.whyHire.subtitle": "Ce que vous gagnez en travaillant avec moi - au-delà d'une liste de technos.",
+  "home.whyHire.aria": "Raisons de m'embaucher",
+  "home.whyHire.ownership.title": "Responsabilité de bout en bout",
+  "home.whyHire.ownership.body":
+    "Je mène les fonctionnalités de l'idée à la production : arbitrages de design, implémentation, reviews, déploiement et suivi pour qu'elles restent saines.",
+  "home.whyHire.fullstack.title": "Full-stack sans allers-retours inutiles",
+  "home.whyHire.fullstack.body":
+    "À l'aise sur API, UI, données et livraison. Moins d'attente entre les couches, feedback plus rapide et responsabilité plus claire.",
+  "home.whyHire.shipping.title": "Livre des produits utiles",
+  "home.whyHire.shipping.body":
+    "J'optimise pour du code maintenable, des délais honnêtes et des démos présentables aux stakeholders - pas des prototypes jetables après le pitch.",
+  "home.whyHire.communication.title": "Communication claire",
+  "home.whyHire.communication.body":
+    "Vous recevez un statut actionnable : risques signalés tôt, options expliquées simplement, mises à jour asynchrones qui respectent votre temps.",
+  "home.whyHire.contractTeam.title": "Équipe prête pour le contrat",
+  "home.whyHire.contractTeam.body":
+    "En mission contractuelle, je peux apporter une équipe déjà prête quand le périmètre demande plus de mains - pour garder le rythme sans recruter en urgence en cours de projet.",
+  "home.whyHire.homeOffice.title": "Bureau à domicile dédié",
+  "home.whyHire.homeOffice.body":
+    "Je travaille depuis un espace bureau séparé chez moi - un environnement calme et fiable pour le deep work, les appels et une collaboration remote ou hybride régulière.",
 };

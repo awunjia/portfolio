@@ -327,4 +327,25 @@ export const finnishOverrides: Record<string, string> = {
     "Valikoituja sivustoja ja tuotteita, joita {name} on rakentanut - portfolio, asiakassivustot, API:t ja IoT-alustat.",
   "seo.hiringMetaLineClosed":
     "Ei juuri nyt avoinna uusille rooleille; yhteydenotto tulevia mahdollisuuksia varten on tervetullut.",
+  "home.whyHire.title": "Miksi palkata minut",
+  "home.whyHire.subtitle": "Mitä saat yhteistyössä - enemmän kuin stack-lista.",
+  "home.whyHire.aria": "Syitä palkata minut",
+  "home.whyHire.ownership.title": "Kokonaisvastuu",
+  "home.whyHire.ownership.body":
+    "Vien ominaisuudet ideasta tuotantoon: suunnitteluvalinnat, toteutus, reviewt, julkaisu ja seuranta, jotta ne pysyvät kunnossa.",
+  "home.whyHire.fullstack.title": "Full-stack ilman turhia siirtymiä",
+  "home.whyHire.fullstack.body":
+    "Viihdyn API:n, UI:n, datan ja toimituksen välillä. Vähemmän odotusta kerrosten välillä tarkoittaa nopeampaa palautetta ja selkeämpää vastuuta.",
+  "home.whyHire.shipping.title": "Toimittaa käytännöllisiä tuotteita",
+  "home.whyHire.shipping.body":
+    "Optimoin ylläpidettävään koodiin, rehellisiin aikatauluihin ja demoihin, jotka kestävät stakeholder-katsauksen - ei kertakäyttöprototyyppeihin.",
+  "home.whyHire.communication.title": "Selkeä viestintä",
+  "home.whyHire.communication.body":
+    "Saat tilannekuvan, jolla voi toimia: riskit ajoissa, vaihtoehdot ymmärrettävästi ja asynkroniset päivitykset, jotka kunnioittavat aikaa eri aikavyöhykkeillä.",
+  "home.whyHire.contractTeam.title": "Valmis tiimi sopimustyöhön",
+  "home.whyHire.contractTeam.body":
+    "Sopimustyössä voin tuoda valmiin tiimin, kun laajuus vaatii lisää käsiä - toimitus pysyy tahdissa ilman, että joudut rekrytoimaan kesken projektin.",
+  "home.whyHire.homeOffice.title": "Keskittynyt kotitoimisto",
+  "home.whyHire.homeOffice.body":
+    "Työskentelen erillisessä toimistotilassa kotona - rauhallinen ja luotettava ympäristö syvään työhön, palavereihin sekä tasaiseen etä- tai hybridiyhteistyöhön.",
 };

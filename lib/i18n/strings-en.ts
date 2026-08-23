@@ -53,6 +53,28 @@ export const englishMessages: Record<string, string> = {
   "home.expertise.cloudDevops": "Cloud & DevOps",
   "home.expertise.iot": "IoT",
   "home.expertise.ai": "AI",
+  "home.whyHire.title": "Why hire me",
+  "home.whyHire.subtitle":
+    "What you get when we work together - beyond a stack list.",
+  "home.whyHire.aria": "Reasons to hire me",
+  "home.whyHire.ownership.title": "End-to-end ownership",
+  "home.whyHire.ownership.body":
+    "I take features from idea to production: design trade-offs, implementation, reviews, deploy, and the follow-up that keeps them healthy.",
+  "home.whyHire.fullstack.title": "Full-stack without hand-offs",
+  "home.whyHire.fullstack.body":
+    "Comfortable across API, UI, data, and delivery. Fewer wait states between layers means faster feedback and clearer accountability.",
+  "home.whyHire.shipping.title": "Ships practical products",
+  "home.whyHire.shipping.body":
+    "I optimise for maintainable code, honest timelines, and demos you can show stakeholders - not throwaway prototypes that stall after the pitch.",
+  "home.whyHire.communication.title": "Clear communication",
+  "home.whyHire.communication.body":
+    "You get status you can act on: risks called early, options explained simply, and async updates that respect your time across time zones.",
+  "home.whyHire.contractTeam.title": "Ready team for contracts",
+  "home.whyHire.contractTeam.body":
+    "For contract work I can bring a ready team when the scope needs more hands - so delivery stays paced without you scrambling to staff mid-project.",
+  "home.whyHire.homeOffice.title": "Focused home office",
+  "home.whyHire.homeOffice.body":
+    "I work from a dedicated office space at home - a quiet, reliable setup for deep work, calls, and consistent remote or hybrid collaboration.",
   "home.sectionProficiencyTitle": "Engineering Strength",
   "home.sectionProficiencySubtitle":
     "Where I deliver the most value: shipping maintainable full-stack systems, reliable APIs, and practical product features.",

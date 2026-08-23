@@ -326,4 +326,25 @@ export const swedishOverrides: Record<string, string> = {
   "meta.projects.description":
     "Utvalda sajter och produkter byggda av {name} - portfolio, kundsajter, API:er och IoT-plattformar.",
   "seo.hiringMetaLineClosed": "Inte öppen för nya roller just nu; kontakt för framtida möjligheter är välkommen.",
+  "home.whyHire.title": "Varför anställa mig",
+  "home.whyHire.subtitle": "Vad du får när vi jobbar ihop - mer än en stacklista.",
+  "home.whyHire.aria": "Skäl att anställa mig",
+  "home.whyHire.ownership.title": "Ägarskap från ax till limpa",
+  "home.whyHire.ownership.body":
+    "Jag tar features från idé till produktion: designavvägningar, implementation, reviews, deploy och uppföljning så att de hålls friska.",
+  "home.whyHire.fullstack.title": "Fullstack utan onödiga överlämningar",
+  "home.whyHire.fullstack.body":
+    "Bekväm över API, UI, data och leverans. Färre väntelägen mellan lager ger snabbare feedback och tydligare ansvar.",
+  "home.whyHire.shipping.title": "Levererar praktiska produkter",
+  "home.whyHire.shipping.body":
+    "Jag optimerar för underhållbar kod, ärliga tidslinjer och demos du kan visa stakeholders - inte engångsprototyper som stannar efter pitchen.",
+  "home.whyHire.communication.title": "Tydlig kommunikation",
+  "home.whyHire.communication.body":
+    "Du får status du kan agera på: risker tidigt, alternativ förklarade enkelt och asynkrona uppdateringar som respekterar din tid över tidszoner.",
+  "home.whyHire.contractTeam.title": "Redo team för konsultuppdrag",
+  "home.whyHire.contractTeam.body":
+    "För konsultarbete kan jag ta med ett redo team när omfattningen behöver fler händer - så leveransen håller takten utan att du måste rekrytera mitt i projektet.",
+  "home.whyHire.homeOffice.title": "Fokuserat hemmakontor",
+  "home.whyHire.homeOffice.body":
+    "Jag arbetar från ett separat kontorsutrymme hemma - en lugn, pålitlig miljö för djuparbete, möten och stabilt distans- eller hybridsamarbete.",
 };

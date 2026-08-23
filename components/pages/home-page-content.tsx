@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import { HiOutlineChatBubbleLeftRight } from "react-icons/hi2";
 import { Section } from "@/components/section";
 import { HomeHero } from "@/components/home-hero";
-import { CoreExpertise } from "@/components/core-expertise";
+import { WhyHireMe } from "@/components/why-hire-me";
 import { ProfileSpotlight } from "@/components/profile-spotlight";
 import { HomeWorkShowcase } from "@/components/home-work-showcase";
 import { LocaleLink } from "@/components/locale-link";
@@ -43,12 +43,12 @@ export function HomePageContent() {
       </section>
 
       <Section
-        id="skills"
-        title={t("home.sectionStackTitle")}
-        subtitle={t("home.sectionStackSubtitle")}
+        id="why-hire"
+        title={t("home.whyHire.title")}
+        subtitle={t("home.whyHire.subtitle")}
         titleSize="compact"
       >
-        <CoreExpertise />
+        <WhyHireMe />
       </Section>
 
       <Section
