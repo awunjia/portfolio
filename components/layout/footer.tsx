@@ -10,11 +10,13 @@ import { siteConfig } from "@/config/site";
 import { LocaleLink } from "@/components/locale-link";
 import { useCookieConsent } from "@/components/providers/cookie-consent-provider";
 import { useI18n } from "@/components/providers/i18n-provider";
+import { isAvailableForWork } from "@/lib/available-for-work";
 
 export function Footer() {
   const year = new Date().getFullYear();
   const { t } = useI18n();
   const { hydrated, consent, openSettings } = useCookieConsent();
+  const available = isAvailableForWork();
 
   return (
     <footer className="footer-div mt-auto border-t border-border pb-6 pt-8 dark:border-white/10">
@@ -56,7 +58,9 @@ export function Footer() {
         <div className="mb-5 flex flex-col items-center gap-4">
           <p className="inline-flex items-center gap-1.5 text-xs font-medium text-muted">
             <HiOutlineMapPin className="size-3.5 shrink-0 text-accent" aria-hidden />
-            {t("footer.location")}
+            {available
+              ? `${t("footer.location")} · ${t("footer.openToRemote")}`
+              : t("footer.location")}
           </p>
 
           <ul

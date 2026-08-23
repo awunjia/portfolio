@@ -16,7 +16,7 @@ export const frenchOverrides: Record<string, string> = {
   "lang.da": "Danois",
 
   "footer.tagline": "Conçu avec soin à Helsinki.",
-  "footer.location": "Helsinki, Finlande · Ouvert au télétravail",
+  "footer.location": "Helsinki, Finlande",
   "footer.legalNav": "Mentions légales",
   "footer.legalCookies": "Politique de cookies",
   "footer.legalPrivacy": "Confidentialité & RGPD",
@@ -274,4 +274,62 @@ export const frenchOverrides: Record<string, string> = {
   "cookies.and": "et les",
   "cookies.themeLockedHint":
     "Activez les cookies de préférence dans la bannière pour enregistrer votre thème.",
+  "footer.openToRemote": "Ouvert au télétravail",
+  "nav.projects": "Mon travail",
+  "home.role": "Ingénieur logiciel full-stack",
+  "home.tagline":
+    "Je conçois et maintiens des applications web fiables, des API et des produits numériques avec TypeScript, Node.js, React et PHP/Laravel.",
+  "home.availability":
+    "Ouvert aux postes en CDI et en contrat en Finlande et dans le monde - à distance ou hybride.",
+  "home.availabilityClosed":
+    "Pas ouvert aux nouveaux postes pour le moment - n'hésitez pas à me contacter pour plus tard.",
+  "home.statusAvailable": "Disponible pour travailler",
+  "home.statusUnavailable": "Pas disponible actuellement",
+  "home.viewWork": "Voir mon travail",
+  "home.expertiseAria": "Expertise principale par catégorie",
+  "home.expertise.backend": "Backend",
+  "home.expertise.frontend": "Frontend",
+  "home.expertise.data": "Données",
+  "home.expertise.cloudDevops": "Cloud & DevOps",
+  "home.expertise.iot": "IoT",
+  "home.expertise.ai": "IA",
+  "home.sectionStackTitle": "Expertise principale",
+  "home.sectionStackSubtitle":
+    "Web et API full-stack avec TypeScript, Node.js, React et Laravel - plus couches de données, livraison cloud et systèmes IoT.",
+  "home.sectionProficiencyTitle": "Forces techniques",
+  "home.sectionProficiencySubtitle":
+    "Là où j'apporte le plus de valeur : livrer des systèmes full-stack maintenables, des API fiables et des fonctionnalités produit concrètes.",
+  "proj.eyebrow": "Travaux sélectionnés",
+  "proj.title": "Sites et produits que j'ai construits",
+  "proj.intro":
+    "Un aperçu court des sites et plateformes live que j'ai conçus, construits ou livrés de bout en bout. La plupart de mon travail concerne des apps web privées et des outils internes qui exigent une connexion, donc ils ne peuvent pas figurer sur un portfolio public - je peux faire une démo en réunion. Ici, seulement ce qui peut être partagé publiquement.",
+  "proj.sectionTitle": "Travaux mis en avant",
+  "proj.sectionSubtitle":
+    "Liens live lorsque le travail est public ; sinon une note claire sur la stack et ce qui a été livré.",
+  "proj.cardCode": "Code",
+  "proj.cardLive": "Voir le site",
+  "proj.ariaTechnologies": "Technologies",
+  "proj.items.portfolio.title": "Portfolio personnel",
+  "proj.items.portfolio.description":
+    "Conçu et construit de bout en bout par moi - UI, contenu et technique. Next.js App Router avec TypeScript et React, Tailwind CSS, i18n multi-locale, API de contact, Docker sur VPS et CV téléchargeable.",
+  "proj.items.aecoWebsite.title": "Aeco Limited - recherche, réservation et outils internes",
+  "proj.items.aecoWebsite.description":
+    "Le site marketing public appartient à l'entreprise. Ma contribution : recherche, flux de réservation et une app interne (non montrée ici), sur leur stack WordPress avec PHP et jQuery.",
+  "proj.items.curnext.title": "CurNext - intelligence de chantier",
+  "proj.items.curnext.description":
+    "Conçu et construit de bout en bout par moi - le site marketing de CurNext. Next.js App Router, React, shadcn/ui, Prisma/Postgres pour contact et devis, Cloudflare Turnstile, Docker et déploiement Dokploy sur curnext.app.",
+  "proj.items.asatek.title": "AsaTek - site de ventures logicielles",
+  "proj.items.asatek.description":
+    "Construit de zéro par moi - le site marketing multi-locale d'AsaTek. Next.js App Router, TypeScript, React, SEO/métadonnées, Docker et déploiement Dokploy sur asatek.io.",
+  "proj.items.iotAttendance.title": "SBO Tech - présence RFID interne",
+  "proj.items.iotAttendance.description":
+    "Le site marketing public sbotech.fi appartient à l'entreprise - je ne l'ai pas construit. Mon travail était un produit interne de présence RFID et de gestion des utilisateurs (connexion requise, non public) : lecteurs sur mesure, API Laravel et tableau de bord admin.",
+  "proj.items.smartHome.title": "Plateforme maison connectée",
+  "proj.items.smartHome.description":
+    "Une stack maison connectée axée sur la vie privée : serveur local avec passerelle MQTT pour Bluetooth, Wi-Fi et Zigbee, plus une app Flutter pour la configuration, les automatisations et le contrôle quotidien.",
+  "meta.projects.title": "Mon travail",
+  "meta.projects.description":
+    "Sites et produits sélectionnés construits par {name} - portfolio, sites clients, API et plateformes IoT.",
+  "seo.hiringMetaLineClosed":
+    "Pas ouvert aux nouveaux postes pour le moment ; le contact pour des opportunités futures est bienvenu.",
 };

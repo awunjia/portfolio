@@ -16,7 +16,7 @@ export const swedishOverrides: Record<string, string> = {
   "lang.da": "Danska",
 
   "footer.tagline": "Byggd med omsorg i Helsingfors.",
-  "footer.location": "Helsingfors, Finland · Öppen för distansarbete",
+  "footer.location": "Helsingfors, Finland",
   "footer.legalNav": "Juridiskt",
   "footer.legalCookies": "Cookiepolicy",
   "footer.legalPrivacy": "Integritet & GDPR",
@@ -270,4 +270,60 @@ export const swedishOverrides: Record<string, string> = {
   "cookies.and": "och",
   "cookies.themeLockedHint":
     "Aktivera preferenscookies i bannern för att spara temat.",
+  "footer.openToRemote": "Öppen för distansarbete",
+  "nav.projects": "Mitt arbete",
+  "home.role": "Fullstack-programvaruingenjör",
+  "home.tagline":
+    "Bygger och underhåller tillförlitliga webbappar, API:er och digitala produkter med TypeScript, Node.js, React och PHP/Laravel.",
+  "home.availability":
+    "Öppen för heltids- och konsultuppdrag i Finland och världen över - på distans eller hybrid.",
+  "home.availabilityClosed": "Inte öppen för nya roller just nu - hör gärna av dig för framtida möjligheter.",
+  "home.statusAvailable": "Tillgänglig för arbete",
+  "home.statusUnavailable": "Inte tillgänglig just nu",
+  "home.viewWork": "Se mitt arbete",
+  "home.expertiseAria": "Kärnkompetens per kategori",
+  "home.expertise.backend": "Backend",
+  "home.expertise.frontend": "Frontend",
+  "home.expertise.data": "Data",
+  "home.expertise.cloudDevops": "Moln & DevOps",
+  "home.expertise.iot": "IoT",
+  "home.expertise.ai": "AI",
+  "home.sectionStackTitle": "Kärnkompetens",
+  "home.sectionStackSubtitle":
+    "Fullstack-webb och API med TypeScript, Node.js, React och Laravel - plus datalager, molnleverans och IoT-system.",
+  "home.sectionProficiencyTitle": "Teknisk styrka",
+  "home.sectionProficiencySubtitle":
+    "Där jag ger mest värde: leverera underhållbara fullstack-system, tillförlitliga API:er och praktiska produktfunktioner.",
+  "proj.eyebrow": "Utvalt arbete",
+  "proj.title": "Sajter och produkter jag har byggt",
+  "proj.intro":
+    "En kort översikt över live-sajter och plattformar jag designat, byggt eller levererat från ax till limpa. Det mesta av mitt arbete är privata webbappar och interna verktyg som kräver inloggning, så de kan inte ligga på en offentlig portfoliosida - jag kan visa en demo i ett möte. Här syns det som är säkert att dela publikt.",
+  "proj.sectionTitle": "Utvalt arbete",
+  "proj.sectionSubtitle":
+    "Live-länkar när arbetet är publikt; annars en tydlig notis om stacken och vad som levererades.",
+  "proj.cardCode": "Kod",
+  "proj.cardLive": "Besök sajt",
+  "proj.ariaTechnologies": "Tekniker",
+  "proj.items.portfolio.title": "Personlig portfolio",
+  "proj.items.portfolio.description":
+    "Designad och byggd från ax till limpa av mig - UI, innehåll och teknik. Next.js App Router med TypeScript och React, Tailwind CSS, flerspråkig i18n, kontakt-API:er, Docker på VPS och nedladdningsbart CV.",
+  "proj.items.aecoWebsite.title": "Aeco Limited - sök, bokning och interna verktyg",
+  "proj.items.aecoWebsite.description":
+    "Den publika marknadsföringssajten tillhör företaget. Mitt bidrag var sök, bokningsflöden och en intern app (visas inte här), byggd på deras WordPress-stack med PHP och jQuery.",
+  "proj.items.curnext.title": "CurNext - byggplatsintelligens",
+  "proj.items.curnext.description":
+    "Designad och byggd från ax till limpa av mig - marknadsföringssajten för CurNext. Next.js App Router, React, shadcn/ui, Prisma/Postgres för kontakt- och offertformulär, Cloudflare Turnstile, Docker och Dokploy-deploy till curnext.app.",
+  "proj.items.asatek.title": "AsaTek - sajt för mjukvaruventures",
+  "proj.items.asatek.description":
+    "Byggd från grunden av mig - den flerspråkiga marknadsföringssajten för AsaTek. Next.js App Router, TypeScript, React, SEO/metadata, Docker och Dokploy-deploy till asatek.io.",
+  "proj.items.iotAttendance.title": "SBO Tech - intern RFID-närvaro",
+  "proj.items.iotAttendance.description":
+    "Den publika marknadsföringssajten sbotech.fi tillhör företaget - jag byggde den inte. Mitt arbete var en intern RFID-närvaro- och användarhanteringsprodukt (kräver inloggning, inte publik): skräddarsydda läsare, Laravel-API och admin-dashboard för personalens incheckning.",
+  "proj.items.smartHome.title": "Smarthem-plattform",
+  "proj.items.smartHome.description":
+    "En integritetsfokuserad smarthem-stack: lokal home-server med MQTT-gateway för Bluetooth-, Wi-Fi- och Zigbee-enheter plus en Flutter-app för setup, automationer och vardaglig styrning.",
+  "meta.projects.title": "Mitt arbete",
+  "meta.projects.description":
+    "Utvalda sajter och produkter byggda av {name} - portfolio, kundsajter, API:er och IoT-plattformar.",
+  "seo.hiringMetaLineClosed": "Inte öppen för nya roller just nu; kontakt för framtida möjligheter är välkommen.",
 };

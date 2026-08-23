@@ -17,7 +17,8 @@ export const englishMessages: Record<string, string> = {
   "lang.da": "Danish",
 
   "footer.tagline": "Built with care in Helsinki.",
-  "footer.location": "Helsinki, Finland · Open to remote work",
+  "footer.location": "Helsinki, Finland",
+  "footer.openToRemote": "Open to remote work",
   "footer.legalNav": "Legal",
   "footer.legalCookies": "Cookie policy",
   "footer.legalPrivacy": "Privacy & GDPR",
@@ -34,6 +35,8 @@ export const englishMessages: Record<string, string> = {
     "Building and maintaining reliable web applications, APIs, and digital products with TypeScript, Node.js, React, and PHP/Laravel.",
   "home.availability":
     "Available for full-time and contract opportunities in Finland and worldwide - remote or hybrid.",
+  "home.availabilityClosed":
+    "Not currently open to new roles - feel free to reach out for future opportunities.",
   "home.statusAvailable": "Available for work",
   "home.statusUnavailable": "Not currently available",
   "home.viewWork": "View My Work",
@@ -291,6 +294,8 @@ export const englishMessages: Record<string, string> = {
 
   "seo.hiringMetaLine":
     "Open to full-time, contract, and remote-friendly software engineering roles.",
+  "seo.hiringMetaLineClosed":
+    "Not currently open to new roles; contact is welcome for future opportunities.",
 
   "meta.legal.cookiesTitle": "Cookie policy",
   "meta.legal.cookiesDescription":

@@ -10,6 +10,7 @@ import {
 import { localizedPath } from "@/lib/i18n/paths";
 import { OG_LOCALE, openGraphAlternateLocales } from "@/lib/i18n/seo-locale";
 import { siteMetaKeywords } from "@/lib/seo";
+import { isAvailableForWork } from "@/lib/available-for-work";
 
 function t(locale: Locale, key: string): string {
   const pack = dictionaries[locale] ?? dictionaries.en;
@@ -62,7 +63,10 @@ export async function buildLocaleMetadata(opts: {
     school: siteConfig.school,
     bio: t(locale, "about.bio"),
     handle: `@${siteConfig.githubUsername}`,
-    hiringPhrase: t(locale, "seo.hiringMetaLine"),
+    hiringPhrase: t(
+      locale,
+      isAvailableForWork() ? "seo.hiringMetaLine" : "seo.hiringMetaLineClosed",
+    ),
     ...opts.extraVars,
   };
   const legal = opts.path.startsWith("/legal");

@@ -8,6 +8,7 @@ import { LocaleLink } from "@/components/locale-link";
 import { useI18n } from "@/components/providers/i18n-provider";
 import { SocialMedia } from "@/components/devfolio/social-media";
 import { AvailabilityStatus } from "@/components/availability-status";
+import { isAvailableForWork } from "@/lib/available-for-work";
 
 const HeroLottie = dynamic(
   () => import("@/components/devfolio/hero-lottie").then((m) => ({ default: m.HeroLottie })),
@@ -26,6 +27,7 @@ const HeroLottie = dynamic(
 export function HomeHero() {
   const reduceMotion = useReducedMotion();
   const { t } = useI18n();
+  const available = isAvailableForWork();
 
   return (
     <motion.div
@@ -46,7 +48,7 @@ export function HomeHero() {
             {t("home.tagline")}
           </p>
           <p className="break-words text-sm font-medium leading-relaxed text-muted sm:text-base">
-            {t("home.availability")}
+            {available ? t("home.availability") : t("home.availabilityClosed")}
           </p>
           <AvailabilityStatus />
         </div>

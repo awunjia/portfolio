@@ -16,7 +16,7 @@ export const finnishOverrides: Record<string, string> = {
   "lang.da": "Tanska",
 
   "footer.tagline": "Rakennettu huolella Helsingissä.",
-  "footer.location": "Helsinki, Suomi · Avoin etätyölle",
+  "footer.location": "Helsinki, Suomi",
   "footer.legalNav": "Juridinen",
   "footer.legalCookies": "Evästekäytäntö",
   "footer.legalPrivacy": "Tietosuoja & GDPR",
@@ -270,4 +270,61 @@ export const finnishOverrides: Record<string, string> = {
   "cookies.and": "ja",
   "cookies.themeLockedHint":
     "Ota asetusevästeet käyttöön tietosuojapalkista, jotta teemavalinta tallentuu.",
+  "footer.openToRemote": "Avoin etätyölle",
+  "nav.projects": "Työni",
+  "home.role": "Full-stack-ohjelmistoinsinööri",
+  "home.tagline":
+    "Rakennan ja ylläpidän luotettavia web-sovelluksia, API:ita ja digitaalisia tuotteita TypeScriptillä, Node.js:llä, Reactilla ja PHP/Laravelilla.",
+  "home.availability": "Avoin kokoaikaisiin ja sopimusrooleihin Suomessa ja maailmalla - etänä tai hybridinä.",
+  "home.availabilityClosed":
+    "En ole juuri nyt avoinna uusille rooleille - ota silti yhteyttä tulevia mahdollisuuksia varten.",
+  "home.statusAvailable": "Avoinna työlle",
+  "home.statusUnavailable": "Ei juuri nyt saatavilla",
+  "home.viewWork": "Katso työni",
+  "home.expertiseAria": "Ydinosaaminen kategorioittain",
+  "home.expertise.backend": "Backend",
+  "home.expertise.frontend": "Frontend",
+  "home.expertise.data": "Data",
+  "home.expertise.cloudDevops": "Pilvi & DevOps",
+  "home.expertise.iot": "IoT",
+  "home.expertise.ai": "Tekoäly",
+  "home.sectionStackTitle": "Ydinosaaminen",
+  "home.sectionStackSubtitle":
+    "Full-stack web ja API TypeScriptillä, Node.js:llä, Reactilla ja Laravelilla - plus datakerrokset, pilvitoimitus ja IoT-järjestelmät.",
+  "home.sectionProficiencyTitle": "Tekninen vahvuus",
+  "home.sectionProficiencySubtitle":
+    "Missä tuotan eniten arvoa: ylläpidettävien full-stack-järjestelmien, luotettavien API:iden ja käytännöllisten tuoteominaisuuksien toimitus.",
+  "proj.eyebrow": "Valikoituja töitä",
+  "proj.title": "Sivustoja ja tuotteita, joita olen rakentanut",
+  "proj.intro":
+    "Lyhyt katsaus live-sivustoihin ja alustoihin, jotka suunnittelin, rakensin tai toimitin alusta loppuun. Suurin osa työstäni on yksityisiä web-sovelluksia ja sisäisiä työkaluja, joihin tarvitaan kirjautuminen, joten niitä ei voi laittaa julkiselle portfoliosivulle - voin näyttää demon tapaamisessa. Täällä on se osa, joka on turvallista jakaa julkisesti.",
+  "proj.sectionTitle": "Valitut työt",
+  "proj.sectionSubtitle":
+    "Live-linkit kun työ on julkinen; muuten selkeä kuvaus stackista ja siitä mitä toimitettiin.",
+  "proj.cardCode": "Koodi",
+  "proj.cardLive": "Sivustolle",
+  "proj.ariaTechnologies": "Teknologiat",
+  "proj.items.portfolio.title": "Henkilökohtainen portfolio",
+  "proj.items.portfolio.description":
+    "Suunniteltu ja rakennettu alusta loppuun itse - UI, sisältö ja tekniikka. Next.js App Router, TypeScript ja React, Tailwind CSS, monikielinen i18n, yhteydenotto-API:t, Docker VPS:llä ja ladattava CV.",
+  "proj.items.aecoWebsite.title": "Aeco Limited - haku, varaukset ja sisäiset työkalut",
+  "proj.items.aecoWebsite.description":
+    "Julkinen markkinointisivusto on yrityksen omaisuutta. Oma panokseni oli haku, varausvirrat ja sisäinen sovellus (ei näytetty täällä), heidän WordPress-stackillaan PHP:llä ja jQueryllä.",
+  "proj.items.curnext.title": "CurNext - työmaan tilannekuvatiedustelu",
+  "proj.items.curnext.description":
+    "Suunniteltu ja rakennettu alusta loppuun itse - CurNextin markkinointisivusto. Next.js App Router, React, shadcn/ui, Prisma/Postgres yhteydenotto- ja tarjouslomakkeille, Cloudflare Turnstile, Docker ja Dokploy-julkaisu curnext.appiin.",
+  "proj.items.asatek.title": "AsaTek - ohjelmistoyhtiöiden sivusto",
+  "proj.items.asatek.description":
+    "Rakennettu alusta loppuun itse - AsaTekin monikielinen markkinointisivusto. Next.js App Router, TypeScript, React, SEO/metadata, Docker ja Dokploy-julkaisu asatek.io:hon.",
+  "proj.items.iotAttendance.title": "SBO Tech - sisäinen RFID-läsnäolo",
+  "proj.items.iotAttendance.description":
+    "Julkinen markkinointisivusto sbotech.fi on yrityksen omaisuutta - en rakentanut sitä. Työni oli sisäinen RFID-läsnäolo- ja käyttäjähallintatuote (vaatii kirjautumisen, ei julkinen): räätälöidyt lukijat, Laravel-API ja admin-dashboard henkilöstön kirjautumisiin.",
+  "proj.items.smartHome.title": "Älykotialusta",
+  "proj.items.smartHome.description":
+    "Yksityisyyttä korostava älykotipino: paikallinen home-server MQTT-yhdyskäytävällä Bluetooth-, Wi-Fi- ja Zigbee-laitteille sekä Flutter-sovellus asennukseen, automaatioihin ja arjen hallintaan.",
+  "meta.projects.title": "Työni",
+  "meta.projects.description":
+    "Valikoituja sivustoja ja tuotteita, joita {name} on rakentanut - portfolio, asiakassivustot, API:t ja IoT-alustat.",
+  "seo.hiringMetaLineClosed":
+    "Ei juuri nyt avoinna uusille rooleille; yhteydenotto tulevia mahdollisuuksia varten on tervetullut.",
 };

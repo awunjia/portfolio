@@ -16,7 +16,7 @@ export const danishOverrides: Record<string, string> = {
   "lang.da": "Dansk",
 
   "footer.tagline": "Bygget med omtanke i Helsinki.",
-  "footer.location": "Helsinki, Finland · Åben for remote",
+  "footer.location": "Helsinki, Finland",
   "footer.legalNav": "Juridisk",
   "footer.legalCookies": "Cookiepolitik",
   "footer.legalPrivacy": "Privatliv & GDPR",
@@ -270,4 +270,60 @@ export const danishOverrides: Record<string, string> = {
   "cookies.and": "og",
   "cookies.themeLockedHint":
     "Slå præference-cookies til i banneret for at gemme tema.",
+  "footer.openToRemote": "Åben for remote",
+  "nav.projects": "Mit arbejde",
+  "home.role": "Full-stack softwareingeniør",
+  "home.tagline":
+    "Bygger og vedligeholder pålidelige webapps, API'er og digitale produkter med TypeScript, Node.js, React og PHP/Laravel.",
+  "home.availability": "Åben for fuldtids- og kontraktroller i Finland og verden over - remote eller hybrid.",
+  "home.availabilityClosed":
+    "Ikke åben for nye roller lige nu - du er velkommen til at kontakte mig om fremtidige muligheder.",
+  "home.statusAvailable": "Ledig til arbejde",
+  "home.statusUnavailable": "Ikke ledig i øjeblikket",
+  "home.viewWork": "Se mit arbejde",
+  "home.expertiseAria": "Kernekompetencer efter kategori",
+  "home.expertise.backend": "Backend",
+  "home.expertise.frontend": "Frontend",
+  "home.expertise.data": "Data",
+  "home.expertise.cloudDevops": "Cloud & DevOps",
+  "home.expertise.iot": "IoT",
+  "home.expertise.ai": "AI",
+  "home.sectionStackTitle": "Kernekompetencer",
+  "home.sectionStackSubtitle":
+    "Full-stack web og API med TypeScript, Node.js, React og Laravel - plus datalag, cloud-levering og IoT-systemer.",
+  "home.sectionProficiencyTitle": "Teknisk styrke",
+  "home.sectionProficiencySubtitle":
+    "Hvor jeg skaber mest værdi: at levere vedligeholdelige full-stack-systemer, pålidelige API'er og praktiske produktfeatures.",
+  "proj.eyebrow": "Udvalgt arbejde",
+  "proj.title": "Sites og produkter jeg har bygget",
+  "proj.intro":
+    "Et kort overblik over live-sites og platforme jeg har designet, bygget eller leveret fra ende til anden. Det meste af mit arbejde er private webapps og interne værktøjer, der kræver login, så de ikke kan stå på en offentlig portfolioside - jeg kan vise en demo i et møde. Her ser du det, der er sikkert at dele offentligt.",
+  "proj.sectionTitle": "Udvalgt arbejde",
+  "proj.sectionSubtitle":
+    "Live-links når arbejdet er offentligt; ellers en klar note om stacken og hvad der blev leveret.",
+  "proj.cardCode": "Kode",
+  "proj.cardLive": "Besøg site",
+  "proj.ariaTechnologies": "Teknologier",
+  "proj.items.portfolio.title": "Personlig portfolio",
+  "proj.items.portfolio.description":
+    "Designet og bygget fra ende til anden af mig - UI, indhold og teknik. Next.js App Router med TypeScript og React, Tailwind CSS, flersproget i18n, kontakt-API'er, Docker på VPS og downloadbar CV.",
+  "proj.items.aecoWebsite.title": "Aeco Limited - søgning, booking og interne værktøjer",
+  "proj.items.aecoWebsite.description":
+    "Det offentlige marketingsite tilhører virksomheden. Mit bidrag var søgning, bookingflows og en intern app (vises ikke her), bygget på deres WordPress-stack med PHP og jQuery.",
+  "proj.items.curnext.title": "CurNext - byggepladsintelligens",
+  "proj.items.curnext.description":
+    "Designet og bygget fra ende til anden af mig - marketingsitet for CurNext. Next.js App Router, React, shadcn/ui, Prisma/Postgres til kontakt- og tilbudsskemaer, Cloudflare Turnstile, Docker og Dokploy-deploy til curnext.app.",
+  "proj.items.asatek.title": "AsaTek - site for software ventures",
+  "proj.items.asatek.description":
+    "Bygget fra bunden af mig - det flersprogede marketingsite for AsaTek. Next.js App Router, TypeScript, React, SEO/metadata, Docker og Dokploy-deploy til asatek.io.",
+  "proj.items.iotAttendance.title": "SBO Tech - intern RFID-fremmøde",
+  "proj.items.iotAttendance.description":
+    "Det offentlige marketingsite sbotech.fi tilhører virksomheden - jeg byggede det ikke. Mit arbejde var et internt RFID-fremmøde- og brugerstyringsprodukt (kræver login, ikke offentligt): skræddersyede læsere, Laravel-API og admin-dashboard til medarbejder-check-in.",
+  "proj.items.smartHome.title": "Smart home-platform",
+  "proj.items.smartHome.description":
+    "En privatlivsfokuseret smart home-stack: lokal home-server med MQTT-gateway for Bluetooth-, Wi-Fi- og Zigbee-enheder plus en Flutter-app til setup, automationer og daglig styring.",
+  "meta.projects.title": "Mit arbejde",
+  "meta.projects.description":
+    "Udvalgte sites og produkter bygget af {name} - portfolio, kundesites, API'er og IoT-platforme.",
+  "seo.hiringMetaLineClosed": "Ikke åben for nye roller lige nu; kontakt om fremtidige muligheder er velkommen.",
 };
