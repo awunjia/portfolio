@@ -99,12 +99,15 @@ function TechTile({ tech }: { tech: TechItem }) {
     !Icon && slug ? `https://cdn.simpleicons.org/${slug}${color ? `/${color}` : ""}` : null;
 
   return (
-    <li className="flex w-[4rem] flex-col items-center gap-1.5 sm:w-[4.5rem]" title={name}>
-      <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-surface/80 shadow-sm ring-1 ring-border dark:bg-white/[0.06] dark:ring-white/10 sm:h-12 sm:w-12">
+    <li
+      className="inline-flex items-center gap-1.5 rounded-md border border-border/80 bg-background/60 px-2 py-1 dark:bg-white/[0.04] sm:w-[4.5rem] sm:flex-col sm:gap-1.5 sm:rounded-none sm:border-0 sm:bg-transparent sm:px-0 sm:py-0"
+      title={name}
+    >
+      <span className="flex h-5 w-5 shrink-0 items-center justify-center sm:h-12 sm:w-12 sm:rounded-xl sm:bg-surface/80 sm:shadow-sm sm:ring-1 sm:ring-border dark:sm:bg-white/[0.06] dark:sm:ring-white/10">
         {Icon ? (
           <Icon
             aria-hidden
-            className={`h-7 w-7 sm:h-8 sm:w-8${invertInDark ? " dark:invert" : ""}`}
+            className={`h-3.5 w-3.5 sm:h-8 sm:w-8${invertInDark ? " dark:invert" : ""}`}
             style={color ? { color: `#${color}` } : undefined}
           />
         ) : iconSrc ? (
@@ -114,17 +117,17 @@ function TechTile({ tech }: { tech: TechItem }) {
             alt=""
             width={32}
             height={32}
-            className={`h-7 w-7 object-contain sm:h-8 sm:w-8${invertInDark ? " dark:invert" : ""}`}
+            className={`h-3.5 w-3.5 object-contain sm:h-8 sm:w-8${invertInDark ? " dark:invert" : ""}`}
             loading="lazy"
             decoding="async"
           />
         ) : (
-          <span className="text-[10px] font-semibold tracking-tight text-accent" aria-hidden>
+          <span className="text-[8px] font-semibold tracking-tight text-accent sm:text-[10px]" aria-hidden>
             API
           </span>
         )}
       </span>
-      <span className="max-w-[4.5rem] text-center text-[10px] font-medium leading-tight text-muted sm:text-xs">
+      <span className="whitespace-nowrap text-[11px] font-medium leading-none text-muted sm:max-w-[4.5rem] sm:whitespace-normal sm:text-center sm:text-xs sm:leading-tight">
         {name}
       </span>
     </li>
@@ -144,7 +147,7 @@ export function CoreExpertise() {
           <h3 className="text-sm font-semibold tracking-wide text-foreground">
             {t(`home.expertise.${group.id}`)}
           </h3>
-          <ul className="mt-3 flex flex-wrap gap-x-3 gap-y-4 sm:gap-x-4">
+          <ul className="mt-2 flex flex-wrap gap-1.5 sm:mt-3 sm:gap-x-4 sm:gap-y-4">
             {group.items.map((tech) => (
               <TechTile key={tech.id} tech={tech} />
             ))}

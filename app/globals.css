@@ -160,6 +160,38 @@ body {
   }
 }
 
+@keyframes lottie-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.lottie-shimmer {
+  background-color: color-mix(in srgb, var(--surface) 88%, var(--muted) 12%);
+  background-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in srgb, var(--skills) 22%, transparent) 45%,
+    color-mix(in srgb, var(--accent) 18%, transparent) 55%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  background-repeat: no-repeat;
+  animation: lottie-shimmer 1.2s ease-in-out infinite;
+  border: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lottie-shimmer {
+    animation: none;
+    background-image: none;
+    background-color: color-mix(in srgb, var(--muted) 20%, var(--surface) 80%);
+  }
+}
+
 ::selection {
   background: color-mix(in srgb, var(--accent) 28%, transparent);
 }

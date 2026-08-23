@@ -31,7 +31,7 @@ export const danishOverrides: Record<string, string> = {
   "home.downloadCv": "Download CV",
   "home.skillsLink": "Hele kompetencesiden",
   "home.skillsLinkSuffix": "- stacks, grupperinger og lidt mere kontekst.",
-  "home.sectionDeliveryTitle": "Leverancefokus",
+  "home.sectionDeliveryTitle": "Hvad jeg kan gøre",
   "home.sectionDeliverySubtitle":
     "Produkt-, API-, data- og platformarbejde jeg typisk lander i.",
   "home.proficiency.frontend": "Frontend",

@@ -31,7 +31,7 @@ export const finnishOverrides: Record<string, string> = {
   "home.downloadCv": "Lataa CV",
   "home.skillsLink": "Taidot-sivulle",
   "home.skillsLinkSuffix": "- ryhmittelyt ja hieman lisäkontekstia.",
-  "home.sectionDeliveryTitle": "Toimitusfokus",
+  "home.sectionDeliveryTitle": "Mitä osaan tehdä",
   "home.sectionDeliverySubtitle":
     "Tuote-, API-, data- ja alustatyöt, joihin tyypillisesti nojaudun.",
   "home.proficiency.frontend": "Käyttöliittymä",

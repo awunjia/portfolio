@@ -6,6 +6,7 @@ import { siteConfig, type EducationItem, type SkillStack } from "@/config/site";
 import { LocaleLink } from "@/components/locale-link";
 import { Section } from "@/components/section";
 import { CoreExpertise } from "@/components/core-expertise";
+import { LottieShimmer } from "@/components/lottie/lottie-shimmer";
 import { useI18n } from "@/components/providers/i18n-provider";
 
 const SkillsHeroLottie = dynamic(
@@ -16,10 +17,7 @@ const SkillsHeroLottie = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div
-        className="h-[min(52vh,440px)] w-full max-w-[min(100%,420px)] animate-pulse rounded-2xl bg-muted/25"
-        aria-hidden
-      />
+      <LottieShimmer className="h-[min(52vh,260px)] w-full max-w-[min(100%,420px)]" />
     ),
   },
 );
@@ -183,7 +181,7 @@ export function BackgroundPageContent() {
                       {item.highlights.map((h) => (
                         <li
                           key={h}
-                          className="rounded-full border border-education-border/50 bg-education-border/10 px-2.5 py-0.5 text-xs font-medium text-card-subtitle dark:border-education-border/35 dark:bg-education-border/15 dark:text-muted"
+                          className="rounded-md border border-education-border/50 bg-education-border/10 px-2.5 py-0.5 text-xs font-medium text-card-subtitle dark:border-education-border/35 dark:bg-education-border/15 dark:text-muted"
                         >
                           {h}
                         </li>

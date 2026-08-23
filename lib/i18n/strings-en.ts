@@ -78,7 +78,7 @@ export const englishMessages: Record<string, string> = {
   "home.sectionProficiencyTitle": "Engineering Strength",
   "home.sectionProficiencySubtitle":
     "Where I deliver the most value: shipping maintainable full-stack systems, reliable APIs, and practical product features.",
-  "home.sectionDeliveryTitle": "Delivery focus",
+  "home.sectionDeliveryTitle": "What I can do",
   "home.sectionDeliverySubtitle":
     "The kinds of product, API, data, and platform work I tend to lean into.",
   "home.proficiency.frontend": "Frontend",

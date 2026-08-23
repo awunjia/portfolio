@@ -1,6 +1,5 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { motion, useReducedMotion } from "framer-motion";
 import { HiOutlineArrowDownTray, HiOutlineRectangleStack } from "react-icons/hi2";
 import { siteConfig } from "@/config/site";
@@ -9,20 +8,7 @@ import { useI18n } from "@/components/providers/i18n-provider";
 import { SocialMedia } from "@/components/devfolio/social-media";
 import { AvailabilityStatus } from "@/components/availability-status";
 import { isAvailableForWork } from "@/lib/available-for-work";
-
-const HeroLottie = dynamic(
-  () => import("@/components/devfolio/hero-lottie").then((m) => ({ default: m.HeroLottie })),
-  {
-    ssr: false,
-    loading: () => (
-      <div
-        className="greeting-image-div relative mx-auto w-full max-w-[420px] shrink-0 animate-pulse rounded-2xl bg-muted/25 lg:mx-0 lg:max-w-[min(34vw,400px)]"
-        style={{ minHeight: "min(50vh, 520px)" }}
-        aria-hidden
-      />
-    ),
-  },
-);
+import { HeroLottie } from "@/components/devfolio/hero-lottie";
 
 export function HomeHero() {
   const reduceMotion = useReducedMotion();
@@ -30,13 +16,13 @@ export function HomeHero() {
   const available = isAvailableForWork();
 
   return (
-    <motion.div
-      className="greeting-main flex min-w-0 flex-col gap-10 lg:flex-row lg:items-center lg:gap-8"
-      initial={reduceMotion ? false : { opacity: 0, y: 20 }}
-      animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-    >
-      <div className="greeting-text-div min-w-0 flex-1">
+    <div className="greeting-main flex min-w-0 flex-col gap-10 lg:flex-row lg:items-center lg:gap-8">
+      <motion.div
+        className="greeting-text-div min-w-0 flex-1"
+        initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+        animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+      >
         <h1 className="greeting-text max-w-3xl break-words text-3xl font-semibold leading-tight tracking-tight text-foreground sm:text-4xl md:text-5xl lg:text-[70px] lg:leading-[1.1]">
           {siteConfig.fullName}
         </h1>
@@ -69,11 +55,11 @@ export function HomeHero() {
             {t("home.downloadCv")}
           </a>
         </div>
-      </div>
-      <div className="flex w-full shrink-0 flex-col items-center gap-6 lg:w-auto lg:max-w-[min(34vw,400px)] lg:items-center">
+      </motion.div>
+      <div className="flex w-full shrink-0 flex-col items-center gap-2 lg:w-auto lg:max-w-[min(34vw,400px)] lg:items-center">
         <HeroLottie />
-        <SocialMedia className="justify-center" />
+        <SocialMedia className="-mt-1 justify-center" />
       </div>
-    </motion.div>
+    </div>
   );
 }

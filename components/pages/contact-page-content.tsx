@@ -5,6 +5,7 @@ import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import { ContactForm } from "@/components/contact-form";
 import { useI18n } from "@/components/providers/i18n-provider";
+import { LottieShimmer } from "@/components/lottie/lottie-shimmer";
 
 const ContactHeroLottie = dynamic(
   () =>
@@ -13,9 +14,7 @@ const ContactHeroLottie = dynamic(
     })),
   {
     ssr: false,
-    loading: () => (
-      <div className="h-56 w-full max-w-md animate-pulse rounded-2xl bg-muted/25" aria-hidden />
-    ),
+    loading: () => <LottieShimmer className="h-56 w-full max-w-md" />,
   },
 );
 

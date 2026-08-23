@@ -3,10 +3,14 @@
 /**
  * Heavy animations stay in `public/lottie/` and load on demand (not in the JS bundle).
  */
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Lottie, { type LottieRefCurrentProps } from "lottie-react";
 import { DotLottieReact, type DotLottie } from "@lottiefiles/dotlottie-react";
 import { useReducedMotion } from "framer-motion";
+import { createDotLottieReadyHandler } from "@/components/lottie/dot-lottie-utils";
+import { useJsonLottieLoaded } from "@/components/lottie/json-lottie-utils";
+import { LottieShimmer } from "@/components/lottie/lottie-shimmer";
+import { useLottieReady } from "@/components/lottie/lottie-ready";
 import { useI18n } from "@/components/providers/i18n-provider";
 
 const MOBILE_APP_DOTLOTTIE_SRC = "/lottie/mobile-app-promo.lottie";
@@ -17,7 +21,7 @@ const DATABASE_DOTLOTTIE_SRC = "/lottie/database-management.lottie";
 const IOT_DEVICES_DOTLOTTIE_SRC = "/lottie/iot-devices-connected.lottie";
 
 const lottieStageClassName =
-  "mx-auto flex h-[min(22vh,140px)] w-full max-w-[min(100%,360px)] items-center justify-center sm:h-[min(32vh,240px)]";
+  "relative mx-auto flex h-[min(22vh,140px)] w-full max-w-[min(100%,360px)] items-center justify-center sm:h-[min(32vh,240px)]";
 
 function useInViewOnce<T extends Element>() {
   const ref = useRef<T | null>(null);
@@ -54,34 +58,50 @@ function PlatformDotLottie({
   const reduceMotion = useReducedMotion();
   const playerRef = useRef<DotLottie | null>(null);
   const { ref, inView } = useInViewOnce<HTMLElement>();
+  const { loaded, markReady } = useLottieReady();
 
   useEffect(() => {
     const p = playerRef.current;
     if (!p) return;
     if (reduceMotion) p.pause();
     else p.play();
-  }, [reduceMotion]);
+  }, [reduceMotion, loaded]);
+
+  const onPlayer = useCallback(
+    (instance: DotLottie | null) => {
+      playerRef.current = instance;
+      createDotLottieReadyHandler(markReady, reduceMotion, instance);
+    },
+    [markReady, reduceMotion],
+  );
+
+  const showContent = inView && loaded;
 
   return (
     <figure ref={ref} className="flex h-full flex-col items-center text-center">
       <div className={lottieStageClassName} aria-hidden>
+        <LottieShimmer
+          className={`absolute inset-0 z-10 transition-opacity duration-300 ${
+            showContent ? "pointer-events-none opacity-0" : "opacity-100"
+          }`}
+        />
         {inView ? (
-          <DotLottieReact
-            src={src}
-            loop
-            autoplay={reduceMotion !== true}
-            dotLottieRefCallback={(instance) => {
-              playerRef.current = instance;
-              if (instance) {
-                if (reduceMotion) instance.pause();
-                else instance.play();
-              }
-            }}
-            className="mx-auto h-full max-h-full w-full object-contain"
-          />
-        ) : (
-          <div className="h-full w-full animate-pulse rounded-2xl bg-muted/20" />
-        )}
+          <div
+            className={
+              showContent
+                ? "relative h-full w-full opacity-100 transition-opacity duration-300"
+                : "relative h-full w-full opacity-0"
+            }
+          >
+            <DotLottieReact
+              src={src}
+              loop
+              autoplay={reduceMotion !== true}
+              dotLottieRefCallback={onPlayer}
+              className="mx-auto h-full max-h-full w-full object-contain"
+            />
+          </div>
+        ) : null}
       </div>
       <figcaption className="mt-auto w-full max-w-sm shrink-0 px-1 pt-3 sm:px-2 sm:pt-4">
         <p className="text-sm font-semibold text-foreground sm:text-lg">{label}</p>
@@ -104,6 +124,7 @@ function PlatformJsonLottie({
   const reduceMotion = useReducedMotion();
   const { ref, inView } = useInViewOnce<HTMLElement>();
   const [data, setData] = useState<object | null>(null);
+  const { loaded, onDOMLoaded, onEnterFrame, onDataReady } = useJsonLottieLoaded();
 
   useEffect(() => {
     if (!inView || data) return;
@@ -114,7 +135,7 @@ function PlatformJsonLottie({
         if (!cancelled) setData(json);
       })
       .catch(() => {
-        /* leave placeholder */
+        /* leave shimmer */
       });
     return () => {
       cancelled = true;
@@ -126,21 +147,37 @@ function PlatformJsonLottie({
     if (!inst) return;
     if (reduceMotion) inst.pause();
     else inst.play();
-  }, [reduceMotion, data]);
+  }, [reduceMotion, data, loaded]);
+
+  const showContent = Boolean(data) && loaded;
 
   return (
     <figure ref={ref} className="flex h-full flex-col items-center text-center">
       <div className={lottieStageClassName} aria-hidden>
+        <LottieShimmer
+          className={`absolute inset-0 z-10 transition-opacity duration-300 ${
+            showContent ? "pointer-events-none opacity-0" : "opacity-100"
+          }`}
+        />
         {data ? (
-          <Lottie
-            lottieRef={lottieRef}
-            animationData={data}
-            loop
-            className="mx-auto h-full max-h-full w-full object-contain"
-          />
-        ) : (
-          <div className="h-full w-full animate-pulse rounded-2xl bg-muted/20" />
-        )}
+          <div
+            className={
+              showContent
+                ? "relative h-full w-full opacity-100 transition-opacity duration-300"
+                : "relative h-full w-full opacity-0"
+            }
+          >
+            <Lottie
+              lottieRef={lottieRef}
+              animationData={data}
+              loop
+              onDOMLoaded={onDOMLoaded}
+              onEnterFrame={onEnterFrame}
+              onDataReady={onDataReady}
+              className="mx-auto h-full max-h-full w-full object-contain"
+            />
+          </div>
+        ) : null}
       </div>
       <figcaption className="mt-auto w-full max-w-sm shrink-0 px-1 pt-3 sm:px-2 sm:pt-4">
         <p className="text-sm font-semibold text-foreground sm:text-lg">{label}</p>

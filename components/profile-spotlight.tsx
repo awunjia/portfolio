@@ -122,61 +122,60 @@ export function ProfileSpotlight() {
           </div>
 
           <div className="flex min-w-0 flex-1 flex-col justify-end">
-            <ul className="grid gap-4 sm:grid-cols-2">
+            <ul className="grid grid-cols-2 gap-2 sm:gap-4">
               {rows.map((row) => {
                 const { key, Icon, label, value } = row;
                 const href = "href" in row ? row.href : undefined;
                 return (
-                  <li
-                    key={key}
-                    className="flex gap-3 rounded-xl border border-border/80 bg-background/60 px-4 py-3 dark:bg-white/[0.04]"
-                  >
-                    <Icon
-                      className="mt-0.5 h-5 w-5 shrink-0 text-skills"
-                      aria-hidden
-                    />
-                    <div className="min-w-0">
-                      <p className="text-xs font-medium text-muted">
-                        {label}
-                      </p>
-                      {href ? (
-                        <a
-                          href={href}
-                          className="mt-0.5 block break-words text-sm font-medium text-foreground underline-offset-4 transition-colors hover:text-accent hover:underline"
-                        >
-                          {value}
-                        </a>
-                      ) : key === "phone" ? (
-                        <div className="mt-0.5 flex items-center gap-2">
-                          <p
-                            className={`break-words text-sm font-medium text-foreground ${
-                              showPhone ? "" : "select-none blur-[3px]"
-                            }`}
-                            aria-live="polite"
-                          >
-                            {showPhone ? realPhone : maskedPhone}
-                          </p>
-                          <button
-                            type="button"
-                            onClick={() => setShowPhone((prev) => !prev)}
-                            className="inline-flex h-6 w-6 items-center justify-center rounded-md border border-border/80 text-muted transition-colors hover:text-accent"
-                            aria-label={
-                              showPhone ? t("profile.hidePhone") : t("profile.revealPhone")
-                            }
-                            aria-pressed={showPhone}
-                          >
-                            {showPhone ? (
-                              <HiOutlineEyeSlash className="h-4 w-4" aria-hidden />
-                            ) : (
-                              <HiOutlineEye className="h-4 w-4" aria-hidden />
-                            )}
-                          </button>
-                        </div>
-                      ) : (
-                        <p className="mt-0.5 break-words text-sm font-medium text-foreground">
-                          {value}
+                  <li key={key}>
+                    <div className="flex h-full w-full gap-2 rounded-xl border border-border/80 bg-background/60 px-3 py-2.5 dark:bg-white/[0.04] sm:gap-3 sm:px-4 sm:py-3">
+                      <Icon
+                        className="mt-0.5 h-5 w-5 shrink-0 text-skills"
+                        aria-hidden
+                      />
+                      <div className="min-w-0">
+                        <p className="text-xs font-medium text-muted">
+                          {label}
                         </p>
-                      )}
+                        {href ? (
+                          <a
+                            href={href}
+                            className="mt-0.5 block break-words text-sm font-medium text-foreground underline-offset-4 transition-colors hover:text-accent hover:underline"
+                          >
+                            {value}
+                          </a>
+                        ) : key === "phone" ? (
+                          <div className="mt-0.5 flex items-center gap-2">
+                            <p
+                              className={`break-words text-sm font-medium text-foreground ${
+                                showPhone ? "" : "select-none blur-[3px]"
+                              }`}
+                              aria-live="polite"
+                            >
+                              {showPhone ? realPhone : maskedPhone}
+                            </p>
+                            <button
+                              type="button"
+                              onClick={() => setShowPhone((prev) => !prev)}
+                              className="inline-flex h-6 w-6 items-center justify-center rounded-md border border-border/80 text-muted transition-colors hover:text-accent"
+                              aria-label={
+                                showPhone ? t("profile.hidePhone") : t("profile.revealPhone")
+                              }
+                              aria-pressed={showPhone}
+                            >
+                              {showPhone ? (
+                                <HiOutlineEyeSlash className="h-4 w-4" aria-hidden />
+                              ) : (
+                                <HiOutlineEye className="h-4 w-4" aria-hidden />
+                              )}
+                            </button>
+                          </div>
+                        ) : (
+                          <p className="mt-0.5 break-words text-sm font-medium text-foreground">
+                            {value}
+                          </p>
+                        )}
+                      </div>
                     </div>
                   </li>
                 );

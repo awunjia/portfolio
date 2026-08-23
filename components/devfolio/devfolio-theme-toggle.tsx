@@ -6,6 +6,7 @@
  */
 import { useTheme } from "next-themes";
 import { useSyncExternalStore } from "react";
+import { HiOutlineMoon, HiOutlineSun } from "react-icons/hi2";
 import { useCookieConsent } from "@/components/providers/cookie-consent-provider";
 import { useI18n } from "@/components/providers/i18n-provider";
 
@@ -39,10 +40,16 @@ export function DevfolioThemeToggle() {
         aria-hidden
       />
       <span
-        className="absolute left-0 top-0 flex h-[26px] w-[28px] translate-x-0 items-center justify-center rounded-full bg-white text-[11px] shadow-sm ring-1 ring-black/12 transition-transform duration-300 peer-checked:translate-x-[22px] dark:bg-neutral-200 dark:ring-white/10 dark:peer-checked:bg-neutral-100 dark:peer-checked:ring-white/15"
+        className="absolute left-0 top-0 flex h-[26px] w-[28px] translate-x-0 items-center justify-center rounded-full bg-white text-neutral-700 shadow-sm ring-1 ring-black/12 transition-transform duration-300 peer-checked:translate-x-[22px] peer-checked:text-neutral-800 dark:bg-neutral-200 dark:ring-white/10 dark:peer-checked:bg-neutral-100 dark:peer-checked:ring-white/15"
         aria-hidden
       >
-        {mounted ? (isDark ? "🌜" : "☀️") : ""}
+        {mounted ? (
+          isDark ? (
+            <HiOutlineMoon className="size-3.5 shrink-0" strokeWidth={2} />
+          ) : (
+            <HiOutlineSun className="size-3.5 shrink-0" strokeWidth={2} />
+          )
+        ) : null}
       </span>
     </label>
   );

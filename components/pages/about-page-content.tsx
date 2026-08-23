@@ -5,6 +5,7 @@ import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import { Section } from "@/components/section";
 import { useI18n } from "@/components/providers/i18n-provider";
+import { LottieShimmer } from "@/components/lottie/lottie-shimmer";
 
 const WorkExperienceHeroLottie = dynamic(
   () =>
@@ -14,10 +15,7 @@ const WorkExperienceHeroLottie = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div
-        className="h-[min(52vh,440px)] w-full max-w-[min(100%,420px)] animate-pulse rounded-2xl bg-muted/25"
-        aria-hidden
-      />
+      <LottieShimmer className="h-[min(52vh,280px)] w-full max-w-[min(100%,420px)]" />
     ),
   },
 );

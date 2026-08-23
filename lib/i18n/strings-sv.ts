@@ -31,7 +31,7 @@ export const swedishOverrides: Record<string, string> = {
   "home.downloadCv": "Ladda ner CV",
   "home.skillsLink": "Hela kompetenssidan",
   "home.skillsLinkSuffix": "- stackar, grupperingar och lite mer kontext.",
-  "home.sectionDeliveryTitle": "Leveransfokus",
+  "home.sectionDeliveryTitle": "Vad jag kan göra",
   "home.sectionDeliverySubtitle":
     "Produkt-, API-, data- och plattformsarbete jag brukar landa i.",
   "home.proficiency.frontend": "Frontend",

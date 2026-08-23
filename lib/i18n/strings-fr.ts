@@ -31,7 +31,7 @@ export const frenchOverrides: Record<string, string> = {
   "home.downloadCv": "Télécharger le CV",
   "home.skillsLink": "Page compétences complète",
   "home.skillsLinkSuffix": "- stacks, regroupements et un peu plus de contexte.",
-  "home.sectionDeliveryTitle": "Focus livraison",
+  "home.sectionDeliveryTitle": "Ce que je peux faire",
   "home.sectionDeliverySubtitle":
     "Les types de travail produit, API, data et plateforme vers lesquels je tends.",
   "home.proficiency.frontend": "Frontend",

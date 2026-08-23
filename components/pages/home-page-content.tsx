@@ -9,6 +9,7 @@ import { ProfileSpotlight } from "@/components/profile-spotlight";
 import { HomeWorkShowcase } from "@/components/home-work-showcase";
 import { LocaleLink } from "@/components/locale-link";
 import { useI18n } from "@/components/providers/i18n-provider";
+import { LottieShimmer } from "@/components/lottie/lottie-shimmer";
 
 const PlatformLottiesShowcase = dynamic(
   () =>
@@ -17,13 +18,7 @@ const PlatformLottiesShowcase = dynamic(
     })),
   {
     ssr: false,
-    loading: () => (
-      <div
-        className="mx-auto w-full max-w-6xl animate-pulse rounded-2xl bg-muted/20"
-        style={{ minHeight: 320 }}
-        aria-hidden
-      />
-    ),
+    loading: () => <LottieShimmer className="mx-auto h-80 w-full max-w-6xl" />,
   },
 );
 
