@@ -6,7 +6,7 @@ import { useReducedMotion } from "framer-motion";
 import animationData from "@/assets/lottie/work-experience.json";
 
 /**
- * Developer at a desk with code on screen (notebook, desk, coffee) — fits “work experience”.
+ * Developer at a desk with code on screen (notebook, desk, coffee) - fits “work experience”.
  * Fill / gradient colors are remapped to `--accent` / `--skills` (see `globals.css`).
  * Based on a LottieFiles community asset (Lottie Simple License: https://lottiefiles.com/license).
  */

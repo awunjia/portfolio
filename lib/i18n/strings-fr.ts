@@ -1,10 +1,8 @@
 /** French overrides */
 export const frenchOverrides: Record<string, string> = {
   "nav.home": "Accueil",
-  "nav.skills": "Compétences",
-  "nav.education": "Formation",
+  "nav.background": "Parcours",
   "nav.work": "Expérience professionnelle",
-  "nav.opensource": "Open source",
   "nav.contact": "Contact",
   "nav.menuOpen": "Ouvrir le menu",
   "nav.menuClose": "Fermer le menu",
@@ -18,6 +16,8 @@ export const frenchOverrides: Record<string, string> = {
   "lang.da": "Danois",
 
   "footer.tagline": "Conçu avec soin à Helsinki.",
+  "footer.location": "Helsinki, Finlande · Ouvert au télétravail",
+  "footer.legalNav": "Mentions légales",
   "footer.legalCookies": "Politique de cookies",
   "footer.legalPrivacy": "Confidentialité & RGPD",
   "footer.legalTerms": "Conditions d'utilisation",
@@ -28,51 +28,41 @@ export const frenchOverrides: Record<string, string> = {
   "a11y.backToTop": "Retour en haut",
 
   "home.ariaOverview": "Aperçu",
-  "home.role": "Ingénieur logiciel full-stack",
-  "home.tagline":
-    "Je suis un ingénieur full-stack qui aime le web et le mobile calmes et maintenables. Je travaille surtout avec Node.js, PHP et Flutter - des API et couches de données jusqu'aux interfaces que les gens utilisent vraiment - et j'aime collaborer avec le produit, le design et l'équipe.",
-  "home.sayHello": "Dire bonjour",
   "home.downloadCv": "Télécharger le CV",
-  "home.sectionStackTitle": "Stack technique",
-  "home.sectionStackSubtitle":
-    "Les outils que j'utilise souvent au quotidien sur les produits.",
   "home.skillsLink": "Page compétences complète",
   "home.skillsLinkSuffix": "- stacks, regroupements et un peu plus de contexte.",
-  "home.sectionProficiencyTitle": "Points d'accent",
-  "home.sectionProficiencySubtitle":
-    "Auto-évaluations approximatives - utiles pour lancer la conversation, pas un scorecard.",
   "home.sectionDeliveryTitle": "Focus livraison",
   "home.sectionDeliverySubtitle":
-    "Les types de travail web et mobile vers lesquels je tends.",
+    "Les types de travail produit, API, data et plateforme vers lesquels je tends.",
   "home.proficiency.frontend": "Frontend",
   "home.proficiency.backend": "Backend",
   "home.proficiency.programming": "Programmation",
   "home.delivery.mobileTitle": "Applications mobiles",
   "home.delivery.mobileBody":
-    "Flutter lorsqu'un client mobile au feeling natif est le bon choix - UX soignée et livraisons réalistes à déployer.",
+    "Apps Flutter au feeling natif, UX claire, branchements offline et API solides, et builds réalistes à livrer et maintenir.",
   "home.delivery.webTitle": "Apps web et tableaux de bord",
   "home.delivery.webBody":
-    "Apps web et dashboards avec Next.js, API REST ou GraphQL, auth, et des vues qui restent lisibles quand les données s'accumulent.",
+    "Apps web et dashboards avec Next.js, auth, et des vues qui restent lisibles quand les données s'accumulent.",
+  "home.delivery.apiTitle": "API et intégrations",
+  "home.delivery.apiBody":
+    "Frontières REST et services qui restent claires sous charge - contrats, auth et intégrations sur lesquelles d'autres équipes peuvent s'appuyer.",
+  "home.delivery.devopsTitle": "Cloud et DevOps",
+  "home.delivery.devopsBody":
+    "Docker, CI/CD et livraison cloud pour des releases prévisibles - du build local jusqu'à un VPS ou une plateforme managée.",
+  "home.delivery.databaseTitle": "Bases de données et data",
+  "home.delivery.databaseBody":
+    "PostgreSQL, MySQL, MongoDB et Redis quand le produit a besoin d'une persistance solide, de migrations et d'un cache maintenable.",
+  "home.delivery.iotTitle": "IoT et appareils connectés",
+  "home.delivery.iotBody":
+    "Travail embarqué et edge avec capteurs, MQTT et gateways - relier les contraintes hardware à des services cloud ou on-prem fiables.",
   "home.ctaTitle": "Recrutement ou simple curiosité ?",
   "home.ctaBody":
-    "Si vous partagez le poste, le niveau, la stack et le calendrier, je répondrai avec ma disponibilité et quelques notes pertinentes dès que possible - en général sous quelques jours ouvrés.",
+    "Parlez-moi de la mission que vous avez, ou si vous souhaitez en savoir plus sur moi - n'hésitez pas à me contacter. Je réponds en général sous 1 jour ouvré.",
   "home.ctaButton": "Me contacter",
-  "home.builtTitle": "Construit et déployé avec",
-  "home.builtIntro":
-    "Ce site est une petite app Next.js sur un VPS derrière Dokploy, avec Cloudflare devant pour le TLS et un peu de sérénité. Rien de fancy - une setup simple que je suis à l'aise de maintenir.",
-  "home.cardStackTitle": "Stack applicative",
-  "home.cardStackBody":
-    "Next.js App Router, TypeScript, React, Tailwind CSS, quelques routes API pour le mail de contact, et un CV statique servi depuis le dossier public.",
-  "home.cardHostTitle": "Hébergement et livraison",
-  "home.cardHostBody":
-    "Emballé avec Docker sur un VPS et publié via Dokploy pour des déploiements prévisibles et faciles à annuler si besoin.",
-  "home.cardSecurityTitle": "Sécurité et edge",
-  "home.cardSecurityBody":
-    "Cloudflare devant pour le DNS et le TLS, avec des défauts raisonnables pour le trafic edge afin que l'app reste joignable et un peu plus sûre.",
-  "home.cardSeoTitle": "SEO et crawlabilité",
-  "home.cardSeoBody":
-    "Métadonnées de base, URL canoniques, robots.txt et sitemap.xml sont en place pour que les moteurs indexent les pages publiques sans complication.",
-  "home.techMarqueeAria": "Stack technologique",
+  "home.workTitle": "Voir mon travail",
+  "home.workSubtitle":
+    "Quelques sites et produits que j'ai construits - des sites publics aux API et systèmes connectés.",
+  "home.workViewAll": "Tout le travail",
 
   "profile.heading": "En un coup d'œil",
   "profile.basedIn": "Basé à",
@@ -85,10 +75,9 @@ export const frenchOverrides: Record<string, string> = {
   "profile.hidePhone": "Masquer le numéro",
   "profile.portraitAlt": "Portrait de {name}",
   "profile.degreeLine": "Technologies de l'information",
-  "profile.spokenLanguagesValue": "Anglais, finnois",
+  "profile.spokenLanguagesValue": "Anglais, finnois, français",
   "profile.timezoneValue": "Heure d'Europe de l'Est (EET)",
-  "profile.availabilityPitch":
-    "Ouvert à échanger sur un poste à temps plein ou en contrat - remote ou hybride.",
+  "profile.availabilityPitch": "Temps plein/contrat, Remote/hybride/sur site",
 
   "social.ariaGroup": "GitHub, LinkedIn et e-mail",
   "social.github": "GitHub",
@@ -185,6 +174,13 @@ export const frenchOverrides: Record<string, string> = {
   "about.bio":
     "J'aime transformer des besoins flous en logiciel stable - une structure claire là où elle aide, des tests là où ils rapportent, et une UX bienveillante pour les utilisateurs comme pour la prochaine personne qui ouvre le dépôt.",
 
+  "background.eyebrow": "Fondation",
+  "background.title": "Compétences & formation",
+  "background.intro":
+    "Les outils avec lesquels je livre, et les études derrière - stacks par couche, puis diplômes et parcours.",
+  "background.workHint": "Pour les postes et le quotidien, voir",
+  "background.workLink": "l'expérience professionnelle",
+
   "skills.eyebrow": "Boîte à outils",
   "skills.title": "Compétences & stacks",
   "skills.intro":
@@ -226,71 +222,12 @@ export const frenchOverrides: Record<string, string> = {
   "edu.thesisLabel": "Mémoire de bachelor · {year}",
   "edu.thesisLink": "Lire sur Theseus →",
 
-  "proj.title": "Projets",
-  "proj.intro1": "Tout ici est édité dans",
-  "proj.intro2":
-    "- ajustez titres, descriptions et stacks quand vous le souhaitez.",
-  "proj.sectionTitle": "Tous les projets",
-  "proj.sectionSubtitle":
-    "Un mélange d'échantillons de travail et d'expériences - rien de caché derrière du marketing.",
-  "proj.cardCode": "Code",
-  "proj.cardLive": "Site en ligne",
-  "proj.ariaTechnologies": "Technologies",
-  "proj.items.portfolio.title": "Plateforme portfolio",
-  "proj.items.portfolio.description":
-    "Ce site - une app Next.js calme, pilotée par une config typée, avec App Router, i18n multi-langues, packaging Docker, et un CV statique téléchargeable en un clic.",
-  "proj.items.apiToolkit.title": "Boîte à outils API",
-  "proj.items.apiToolkit.description":
-    "Handlers REST typés, validation à l'exécution et erreurs structurées pour que les clients - humains ou machines - sachent toujours exactement ce qui s'est passé.",
-  "proj.items.iotAttendance.title": "Plateforme de présence IoT",
-  "proj.items.iotAttendance.description":
-    "Lecteurs RFID sur mesure couplés à une API Laravel de présence et un tableau de bord admin. Matériel, firmware, serveur et UI co-conçus pour qu'un pointage reste un tap d'une seconde.",
-  "proj.items.smartHome.title": "Plateforme maison intelligente",
-  "proj.items.smartHome.description":
-    "Une stack smart-home axée sur la vie privée : passerelle locale MQTT reliant Bluetooth, Wi-Fi et Zigbee, plus une app Flutter pour l'installation, les automatisations et le quotidien.",
-
-  "oss.eyebrow": "GitHub",
-  "oss.title": "Open source",
-  "oss.introBefore": "Une liste en direct des dépôts publics de",
-  "oss.introAfter": ", tirée de l'API GitHub au chargement de la page.",
-  "oss.errorTitle": "Les dépôts n'ont pas pu se charger cette fois",
-  "oss.errorHintBefore": "Si vous êtes le propriétaire du site, ajouter",
-  "oss.errorHintAfter":
-    "aide en général avec les limites de débit. Un PAT classique ou un jeton fine-grained en lecture sur les dépôts publics suffit.",
-  "oss.viewGithub": "Voir le profil sur GitHub",
-  "oss.reposHeading": "Dépôts ({count})",
-  "oss.reposBody":
-    "Triés par dernier push, y compris forks et dépôts archivés lorsqu'ils restent utiles à lister.",
-  "oss.reposEmpty": "Aucun dépôt public trouvé pour ce compte.",
-  "oss.repoArchived": "Archivé",
-  "oss.repoFork": "Fork",
-  "oss.repoNoDescription": "Pas encore de description sur GitHub.",
-  "oss.repoStars": "{count} étoiles",
-  "oss.repoForks": "{count} forks",
-  "oss.repoUpdated": "Mis à jour le {date}",
-  "oss.repoOpen": "Dépôt",
-  "oss.repoWebsite": "Site web",
-  "oss.repoTopicsAria": "Sujets",
-
-  "github.statsAria": "Statistiques GitHub",
-  "github.statsTitle": "GitHub en bref",
-  "github.statsIntro":
-    "Compteurs publics pour {handle} - mis en cache environ une heure pour garder la page réactive.",
-  "github.openProfile": "Ouvrir le profil GitHub",
-  "github.statRepos": "Dépôts publics",
-  "github.statFollowers": "Abonnés",
-  "github.statFollowing": "Abonnements",
-
   "meta.home.title": "Aperçu",
   "meta.home.description": "{name} - {role}. {tagline}",
-  "meta.skills.title": "Compétences",
-  "meta.skills.description":
-    "Un tour détendu des outils et stacks de {name} - {role}.",
-  "meta.skills.ogDescription": "{tagline}",
-  "meta.education.title": "Formation",
-  "meta.education.description":
-    "Formation de {name} - {degree} à {school}, et études antérieures.",
-  "meta.education.ogDescription": "{degree}, {school}",
+  "meta.background.title": "Parcours",
+  "meta.background.description":
+    "Compétences, stacks et formation de {name} - {role}. {degree}, {school}.",
+  "meta.background.ogDescription": "{tagline}",
   "meta.about.title": "Expérience professionnelle",
   "meta.about.description":
     "Un parcours d'expérience pour {name} - surtout full-stack web, Laravel, et un peu de Flutter IoT.",
@@ -298,12 +235,6 @@ export const frenchOverrides: Record<string, string> = {
   "meta.contact.title": "Contact",
   "meta.contact.description":
     "Un moyen simple de joindre {name} - laissez un message depuis cette page.",
-  "meta.projects.title": "Projets",
-  "meta.projects.description":
-    "Une sélection de projets de {name}, gérée dans la configuration du site.",
-  "meta.oss.title": "Open source",
-  "meta.oss.description": "Dépôts GitHub publics de {name}.",
-  "meta.oss.ogDescription": "Dépôts de {handle} sur GitHub.",
 
   "meta.keywords":
     "Awunjia Serge, Serge Awunjia, recruter développeur Finlande, développeur full-stack remote, ingénieur logiciel contrat Europe, Helsinki ingénieur logiciel, développeur Laravel, développeur Next.js, développeur Flutter, ingénieur TypeScript, développeur disponible, Novia UAS Vaasa, University of Buea informatique, GitHub awunjia, LinkedIn Awunjia Serge, Groweo, Sbotech, site portfolio",

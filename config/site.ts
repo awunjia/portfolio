@@ -1,12 +1,16 @@
 export type SiteProject = {
   /** When set, UI uses `proj.items.{key}.*` strings */
-  i18nKey?: "portfolio" | "apiToolkit" | "iotAttendance" | "smartHome";
+  i18nKey?: "portfolio" | "aecoWebsite" | "curnext" | "asatek" | "iotAttendance" | "smartHome";
   title: string;
   description: string;
   techStack: string[];
   githubUrl?: string;
   liveUrl?: string;
   images?: string[];
+  /** Centered image mark on the card cover when no photo is set */
+  logo?: string;
+  /** Show the site wordmark (Agustina name) on the cover instead of a logo image */
+  coverWordmark?: boolean;
 };
 
 export type ExperienceItem = {
@@ -98,9 +102,8 @@ export const siteConfig = {
   profile: {
     avatarSrc: "/images/portrait.jpg",
     timezone: "Eastern European Time (EET)",
-    languages: "English, Finnish",
-    availability:
-      "Happy to chat about full-time or contract work - remote or hybrid.",
+    languages: "English, Finnish, French",
+    availability: "Full-time/contract, Remote/Hybrid/On site",
   },
   email: "contact@awunjia.com",
   github: "https://github.com/awunjia",
@@ -126,9 +129,9 @@ export const siteConfig = {
   },
   /** GitHub username for optional stats section */
   githubUsername: "awunjia",
-  role: "Full-stack software engineer",
+  role: "Full-stack Software Engineer",
   tagline:
-    "I'm a full-stack engineer who enjoys calm, maintainable web and mobile work. I mostly work with Node.js, PHP, and Flutter, from APIs and data layers to interfaces people can actually use, and I like pairing with product, design, and teammates along the way.",
+    "Building and maintaining reliable web applications, APIs, and digital products with TypeScript, Node.js, React, and PHP/Laravel.",
   bio: "I like turning fuzzy requirements into software that feels steady - clear structure where it helps, tests where they earn their keep, and UX that stays kind to both users and whoever opens the repo next.",
   /** DeveloperFolio-style proficiency meters (skillProgress) */
   proficiency: [
@@ -191,7 +194,7 @@ export const siteConfig = {
     "Bash",
   ],
   /**
-   * Grouped for the /skills page (every entry in `skills` should appear exactly once).
+   * Grouped for the /background page (every entry in `skills` should appear exactly once).
    */
   skillStacks: [
     {
@@ -285,31 +288,68 @@ export const siteConfig = {
   projects: [
     {
       i18nKey: "portfolio",
-      title: "Portfolio platform",
+      title: "Personal portfolio",
       description:
-        "This site - a calm, typed-config-driven Next.js app with App Router patterns, multi-locale i18n, Docker packaging, and a static résumé visitors can grab in one click.",
-      techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Docker"],
+        "Designed and built end to end by me - UI, content, and engineering. Next.js App Router with TypeScript and React, Tailwind CSS, multi-locale i18n, contact APIs, Docker packaging on a VPS, and a downloadable résumé.",
+      techStack: [
+        "Next.js",
+        "TypeScript",
+        "React",
+        "Tailwind CSS",
+        "Docker",
+        "i18n",
+      ],
       githubUrl: "https://github.com/awunjia",
       liveUrl: "https://awunjia.com",
-      images: [],
+      images: ["/images/cover-portfolio.jpg"],
     },
     {
-      i18nKey: "apiToolkit",
-      title: "API toolkit",
+      i18nKey: "aecoWebsite",
+      title: "Aeco Limited - search, booking & internal tools",
       description:
-        "Typed REST handlers, runtime validation, and structured errors so clients - human or machine - always know exactly what happened.",
-      techStack: ["TypeScript", "Zod", "Node.js"],
-      githubUrl: "https://github.com/awunjia",
-      liveUrl: undefined,
-      images: [],
+        "The public marketing site is company property. My contribution was search, booking flows, and an in-house app (not shown here), built on their WordPress stack with PHP and jQuery.",
+      techStack: ["WordPress", "PHP", "jQuery", "Elementor"],
+      liveUrl: "https://aecolimited.com",
+      images: ["/images/cover-aeco.jpg"],
+      logo: "/images/logo-aeco.png",
+    },
+    {
+      i18nKey: "curnext",
+      title: "CurNext - construction site intelligence",
+      description:
+        "Designed and built end to end by me - the marketing site for CurNext. Next.js App Router, React, shadcn/ui, Prisma/Postgres for contact and quote forms, Cloudflare Turnstile, Docker, and Dokploy deploy to curnext.app.",
+      techStack: [
+        "Next.js",
+        "TypeScript",
+        "React",
+        "Prisma",
+        "Docker",
+        "Cloudflare",
+      ],
+      githubUrl: "https://github.com/awunjia/CurNext-Wep",
+      liveUrl: "https://curnext.app/",
+      images: ["/images/cover-curnext.png"],
+      logo: "/images/logo-curnext.png",
+    },
+    {
+      i18nKey: "asatek",
+      title: "AsaTek - software ventures site",
+      description:
+        "Designed and built from scratch by me - the multi-locale marketing site for AsaTek. Next.js App Router, TypeScript, React, SEO/metadata, Docker, and Dokploy deploy to asatek.io.",
+      techStack: ["Next.js", "TypeScript", "React", "Docker", "i18n"],
+      githubUrl: "https://github.com/awunjia/asatek",
+      liveUrl: "https://asatek.io/en",
+      images: ["/images/cover-asatek.png"],
     },
     {
       i18nKey: "iotAttendance",
-      title: "IoT attendance platform",
+      title: "SBO Tech - internal RFID attendance",
       description:
-        "Custom-built RFID readers paired with a Laravel attendance API and an internal admin dashboard. Hardware, firmware, server, and UI co-designed so the staff check-in flow stays a one-second tap.",
+        "The public marketing site at sbotech.fi is company property - I did not build it. My work was an internal RFID attendance and user-management product (login required, not public): custom readers, Laravel API, and admin dashboard for staff check-in.",
       techStack: ["Laravel", "PHP", "MySQL", "C++", "Arduino", "RFID", "IoT", "Linux"],
+      liveUrl: "https://sbotech.fi/",
       images: [],
+      logo: "/images/logo-sbotech.svg",
     },
     {
       i18nKey: "smartHome",

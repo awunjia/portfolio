@@ -86,15 +86,15 @@ export function ProfileSpotlight() {
       aria-labelledby="profile-heading"
       className="scroll-mt-24 border-t border-border bg-surface/40 py-16 dark:bg-surface/20"
     >
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <h2
           id="profile-heading"
           className="text-center text-sm font-medium tracking-wide text-muted"
         >
           {t("profile.heading")}
         </h2>
-        <div className="mt-10 grid gap-10 md:grid-cols-[minmax(0,220px),1fr] md:items-start md:gap-12 lg:gap-16">
-          <div className="mx-auto flex w-full max-w-[220px] flex-col items-center justify-self-center text-center">
+        <div className="mt-10 flex flex-col gap-10 sm:flex-row sm:items-end sm:gap-8 lg:gap-12">
+          <div className="mx-auto flex w-full max-w-[220px] shrink-0 flex-col items-center text-center sm:mx-0 sm:w-[220px] sm:items-start sm:text-left">
             <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-gradient-to-br from-skills/25 to-accent/20 ring-1 ring-border shadow-md dark:from-skills/15 dark:to-accent/15">
               {showImage ? (
                 <Image
@@ -121,8 +121,8 @@ export function ProfileSpotlight() {
             <p className="mt-2 text-xs text-muted">{t("profile.degreeLine")}</p>
           </div>
 
-          <div className="min-w-0">
-            <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="flex min-w-0 flex-1 flex-col justify-end">
+            <ul className="grid gap-4 sm:grid-cols-2">
               {rows.map((row) => {
                 const { key, Icon, label, value } = row;
                 const href = "href" in row ? row.href : undefined;

@@ -15,7 +15,7 @@ const ACCEPT_ATTR =
 const turnstileSiteKey =
   process.env.NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY ?? "";
 
-/** Must be referentially stable — inline `{ appendTo: "body" }` re-runs inject logic every render and can break Turnstile (cf. Next.js + explicit render issues). */
+/** Must be referentially stable - inline `{ appendTo: "body" }` re-runs inject logic every render and can break Turnstile (cf. Next.js + explicit render issues). */
 const TURNSTILE_SCRIPT_OPTIONS = { appendTo: "body" as const };
 
 export function ContactForm() {

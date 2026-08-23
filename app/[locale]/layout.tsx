@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
 import { I18nProvider } from "@/components/providers/i18n-provider";
 import { htmlLangAttribute } from "@/lib/i18n/seo-locale";
+import { dictionaries } from "@/lib/i18n/dictionaries";
 import { isLocale, type Locale } from "@/lib/i18n/locale";
 import { LocaleHtmlLang } from "@/components/providers/locale-html-lang";
 
@@ -34,7 +35,7 @@ export default async function LocaleLayout({
   }
 
   return (
-    <I18nProvider locale={raw}>
+    <I18nProvider locale={raw} messages={dictionaries[raw]}>
       <LocaleHtmlLang lang={htmlLangAttribute(raw)} />
       <Navbar />
       <main className="flex-1">{children}</main>

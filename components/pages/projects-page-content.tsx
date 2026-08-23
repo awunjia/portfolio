@@ -16,14 +16,16 @@ export function ProjectsPageContent() {
   });
 
   return (
-    <div className="pb-16">
-      <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
-        <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">{t("proj.title")}</h1>
-        <p className="mt-4 max-w-2xl text-lg text-muted">
-          {t("proj.intro1")}{" "}
-          <code className="rounded bg-muted px-1.5 py-0.5 text-sm">config/site.ts</code>{" "}
-          {t("proj.intro2")}
-        </p>
+    <>
+      <div className="relative overflow-hidden border-b border-border">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-skills/15 via-accent/10 to-transparent dark:from-skills/10 dark:via-accent/8" />
+        <div className="relative mx-auto max-w-5xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
+          <p className="text-sm font-medium tracking-wide text-accent">{t("proj.eyebrow")}</p>
+          <h1 className="mt-3 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+            {t("proj.title")}
+          </h1>
+          <p className="mt-6 max-w-2xl text-lg text-muted">{t("proj.intro")}</p>
+        </div>
       </div>
 
       <Section title={t("proj.sectionTitle")} subtitle={t("proj.sectionSubtitle")}>
@@ -33,6 +35,6 @@ export function ProjectsPageContent() {
           ))}
         </div>
       </Section>
-    </div>
+    </>
   );
 }

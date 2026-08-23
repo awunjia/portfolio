@@ -65,7 +65,7 @@ export function PrivacyPolicyBody() {
         </li>
         <li>
           <strong>Your IP address</strong> (and related technical metadata such as headers) as received
-          by our server or mail path when the form is submitted — used for security, abuse prevention, and
+          by our server or mail path when the form is submitted - used for security, abuse prevention, and
           troubleshooting.
         </li>
         <li>

@@ -1,10 +1,9 @@
 /** English UI strings - source of truth for translation keys. */
 export const englishMessages: Record<string, string> = {
   "nav.home": "Home",
-  "nav.skills": "Skills",
-  "nav.education": "Education",
+  "nav.background": "Background",
   "nav.work": "Work experience",
-  "nav.opensource": "Open Source",
+  "nav.projects": "My Work",
   "nav.contact": "Contact",
   "nav.menuOpen": "Open menu",
   "nav.menuClose": "Close menu",
@@ -18,6 +17,8 @@ export const englishMessages: Record<string, string> = {
   "lang.da": "Danish",
 
   "footer.tagline": "Built with care in Helsinki.",
+  "footer.location": "Helsinki, Finland · Open to remote work",
+  "footer.legalNav": "Legal",
   "footer.legalCookies": "Cookie policy",
   "footer.legalPrivacy": "Privacy & GDPR",
   "footer.legalTerms": "Terms of use",
@@ -28,49 +29,62 @@ export const englishMessages: Record<string, string> = {
   "a11y.backToTop": "Back to top",
 
   "home.ariaOverview": "Overview",
-  "home.role": "Full-stack software engineer",
+  "home.role": "Full-stack Software Engineer",
   "home.tagline":
-    "I'm a full-stack engineer who enjoys calm, maintainable web and mobile work. I mostly work with Node.js, PHP, and Flutter, from APIs and data layers to interfaces people can actually use, and I like pairing with product, design, and teammates along the way.",
-  "home.sayHello": "Say hello",
+    "Building and maintaining reliable web applications, APIs, and digital products with TypeScript, Node.js, React, and PHP/Laravel.",
+  "home.availability":
+    "Available for full-time and contract opportunities in Finland and worldwide - remote or hybrid.",
+  "home.statusAvailable": "Available for work",
+  "home.statusUnavailable": "Not currently available",
+  "home.viewWork": "View My Work",
   "home.downloadCv": "Download CV",
-  "home.sectionStackTitle": "Technical stack",
-  "home.sectionStackSubtitle": "Tools I reach for often in day-to-day product work.",
+  "home.sectionStackTitle": "Core expertise",
+  "home.sectionStackSubtitle":
+    "Full-stack web and API development with TypeScript, Node.js, React, and Laravel - plus data layers, cloud delivery, and IoT systems.",
   "home.skillsLink": "Full skills page",
   "home.skillsLinkSuffix": "- stacks, groupings, and a bit more context.",
-  "home.sectionProficiencyTitle": "Skills emphasis",
+  "home.expertiseAria": "Core expertise by category",
+  "home.expertise.backend": "Backend",
+  "home.expertise.frontend": "Frontend",
+  "home.expertise.data": "Data",
+  "home.expertise.cloudDevops": "Cloud & DevOps",
+  "home.expertise.iot": "IoT",
+  "home.expertise.ai": "AI",
+  "home.sectionProficiencyTitle": "Engineering Strength",
   "home.sectionProficiencySubtitle":
-    "Rough self-ratings - useful as a conversation starter, not a scorecard.",
+    "Where I deliver the most value: shipping maintainable full-stack systems, reliable APIs, and practical product features.",
   "home.sectionDeliveryTitle": "Delivery focus",
-  "home.sectionDeliverySubtitle": "The kinds of web and mobile work I tend to lean into.",
+  "home.sectionDeliverySubtitle":
+    "The kinds of product, API, data, and platform work I tend to lean into.",
   "home.proficiency.frontend": "Frontend",
   "home.proficiency.backend": "Backend",
   "home.proficiency.programming": "Programming",
   "home.delivery.mobileTitle": "Mobile apps",
   "home.delivery.mobileBody":
-    "Flutter work when a native-feeling mobile client is the right fit - thoughtful UX and builds that stay practical to ship.",
+    "Native-feeling Flutter apps with clear UX, solid offline and API wiring, and builds that stay practical to ship and maintain.",
   "home.delivery.webTitle": "Web apps and dashboards",
   "home.delivery.webBody":
-    "Web apps and dashboards with Next.js, REST or GraphQL APIs, auth, and views that stay readable when data piles up.",
+    "Web apps and dashboards with Next.js, auth, and views that stay readable when data piles up.",
+  "home.delivery.apiTitle": "APIs & integrations",
+  "home.delivery.apiBody":
+    "REST and service boundaries that stay clear under load - contracts, auth, and integrations other teams can actually rely on.",
+  "home.delivery.devopsTitle": "Cloud & DevOps",
+  "home.delivery.devopsBody":
+    "Docker, CI/CD, and cloud delivery so releases stay predictable - from local builds to a VPS or managed platform.",
+  "home.delivery.databaseTitle": "Databases & data",
+  "home.delivery.databaseBody":
+    "PostgreSQL, MySQL, MongoDB, and Redis when the product needs solid persistence, migrations, and caching that stay maintainable.",
+  "home.delivery.iotTitle": "IoT & connected devices",
+  "home.delivery.iotBody":
+    "Embedded and edge work with sensors, MQTT, and gateways - bridging hardware realities into reliable cloud or on-prem services.",
   "home.ctaTitle": "Hiring or just curious?",
   "home.ctaBody":
-    "If you share the role, seniority, stack, and timeline, I will reply with availability and a few relevant notes when I can - usually within a couple of business days.",
+    "Tell me about the task you have, or if you want to know more about me - do not hesitate to reach out. I typically reply within 1 business day.",
   "home.ctaButton": "Reach out",
-  "home.builtTitle": "Built and deployed with",
-  "home.builtIntro":
-    "This site is a small Next.js app on a VPS behind Dokploy, with Cloudflare out front for TLS and a little extra peace of mind. Nothing fancy - just a simple setup I am comfortable maintaining.",
-  "home.cardStackTitle": "Application stack",
-  "home.cardStackBody":
-    "Next.js App Router, TypeScript, React, Tailwind CSS, and a few API routes for things like contact mail, plus a static résumé served straight from the public folder.",
-  "home.cardHostTitle": "Hosting and delivery",
-  "home.cardHostBody":
-    "Packaged with Docker on a VPS and released through Dokploy so deploys stay predictable and easy to roll back if needed.",
-  "home.cardSecurityTitle": "Security and edge",
-  "home.cardSecurityBody":
-    "Cloudflare sits in front for DNS and TLS, plus sensible defaults for edge traffic so the app stays reachable and a bit safer by default.",
-  "home.cardSeoTitle": "SEO and crawlability",
-  "home.cardSeoBody":
-    "Basic metadata, canonical URLs, robots.txt, and sitemap.xml are in place so search engines can index the public pages without much fuss.",
-  "home.techMarqueeAria": "Technology stack",
+  "home.workTitle": "See my work",
+  "home.workSubtitle":
+    "A few sites and products I have built - from public websites to APIs and connected systems.",
+  "home.workViewAll": "View all work",
 
   "profile.heading": "At a glance",
   "profile.basedIn": "Based in",
@@ -83,10 +97,9 @@ export const englishMessages: Record<string, string> = {
   "profile.hidePhone": "Hide phone number",
   "profile.portraitAlt": "{name} portrait",
   "profile.degreeLine": "Information Technology",
-  "profile.spokenLanguagesValue": "English, Finnish",
+  "profile.spokenLanguagesValue": "English, Finnish, French",
   "profile.timezoneValue": "Eastern European Time (EET)",
-  "profile.availabilityPitch":
-    "Happy to chat about full-time or contract work - remote or hybrid.",
+  "profile.availabilityPitch": "Full-time/contract, Remote/Hybrid/On site",
 
   "social.ariaGroup": "GitHub, LinkedIn, and email",
   "social.github": "GitHub",
@@ -181,6 +194,13 @@ export const englishMessages: Record<string, string> = {
   "about.bio":
     "I like turning fuzzy requirements into software that feels steady - clear structure where it helps, tests where they earn their keep, and UX that stays kind to both users and whoever opens the repo next.",
 
+  "background.eyebrow": "Foundation",
+  "background.title": "Skills & education",
+  "background.intro":
+    "The tools I ship with and the studies behind them - stacks by layer, then degrees and programs.",
+  "background.workHint": "For roles and day-to-day delivery, see",
+  "background.workLink": "work experience",
+
   "skills.eyebrow": "Toolkit",
   "skills.title": "Skills & stacks",
   "skills.intro":
@@ -221,83 +241,50 @@ export const englishMessages: Record<string, string> = {
   "edu.thesisLabel": "Bachelor's thesis · {year}",
   "edu.thesisLink": "Read on Theseus →",
 
-  "proj.title": "Projects",
-  "proj.intro1": "Everything here is edited in",
-  "proj.intro2":
-    "- tweak titles, descriptions, and stacks whenever you like.",
-  "proj.sectionTitle": "All projects",
+  "proj.eyebrow": "Selected work",
+  "proj.title": "Sites and products I have built",
+  "proj.intro":
+    "A short showcase of live websites and platforms I designed, built, or shipped end to end. Most of my work is private web apps and internal tools that need a login, so they cannot sit on a public portfolio page - I can walk through a demo in a meeting. What you see here is the subset that is safe to share publicly.",
+  "proj.sectionTitle": "Featured work",
   "proj.sectionSubtitle":
-    "A mix of work samples and side experiments - nothing is hidden behind marketing copy.",
+    "Live links where the work is public; otherwise a clear note on the stack and what shipped.",
   "proj.cardCode": "Code",
-  "proj.cardLive": "Live site",
+  "proj.cardLive": "Visit site",
   "proj.ariaTechnologies": "Technologies",
-  "proj.items.portfolio.title": "Portfolio platform",
+  "proj.items.portfolio.title": "Personal portfolio",
   "proj.items.portfolio.description":
-    "This site - a calm, typed-config-driven Next.js app with App Router patterns, multi-locale i18n, Docker packaging, and a static résumé visitors can grab in one click.",
-  "proj.items.apiToolkit.title": "API toolkit",
-  "proj.items.apiToolkit.description":
-    "Typed REST handlers, runtime validation, and structured errors so clients - human or machine - always know exactly what happened.",
-  "proj.items.iotAttendance.title": "IoT attendance platform",
+    "Designed and built end to end by me - UI, content, and engineering. Next.js App Router with TypeScript and React, Tailwind CSS, multi-locale i18n, contact APIs, Docker packaging on a VPS, and a downloadable résumé.",
+  "proj.items.aecoWebsite.title": "Aeco Limited - search, booking & internal tools",
+  "proj.items.aecoWebsite.description":
+    "The public marketing site is company property. My contribution was search, booking flows, and an in-house app (not shown here), built on their WordPress stack with PHP and jQuery.",
+  "proj.items.curnext.title": "CurNext - construction site intelligence",
+  "proj.items.curnext.description":
+    "Designed and built end to end by me - the marketing site for CurNext. Next.js App Router, React, shadcn/ui, Prisma/Postgres for contact and quote forms, Cloudflare Turnstile, Docker, and Dokploy deploy to curnext.app.",
+  "proj.items.asatek.title": "AsaTek - software ventures site",
+  "proj.items.asatek.description":
+    "Designed and built from scratch by me - the multi-locale marketing site for AsaTek. Next.js App Router, TypeScript, React, SEO/metadata, Docker, and Dokploy deploy to asatek.io.",
+  "proj.items.iotAttendance.title": "SBO Tech - internal RFID attendance",
   "proj.items.iotAttendance.description":
-    "Custom-built RFID readers paired with a Laravel attendance API and an internal admin dashboard. Hardware, firmware, server, and UI co-designed so the staff check-in flow stays a one-second tap.",
+    "The public marketing site at sbotech.fi is company property - I did not build it. My work was an internal RFID attendance and user-management product (login required, not public): custom readers, Laravel API, and admin dashboard for staff check-in.",
   "proj.items.smartHome.title": "Smart-home platform",
   "proj.items.smartHome.description":
     "A privacy-first smart-home stack: a local home-server gateway over MQTT bridging Bluetooth, Wi-Fi, and Zigbee devices, plus a Flutter companion app for setup, automations, and everyday control.",
 
-  "oss.eyebrow": "GitHub",
-  "oss.title": "Open source",
-  "oss.introBefore": "A live list of public repositories from",
-  "oss.introAfter":
-    ", pulled straight from the GitHub API when you load the page.",
-  "oss.errorTitle": "Repositories did not load this time",
-  "oss.errorHintBefore": "If you are the site owner, adding",
-  "oss.errorHintAfter":
-    "usually helps with rate limits. A classic PAT or a fine-grained token with read access to public repos is enough.",
-  "oss.viewGithub": "View profile on GitHub",
-  "oss.reposHeading": "Repositories ({count})",
-  "oss.reposBody":
-    "Sorted by last push, including forks and archived repos when they still feel worth listing.",
-  "oss.reposEmpty": "No public repositories found for this account.",
-  "oss.repoArchived": "Archived",
-  "oss.repoFork": "Fork",
-  "oss.repoNoDescription": "No description on GitHub yet.",
-  "oss.repoStars": "{count} stars",
-  "oss.repoForks": "{count} forks",
-  "oss.repoUpdated": "Updated {date}",
-  "oss.repoOpen": "Repository",
-  "oss.repoWebsite": "Website",
-  "oss.repoTopicsAria": "Topics",
-
-  "github.statsAria": "GitHub statistics",
-  "github.statsTitle": "GitHub at a glance",
-  "github.statsIntro":
-    "Public counts for {handle} - cached for about an hour so the page stays snappy.",
-  "github.openProfile": "Open GitHub profile",
-  "github.statRepos": "Public repositories",
-  "github.statFollowers": "Followers",
-  "github.statFollowing": "Following",
-
   "meta.home.title": "Overview",
   "meta.home.description": "{name} - {role}. {tagline}",
-  "meta.skills.title": "Skills",
-  "meta.skills.description": "A relaxed tour of tools and stacks for {name} - {role}.",
-  "meta.skills.ogDescription": "{tagline}",
-  "meta.education.title": "Education",
-  "meta.education.description":
-    "Education for {name} - {degree} at {school}, and prior studies.",
-  "meta.education.ogDescription": "{degree}, {school}",
+  "meta.background.title": "Background",
+  "meta.background.description":
+    "Skills, stacks, and education for {name} - {role}. {degree} at {school}.",
+  "meta.background.ogDescription": "{tagline}",
   "meta.about.title": "Work experience",
   "meta.about.description":
     "A friendly walk through work experience for {name} - mostly full-stack web, Laravel, and a little Flutter IoT.",
   "meta.about.ogDescription": "{bio}",
   "meta.contact.title": "Contact",
   "meta.contact.description": "A simple way to reach {name} - leave a note from this page.",
-  "meta.projects.title": "Projects",
+  "meta.projects.title": "My Work",
   "meta.projects.description":
-    "A small set of projects by {name}, kept in site configuration.",
-  "meta.oss.title": "Open Source",
-  "meta.oss.description": "Public GitHub repositories from {name}.",
-  "meta.oss.ogDescription": "Repositories from {handle} on GitHub.",
+    "Selected websites and products built by {name} - portfolio, client sites, APIs, and IoT platforms.",
 
   "meta.keywords":
     "Awunjia Serge, Serge Awunjia, hire developer Finland, remote full-stack developer, contract software engineer Europe, Helsinki software engineer, Finland full-stack developer, Laravel developer jobs, Next.js developer, Flutter developer, TypeScript engineer, open to work developer, software engineer available, Novia UAS Vaasa, University of Buea computer science, GitHub awunjia, LinkedIn Awunjia Serge, Groweo, Sbotech, portfolio website",

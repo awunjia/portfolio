@@ -37,7 +37,7 @@ export function Section({
     <section
       id={id}
       aria-labelledby={id ? `${id}-heading` : undefined}
-      className={`scroll-mt-24 mx-auto w-full max-w-5xl px-4 py-16 sm:px-6 lg:px-8 ${className}`}
+      className={`scroll-mt-24 mx-auto w-full max-w-6xl px-4 py-16 sm:px-6 lg:px-8 ${className}`}
     >
       <motion.div
         initial={reduceMotion ? false : { opacity: 0, y: 12 }}

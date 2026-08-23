@@ -1,10 +1,8 @@
 /** Danish overrides */
 export const danishOverrides: Record<string, string> = {
   "nav.home": "Hjem",
-  "nav.skills": "Kompetencer",
-  "nav.education": "Uddannelse",
+  "nav.background": "Baggrund",
   "nav.work": "Erhvervserfaring",
-  "nav.opensource": "Open source",
   "nav.contact": "Kontakt",
   "nav.menuOpen": "Åbn menu",
   "nav.menuClose": "Luk menu",
@@ -18,6 +16,8 @@ export const danishOverrides: Record<string, string> = {
   "lang.da": "Dansk",
 
   "footer.tagline": "Bygget med omtanke i Helsinki.",
+  "footer.location": "Helsinki, Finland · Åben for remote",
+  "footer.legalNav": "Juridisk",
   "footer.legalCookies": "Cookiepolitik",
   "footer.legalPrivacy": "Privatliv & GDPR",
   "footer.legalTerms": "Brugervilkår",
@@ -28,37 +28,41 @@ export const danishOverrides: Record<string, string> = {
   "a11y.backToTop": "Tilbage til toppen",
 
   "home.ariaOverview": "Overblik",
-  "home.tagline":
-    "Jeg er en fullstack-ingeniør, der kan lide roligt, vedligeholdeligt web- og mobiludviklingsarbejde. Jeg arbejder mest med Node.js, PHP og Flutter, fra API'er og datalag til brugerflader, folk rent faktisk kan bruge, og jeg kan godt lide at sparre med produkt, design og teamet undervejs.",
-  "home.role": "Fullstack-softwareingeniør",
-  "home.sayHello": "Sig hej",
   "home.downloadCv": "Download CV",
-  "home.sectionStackTitle": "Teknisk stack",
-  "home.sectionStackSubtitle": "Værktøjer jeg ofte bruger i produktarbejde.",
   "home.skillsLink": "Hele kompetencesiden",
   "home.skillsLinkSuffix": "- stacks, grupperinger og lidt mere kontekst.",
-  "home.sectionProficiencyTitle": "Vægtning",
-  "home.sectionProficiencySubtitle":
-    "Omtrentlige selvvurderinger - bedst læst ved siden af CV eller dialog.",
   "home.sectionDeliveryTitle": "Leverancefokus",
-  "home.sectionDeliverySubtitle": "Web- og mobilopgaver jeg typisk lander i.",
+  "home.sectionDeliverySubtitle":
+    "Produkt-, API-, data- og platformarbejde jeg typisk lander i.",
   "home.proficiency.frontend": "Frontend",
   "home.proficiency.backend": "Backend",
   "home.proficiency.programming": "Programmering",
   "home.delivery.mobileTitle": "Mobilapps",
   "home.delivery.mobileBody":
-    "Flutter, når en mobilklient med næsten nativ fornemmelse er det rigtige valg - gennemtænkt UX og builds, der stadig er praktiske at udsende.",
+    "Næsten native Flutter-apps med klar UX, solid offline- og API-kobling og builds, der er praktiske at udsende og vedligeholde.",
   "home.delivery.webTitle": "Webapps og dashboards",
   "home.delivery.webBody":
-    "Webapps og dashboards med Next.js, REST eller GraphQL-API'er, auth og visninger, der forbliver læselige, når data hoben sig op.",
-  "home.techMarqueeAria": "Teknologistack",
+    "Webapps og dashboards med Next.js, auth og visninger, der forbliver læselige, når data hoben sig op.",
+  "home.delivery.apiTitle": "API'er og integrationer",
+  "home.delivery.apiBody":
+    "REST- og servicegrænser, der forbliver klare under belastning - kontrakter, auth og integrationer andre teams kan stole på.",
+  "home.delivery.devopsTitle": "Cloud og DevOps",
+  "home.delivery.devopsBody":
+    "Docker, CI/CD og cloud-leverance, så releases forbliver forudsigelige - fra lokal build til VPS eller managed platform.",
+  "home.delivery.databaseTitle": "Databaser og data",
+  "home.delivery.databaseBody":
+    "PostgreSQL, MySQL, MongoDB og Redis, når produktet har brug for solid persistens, migrationer og caching, der forbliver vedligeholdelige.",
+  "home.delivery.iotTitle": "IoT og forbundne enheder",
+  "home.delivery.iotBody":
+    "Embedded og edge-arbejde med sensorer, MQTT og gateways - hardware-realiteter gjort til pålidelige cloud- eller on-prem-tjenester.",
   "home.ctaTitle": "Ansætter eller bare nysgerrig?",
   "home.ctaBody":
-    "Hvis du deler rollen, senioritet, stack og tidslinje svarer jeg med tilgængelighed og nogle relevante noter når jeg kan - typisk inden for et par hverdage.",
+    "Fortæl mig om den opgave, du har, eller hvis du vil vide mere om mig - tøv ikke med at skrive. Jeg svarer typisk inden for 1 hverdag.",
   "home.ctaButton": "Skriv til mig",
-  "home.builtTitle": "Bygget og udrullet med",
-  "home.builtIntro":
-    "Dette site er en lille Next.js-app på en VPS via Dokploy, med Cloudflare foran til TLS og lidt ekstra ro. Intet fancy - et simpelt setup jeg er tryg ved at vedligeholde.",
+  "home.workTitle": "Se mit arbejde",
+  "home.workSubtitle":
+    "Et par sites og produkter, jeg har bygget - fra offentlige websites til API'er og forbundne systemer.",
+  "home.workViewAll": "Se alt arbejde",
 
   "profile.heading": "Overblik",
   "profile.basedIn": "Baseret i",
@@ -71,10 +75,9 @@ export const danishOverrides: Record<string, string> = {
   "profile.hidePhone": "Skjul telefonnummer",
   "profile.portraitAlt": "Portræt: {name}",
   "profile.degreeLine": "Informationsteknologi",
-  "profile.spokenLanguagesValue": "Engelsk, finsk",
+  "profile.spokenLanguagesValue": "Engelsk, finsk, fransk",
   "profile.timezoneValue": "Østeuropæisk tid (EET)",
-  "profile.availabilityPitch":
-    "Glad for at tale om fuldtid eller freelance - remote eller hybrid.",
+  "profile.availabilityPitch": "Fuldtid/kontrakt, Remote/hybrid/på stedet",
 
   "social.ariaGroup": "GitHub, LinkedIn og e-mail",
   "social.github": "GitHub",
@@ -170,6 +173,13 @@ export const danishOverrides: Record<string, string> = {
   "about.bio":
     "Jeg kan godt lide at omsætte uklare krav til software, der føles roligt - klar struktur hvor det hjælper, tests hvor de tjener sig selv, og UX der er venlig både over for brugere og den, der åbner repoet næste gang.",
 
+  "background.eyebrow": "Grundlag",
+  "background.title": "Kompetencer & uddannelse",
+  "background.intro":
+    "Værktøjerne jeg leverer med, og studierne bag - stacks efter lag, derefter grader og forløb.",
+  "background.workHint": "For roller og daglig levering, se",
+  "background.workLink": "erhvervserfaring",
+
   "skills.eyebrow": "Værktøjskasse",
   "skills.title": "Kompetencer og stacks",
   "skills.intro":
@@ -210,81 +220,18 @@ export const danishOverrides: Record<string, string> = {
   "edu.thesisLabel": "Bachelorprojekt · {year}",
   "edu.thesisLink": "Læs på Theseus →",
 
-  "proj.title": "Projekter",
-  "proj.intro1": "Alt her redigeres i",
-  "proj.intro2": "- opdater titler, beskrivelser og stacks når du vil.",
-  "proj.sectionTitle": "Alle projekter",
-  "proj.sectionSubtitle":
-    "Arbejdsprøver og sideprojekter - intet skjult bag marketing.",
-  "proj.cardCode": "Kode",
-  "proj.cardLive": "Live-site",
-  "proj.ariaTechnologies": "Teknologier",
-  "proj.items.portfolio.title": "Portfolio-platform",
-  "proj.items.portfolio.description":
-    "Denne side - en rolig Next.js-app drevet af typet konfiguration, med App Router-mønstre, flersproget i18n, Docker-pakning og et statisk CV besøgende kan hente med ét klik.",
-  "proj.items.apiToolkit.title": "API-værktøjssæt",
-  "proj.items.apiToolkit.description":
-    "Typede REST-handlers, runtime-validering og strukturerede fejl så klienter - mennesker eller maskiner - altid ved præcis, hvad der skete.",
-  "proj.items.iotAttendance.title": "IoT-fremmødeplatform",
-  "proj.items.iotAttendance.description":
-    "Specialbyggede RFID-læsere parret med et Laravel-fremmøde-API og en intern admin-flade. Hardware, firmware, server og UI co-designet, så personalets check-in forbliver et et-sekunds tryk.",
-  "proj.items.smartHome.title": "Smart-home-platform",
-  "proj.items.smartHome.description":
-    "En privatlivsfokuseret smart-home-stack: en lokal home-server gateway over MQTT der broer Bluetooth, Wi-Fi og Zigbee, plus en Flutter-app til opsætning, automationer og daglig styring.",
-
-  "oss.eyebrow": "GitHub",
-  "oss.title": "Open source",
-  "oss.introBefore": "En live-liste med offentlige repositories fra",
-  "oss.introAfter": ", hentet direkte fra GitHubs API når siden indlæses.",
-  "oss.errorTitle": "Kunne ikke indlæse repositories denne gang",
-  "oss.errorHintBefore": "Hvis du ejer siden, tilføj",
-  "oss.errorHintAfter":
-    "- det hjælper ofte mod rate limits. En klassisk PAT eller fine-grained token med læsning af offentlige repos er nok.",
-  "oss.viewGithub": "Se profil på GitHub",
-  "oss.reposHeading": "Repositories ({count})",
-  "oss.reposBody":
-    "Sorteret efter seneste push, inklusive forks og arkiverede repos når det giver mening.",
-  "oss.reposEmpty": "Ingen offentlige repositories fundet for denne konto.",
-  "oss.repoArchived": "Arkiveret",
-  "oss.repoFork": "Fork",
-  "oss.repoNoDescription": "Ingen beskrivelse på GitHub endnu.",
-  "oss.repoStars": "{count} stjerner",
-  "oss.repoForks": "{count} forks",
-  "oss.repoUpdated": "Opdateret {date}",
-  "oss.repoOpen": "Repository",
-  "oss.repoWebsite": "Website",
-  "oss.repoTopicsAria": "Emner",
-
-  "github.statsAria": "GitHub-statistik",
-  "github.statsTitle": "GitHub på et øjeblik",
-  "github.statsIntro":
-    "Offentlige tal for {handle} - cachet i cirka en time så siden forbliver hurtig.",
-  "github.openProfile": "Åbn GitHub-profil",
-  "github.statRepos": "Offentlige repositories",
-  "github.statFollowers": "Følgere",
-  "github.statFollowing": "Følger",
-
   "meta.home.title": "Overblik",
   "meta.home.description": "{name} - {role}. {tagline}",
-  "meta.skills.title": "Kompetencer",
-  "meta.skills.description": "En afslappet tur gennem værktøjer og stacks for {name} - {role}.",
-  "meta.skills.ogDescription": "{tagline}",
-  "meta.education.title": "Uddannelse",
-  "meta.education.description":
-    "Uddannelse for {name} - {degree} ved {school}, og tidligere forløb.",
-  "meta.education.ogDescription": "{degree}, {school}",
+  "meta.background.title": "Baggrund",
+  "meta.background.description":
+    "Kompetencer, stacks og uddannelse for {name} - {role}. {degree} ved {school}.",
+  "meta.background.ogDescription": "{tagline}",
   "meta.about.title": "Erhvervserfaring",
   "meta.about.description":
     "En venlig gennemgang af erhvervserfaring for {name} - mest fullstack web, Laravel og lidt Flutter IoT.",
   "meta.about.ogDescription": "{bio}",
   "meta.contact.title": "Kontakt",
   "meta.contact.description": "En enkel måde at nå {name} på - efterlad en besked her.",
-  "meta.projects.title": "Projekter",
-  "meta.projects.description":
-    "Et lille udvalg af projekter af {name}, holdt i site-konfigurationen.",
-  "meta.oss.title": "Open source",
-  "meta.oss.description": "Offentlige GitHub-repositories fra {name}.",
-  "meta.oss.ogDescription": "Repositories fra {handle} på GitHub.",
 
   "meta.keywords":
     "Awunjia Serge, Serge Awunjia, ansæt udvikler Finland, remote full-stack, konsulent software engineer, Helsinki udvikler, Laravel job, Next.js udvikler, Flutter udvikler, TypeScript, udvikler ledig, Novia UAS, Vaasa, University of Buea, GitHub awunjia, LinkedIn Awunjia Serge, Groweo, Sbotech, portfolio",

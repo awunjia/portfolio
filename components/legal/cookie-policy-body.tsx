@@ -46,7 +46,7 @@ export function CookiePolicyBody() {
       </p>
       <ul>
         <li>
-          <strong>Consent cookie</strong> (<code>cc_consent</code>) — stores your choices (version,
+          <strong>Consent cookie</strong> (<code>cc_consent</code>) - stores your choices (version,
           preferences, statistics flags) for up to 180 days so we do not ask you on every visit.
         </li>
       </ul>
@@ -55,11 +55,11 @@ export function CookiePolicyBody() {
       <p>If you enable “Preferences”, we may store:</p>
       <ul>
         <li>
-          <strong>Theme</strong> — light or dark mode via <code>next-themes</code> (typically under the
+          <strong>Theme</strong> - light or dark mode via <code>next-themes</code> (typically under the
           key <code>portfolio-theme</code> in your browser&apos;s local storage).
         </li>
         <li>
-          <strong>Language</strong> — your selected UI language (local storage and a first-party cookie
+          <strong>Language</strong> - your selected UI language (local storage and a first-party cookie
           so server-rendered metadata can follow your choice where possible).
         </li>
       </ul>

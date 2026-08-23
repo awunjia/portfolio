@@ -9,6 +9,8 @@ export type ProjectView = {
   githubUrl: string | null;
   liveUrl: string | null;
   images: string[];
+  logo: string | null;
+  coverWordmark: boolean;
   createdAt: Date;
   /** Always sourced from `siteConfig.projects` */
   source: "config";
@@ -24,6 +26,8 @@ function mapProject(p: SiteProject, index: number): ProjectView {
     githubUrl: p.githubUrl ?? null,
     liveUrl: p.liveUrl ?? null,
     images: p.images ? [...p.images] : [],
+    logo: p.logo ?? null,
+    coverWordmark: Boolean(p.coverWordmark),
     createdAt: new Date(0),
     source: "config",
   };

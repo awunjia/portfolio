@@ -1,6 +1,6 @@
 # Portfolio
 
-Personal portfolio site built with **Next.js** (App Router), **TypeScript**, and **Tailwind CSS**. It includes localized pages, a contact form with optional Turnstile, GitHub-backed open source listings, and a server-generated CV PDF.
+Personal portfolio site built with **Next.js** (App Router), **TypeScript**, and **Tailwind CSS**. It includes localized pages, a contact form with optional Turnstile, and a server-generated CV PDF.
 
 ## Requirements
 
@@ -32,7 +32,6 @@ Copy `.env.example` to `.env` and set values as needed:
 - Contact mail - SMTP variables
 - Cloudflare R2 (`CF_R2_*`) - contact form attachment storage
 - `NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY` / `CLOUDFLARE_TURNSTILE_SECRET_KEY` - Turnstile on the contact form
-- `GITHUB_TOKEN` - optional; raises GitHub API rate limits for the Open Source page
 
 Site copy, projects, and experience are driven from `config/site.ts`.
 

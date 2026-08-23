@@ -3,11 +3,10 @@
 import { useEffect, useRef } from "react";
 import Lottie, { type LottieRefCurrentProps } from "lottie-react";
 import { useReducedMotion } from "framer-motion";
-import animationData from "@/assets/lottie/skills-hero-stacks.json";
+import animationData from "@/assets/lottie/codingPerson.json";
 
 /**
- * Interlocking gears - “stack” / engineering layers metaphor.
- * From xvrh/lottie-flutter examples (`gears.json`); fills mapped to `--accent` / `--skills`.
+ * Developer typing at a desk (DeveloperFolio coding person).
  */
 export function SkillsHeroLottie() {
   const lottieRef = useRef<LottieRefCurrentProps | null>(null);

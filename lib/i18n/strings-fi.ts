@@ -1,10 +1,8 @@
 /** Finnish overrides - keys omitted fall back to English in runtime merge. */
 export const finnishOverrides: Record<string, string> = {
   "nav.home": "Etusivu",
-  "nav.skills": "Taidot",
-  "nav.education": "Koulutus",
+  "nav.background": "Tausta",
   "nav.work": "Työkokemus",
-  "nav.opensource": "Avoin lähdekoodi",
   "nav.contact": "Yhteys",
   "nav.menuOpen": "Avaa valikko",
   "nav.menuClose": "Sulje valikko",
@@ -18,6 +16,8 @@ export const finnishOverrides: Record<string, string> = {
   "lang.da": "Tanska",
 
   "footer.tagline": "Rakennettu huolella Helsingissä.",
+  "footer.location": "Helsinki, Suomi · Avoin etätyölle",
+  "footer.legalNav": "Juridinen",
   "footer.legalCookies": "Evästekäytäntö",
   "footer.legalPrivacy": "Tietosuoja & GDPR",
   "footer.legalTerms": "Käyttöehdot",
@@ -28,49 +28,41 @@ export const finnishOverrides: Record<string, string> = {
   "a11y.backToTop": "Takaisin ylös",
 
   "home.ariaOverview": "Yleiskuva",
-  "home.role": "Full stack -ohjelmistoinsinööri",
-  "home.tagline":
-    "Olen full stack -kehittäjä, joka nauttii rauhallisesta, ylläpidettävästä web- ja mobiilityöstä. Työskentelen useimmiten Node.js:n, PHP:n ja Flutterin parissa API-kerroksista käyttöliittymiin, ja tykkään tehdä yhteistyötä tuotteen, designin ja tiimin kanssa.",
-  "home.sayHello": "Ota yhteyttä",
   "home.downloadCv": "Lataa CV",
-  "home.sectionStackTitle": "Tekninen stack",
-  "home.sectionStackSubtitle": "Työkaluja, joihin tartun usein päivittäisessä tuotetyössä.",
   "home.skillsLink": "Taidot-sivulle",
   "home.skillsLinkSuffix": "- ryhmittelyt ja hieman lisäkontekstia.",
-  "home.sectionProficiencyTitle": "Painotukset",
-  "home.sectionProficiencySubtitle":
-    "Itsearvioituja mukavuustasoja - parasta lukea CV:n tai keskustelun rinnalla.",
   "home.sectionDeliveryTitle": "Toimitusfokus",
-  "home.sectionDeliverySubtitle": "Web- ja mobiilityöt, joihin tyypillisesti nojaudun.",
+  "home.sectionDeliverySubtitle":
+    "Tuote-, API-, data- ja alustatyöt, joihin tyypillisesti nojaudun.",
   "home.proficiency.frontend": "Käyttöliittymä",
   "home.proficiency.backend": "Palvelinpuoli",
   "home.proficiency.programming": "Ohjelmointi",
   "home.delivery.mobileTitle": "Mobiilisovellukset",
   "home.delivery.mobileBody":
-    "Flutter-työt, kun natiivimainen mobiilikokemus on oikea ratkaisu - harkittu UX ja toteutukset, jotka pysyvät käytännöllisinä toimitettavina.",
+    "Natiivimaisia Flutter-sovelluksia selkeällä UX:llä, vakaalla offline- ja API-kytkennällä sekä buildilla, jotka pysyvät käytännöllisinä ylläpitää.",
   "home.delivery.webTitle": "Web-sovellukset ja dashboardit",
   "home.delivery.webBody":
-    "Web-sovelluksia ja dashboardeja Next.jsillä, REST- tai GraphQL-rajapinnoilla, autentikoinnilla ja näkymillä, jotka pysyvät luettavina kun data kasvaa.",
+    "Web-sovelluksia ja dashboardeja Next.jsillä, autentikoinnilla ja näkymillä, jotka pysyvät luettavina kun data kasvaa.",
+  "home.delivery.apiTitle": "API:t ja integraatiot",
+  "home.delivery.apiBody":
+    "REST- ja palvelurajat, jotka pysyvät selkeinä kuormassa - sopimukset, autentikointi ja integraatiot, joihin muut tiimit voivat luottaa.",
+  "home.delivery.devopsTitle": "Pilvi ja DevOps",
+  "home.delivery.devopsBody":
+    "Docker, CI/CD ja pilvitoimitus, jotta julkaisut pysyvät ennustettavina - paikallisesta buildista VPS:lle tai hallittuun alustaan.",
+  "home.delivery.databaseTitle": "Tietokannat ja data",
+  "home.delivery.databaseBody":
+    "PostgreSQL, MySQL, MongoDB ja Redis, kun tuote tarvitsee kestävää persistenssiä, migraatioita ja välimuistia, jotka pysyvät ylläpidettävinä.",
+  "home.delivery.iotTitle": "IoT ja yhdistetyt laitteet",
+  "home.delivery.iotBody":
+    "Sulautettu ja edge-työ antureilla, MQTT:llä ja yhdyskäytävillä - laitteiston realiteetit luotettaviksi pilvi- tai on-prem-palveluiksi.",
   "home.ctaTitle": "Palkkaamassa tai utelias?",
   "home.ctaBody":
-    "Jos jaat roolin, tason, stackin ja aikataulun, vastaan saatavuudella ja muutamalla relevantilla huomiolla kun ehdin - yleensä parissa arkipäivässä.",
+    "Kerro tehtävästäsi, tai jos haluat tietää minusta lisää - ota rohkeasti yhteyttä. Vastaan tyypillisesti yhden arkipäivän kuluessa.",
   "home.ctaButton": "Jätä viesti",
-  "home.builtTitle": "Rakennettu ja julkaistu",
-  "home.builtIntro":
-    "Tämä sivu on pieni Next.js -sovellus VPS:llä Dokployn kautta, Cloudflare edessä TLS:lle ja lisätranquille. Ei mitään ihmeellistä - yksinkertainen setup, jota jaksan ylläpitää.",
-  "home.cardStackTitle": "Sovellusstack",
-  "home.cardStackBody":
-    "Next.js App Router, TypeScript, React, Tailwind CSS ja muutama API-reitti esimerkiksi yhteydenottoon, sekä staattinen CV suoraan public-kansiosta.",
-  "home.cardHostTitle": "Hostaus ja julkaisu",
-  "home.cardHostBody":
-    "Docker-paketoitu VPS:llä ja julkaisu Dokploylla, jotta deployt pysyvät ennustettavina ja tarvittaessa helposti peruttavina.",
-  "home.cardSecurityTitle": "Turvallisuus ja reuna",
-  "home.cardSecurityBody":
-    "Cloudflare edessä DNS:lle ja TLS:lle sekä järkevillä oletuksilla reunaliikenteelle, jotta sivu pysyy tavoitettavana ja hieman turvallisempana oletuksena.",
-  "home.cardSeoTitle": "SEO ja indeksointi",
-  "home.cardSeoBody":
-    "Perusmetadata, canonical-URLit, robots.txt ja sitemap.xml ovat kunnossa, jotta hakukoneet indeksoivat julkiset sivut suoraviivaisesti.",
-  "home.techMarqueeAria": "Teknologiapino",
+  "home.workTitle": "Katso töitäni",
+  "home.workSubtitle":
+    "Muutama sivusto ja tuote, joita olen rakentanut - julkisista verkkosivuista API:hin ja yhdistettyihin järjestelmiin.",
+  "home.workViewAll": "Kaikki työt",
 
   "profile.heading": "Pikakatsaus",
   "profile.basedIn": "Sijainti",
@@ -83,10 +75,9 @@ export const finnishOverrides: Record<string, string> = {
   "profile.hidePhone": "Piilota puhelinnumero",
   "profile.portraitAlt": "Henkilökuva: {name}",
   "profile.degreeLine": "Tietotekniikka",
-  "profile.spokenLanguagesValue": "englanti, suomi",
+  "profile.spokenLanguagesValue": "englanti, suomi, ranska",
   "profile.timezoneValue": "Itä-Euroopan aika (EET)",
-  "profile.availabilityPitch":
-    "Keskustelen mielelläni kokoaikaisesta tai sopimustyöstä - etä tai hybridimalli.",
+  "profile.availabilityPitch": "Kokoaika/sopimus, Etä/hybridi/paikan päällä",
 
   "social.ariaGroup": "GitHub, LinkedIn ja sähköposti",
   "social.github": "GitHub",
@@ -182,6 +173,13 @@ export const finnishOverrides: Record<string, string> = {
   "about.bio":
     "Pidän siitä, että sumeista vaatimuksista syntyy ohjelmistoa, joka tuntuu tasaiselta - selkeä rakenne kun se auttaa, testit kun ne maksavat itsensä takaisin, ja UX joka on lempeä sekä käyttäjille että seuraavalle, joka avaa repon.",
 
+  "background.eyebrow": "Perusta",
+  "background.title": "Taidot ja koulutus",
+  "background.intro":
+    "Työkalut, joilla toimitan, ja opinnot niiden taustalla - stackit kerroksittain, sitten tutkinnot ja ohjelmat.",
+  "background.workHint": "Rooleista ja arjen toimituksesta, katso",
+  "background.workLink": "työkokemus",
+
   "skills.eyebrow": "Työkalut",
   "skills.title": "Taidot ja stackit",
   "skills.intro":
@@ -222,83 +220,18 @@ export const finnishOverrides: Record<string, string> = {
   "edu.thesisLabel": "Opinnäytetyö · {year}",
   "edu.thesisLink": "Lue Theseuksessa →",
 
-  "proj.title": "Projektit",
-  "proj.intro1": "Kaikki tämä muokataan tiedostossa",
-  "proj.intro2":
-    "- päivitä otsikot, kuvaukset ja stackit milloin vain.",
-  "proj.sectionTitle": "Kaikki projektit",
-  "proj.sectionSubtitle":
-    "Työnäytteitä ja sivuprojekteja - ei markkinointipuhetta piilossa.",
-  "proj.cardCode": "Lähdekoodi",
-  "proj.cardLive": "Live-sivu",
-  "proj.ariaTechnologies": "Teknologiat",
-  "proj.items.portfolio.title": "Portfolioalusta",
-  "proj.items.portfolio.description":
-    "Tämä sivu - rauhallinen, tyypitetystä konfigista ajettu Next.js-sovellus App Router -kuvioilla, monikielisellä i18n:llä, Docker-paketoinnilla ja staattisella CV:llä, jonka kävijä saa yhdellä klikkauksella.",
-  "proj.items.apiToolkit.title": "API-työkalupakki",
-  "proj.items.apiToolkit.description":
-    "Tyypitettyjä REST-käsittelijöitä, runtime-validointia ja jäsenneltyjä virheitä, jotta asiakkaat - ihmiset tai koneet - tietävät aina tarkalleen mitä tapahtui.",
-  "proj.items.iotAttendance.title": "IoT-läsnäoloalusta",
-  "proj.items.iotAttendance.description":
-    "Itse rakennetut RFID-lukijat yhdistettynä Laravel-pohjaiseen läsnäolo-API:in ja sisäiseen admin-näkymään. Laitteisto, firmware, palvelin ja UI suunniteltiin yhdessä, jotta henkilöstön sisäänkirjautuminen pysyy sekunnin näpäytyksenä.",
-  "proj.items.smartHome.title": "Smart home -alusta",
-  "proj.items.smartHome.description":
-    "Yksityisyyttä korostava smart home -stack: paikallinen kotipalvelin MQTT:n yli yhdistämässä Bluetooth-, Wi-Fi- ja Zigbee-laitteita, sekä Flutter-kumppanisovellus asennukseen, automaatioihin ja jokapäiväiseen ohjaukseen.",
-
-  "oss.eyebrow": "GitHub",
-  "oss.title": "Avoin lähdekoodi",
-  "oss.introBefore": "Julkisten repositorioiden live-lista käyttäjältä",
-  "oss.introAfter":
-    ", haettu suoraan GitHubin API:sta kun sivu ladataan.",
-  "oss.errorTitle": "Repositorioita ei saatu tällä kertaa ladattua",
-  "oss.errorHintBefore": "Jos olet sivuston omistaja,",
-  "oss.errorHintAfter":
-    "auttaa tavallisesti rate limiteissä. Klassinen PAT tai hienojakoinen token julkisten repojen lukuoikeudella riittää.",
-  "oss.viewGithub": "Näytä profiili GitHubissa",
-  "oss.reposHeading": "Repositoriot ({count})",
-  "oss.reposBody":
-    "Järjestetty viimeisen pushin mukaan, mukaan lukien forkit ja arkistoidut repot kun ne tuntuvat järkeviltä listata.",
-  "oss.reposEmpty": "Julkisia repoja ei löytynyt tälle tilille.",
-  "oss.repoArchived": "Arkistoitu",
-  "oss.repoFork": "Fork",
-  "oss.repoNoDescription": "Ei kuvausta GitHubissa vielä.",
-  "oss.repoStars": "{count} tähteä",
-  "oss.repoForks": "{count} forkkia",
-  "oss.repoUpdated": "Päivitetty {date}",
-  "oss.repoOpen": "Repositorio",
-  "oss.repoWebsite": "Verkkosivu",
-  "oss.repoTopicsAria": "Aiheet",
-
-  "github.statsAria": "GitHub-tilastot",
-  "github.statsTitle": "GitHub lyhyesti",
-  "github.statsIntro":
-    "Julkiset lukemat tilille {handle} - välimuistissa noin tunnin, jotta sivu pysyy kevyenä.",
-  "github.openProfile": "Avaa GitHub-profiili",
-  "github.statRepos": "Julkiset repositoriot",
-  "github.statFollowers": "Seuraajat",
-  "github.statFollowing": "Seurattavat",
-
   "meta.home.title": "Yleiskuva",
   "meta.home.description": "{name} - {role}. {tagline}",
-  "meta.skills.title": "Taidot",
-  "meta.skills.description": "Lempeä kierros työkaluihin ja stackkeihin - {name}, {role}.",
-  "meta.skills.ogDescription": "{tagline}",
-  "meta.education.title": "Koulutus",
-  "meta.education.description":
-    "Koulutuspolku käyttäjälle {name} - {degree} oppilaitoksessa {school} ja aiemmat opinnot.",
-  "meta.education.ogDescription": "{degree}, {school}",
+  "meta.background.title": "Tausta",
+  "meta.background.description":
+    "Taidot, stackit ja koulutus - {name}, {role}. {degree}, {school}.",
+  "meta.background.ogDescription": "{tagline}",
   "meta.about.title": "Työkokemus",
   "meta.about.description":
     "Kävely työkokemukseen - pääosin full-stack web, Laravel ja ripaus Flutter-IoT:tä.",
   "meta.about.ogDescription": "{bio}",
   "meta.contact.title": "Yhteys",
   "meta.contact.description": "Yksinkertainen tapa tavoittaa {name} - jätä viesti täältä.",
-  "meta.projects.title": "Projektit",
-  "meta.projects.description":
-    "Pieni kokoelma projekteja käyttäjältä {name}, ylläpidettynä sivuston konfiguraatiossa.",
-  "meta.oss.title": "Avoin lähdekoodi",
-  "meta.oss.description": "Julkiset GitHub-repositoriot käyttäjältä {name}.",
-  "meta.oss.ogDescription": "Repositoriot tililtä {handle} GitHubissa.",
 
   "meta.keywords":
     "Awunjia Serge, Serge Awunjia, palkkaa kehittäjä Suomi, etätyö full stack, sopimusohjelmoija, Helsinki ohjelmistokehittäjä, Laravel-työ, Next.js-kehittäjä, Flutter-kehittäjä, TypeScript, avoin työhön kehittäjä, ohjelmistoinsinööri saatavilla, Novia ammattikorkeakoulu, Vaasa, Buean yliopisto, GitHub awunjia, LinkedIn Awunjia Serge, Groweo, Sbotech, portfolio",

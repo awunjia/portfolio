@@ -16,10 +16,9 @@ import { stripLocaleFromPathname } from "@/lib/i18n/paths";
 
 const navLinkDefs: { href: string; labelKey: string; external?: boolean }[] = [
   { href: "/", labelKey: "nav.home" },
-  { href: "/skills", labelKey: "nav.skills" },
-  { href: "/education", labelKey: "nav.education" },
+  { href: "/background", labelKey: "nav.background" },
+  { href: "/projects", labelKey: "nav.projects" },
   { href: "/about", labelKey: "nav.work" },
-  { href: "/open-source", labelKey: "nav.opensource" },
   { href: "/contact", labelKey: "nav.contact" },
 ];
 

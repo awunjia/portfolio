@@ -16,7 +16,7 @@ export type ConsentPayload = {
   v: number;
   /** Theme, saved language, etc. */
   p: boolean;
-  /** Optional measurement (e.g. analytics) — reserved for future use */
+  /** Optional measurement (e.g. analytics) - reserved for future use */
   s: boolean;
   at: string;
 };

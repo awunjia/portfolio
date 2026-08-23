@@ -15,8 +15,7 @@ function faqItems(): FaqItem[] {
   const base = getBaseUrl();
   const contactUrl = `${base}${localizedPath(DEFAULT_LOCALE, "/contact")}`;
   const aboutUrl = `${base}${localizedPath(DEFAULT_LOCALE, "/about")}`;
-  const skillsUrl = `${base}${localizedPath(DEFAULT_LOCALE, "/skills")}`;
-  const educationUrl = `${base}${localizedPath(DEFAULT_LOCALE, "/education")}`;
+  const backgroundUrl = `${base}${localizedPath(DEFAULT_LOCALE, "/background")}`;
 
   return [
     {
@@ -25,7 +24,7 @@ function faqItems(): FaqItem[] {
     },
     {
       question: `What technologies does ${siteConfig.firstName} work with?`,
-      answer: `Day-to-day work spans ${siteConfig.skills.slice(0, 12).join(", ")}, and related full-stack web, API, and mobile tooling. See ${skillsUrl} for the full stack groupings.`,
+      answer: `Day-to-day work spans ${siteConfig.skills.slice(0, 12).join(", ")}, and related full-stack web, API, and mobile tooling. See ${backgroundUrl} for the full stack groupings.`,
     },
     {
       question: `Is ${siteConfig.firstName} available for hire?`,
@@ -35,7 +34,7 @@ function faqItems(): FaqItem[] {
       question: `Where did ${siteConfig.firstName} study?`,
       answer: thesis
         ? `${siteConfig.firstName} completed ${siteConfig.degree} at ${siteConfig.school}. Bachelor's thesis (${thesis.year}): "${thesis.title}" - ${thesis.url}.`
-        : `${siteConfig.firstName} studied ${siteConfig.degree} at ${siteConfig.school}. Details: ${educationUrl}.`,
+        : `${siteConfig.firstName} studied ${siteConfig.degree} at ${siteConfig.school}. Details: ${backgroundUrl}.`,
     },
     {
       question: `How can I contact ${siteConfig.fullName}?`,

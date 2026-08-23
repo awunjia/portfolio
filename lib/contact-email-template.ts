@@ -209,7 +209,7 @@ export function buildContactEmailTemplate(input: ContactEmailTemplateInput): {
     "Message:",
     input.message,
     "",
-    "—",
+    "-",
     "Sent via authenticated contact form. Reply to the sender address above.",
   ].join("\n");
 

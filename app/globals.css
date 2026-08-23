@@ -4,7 +4,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 /*
-  DeveloperFolio (SaadPasta) — colors, fonts, header/social patterns
+  DeveloperFolio (SaadPasta) - colors, fonts, header/social patterns
   https://github.com/saadpasta/developerFolio
 */
 
@@ -138,55 +138,26 @@ body {
   }
 }
 
-@keyframes marquee-left {
-  from {
-    transform: translateX(0);
+@keyframes availability-ping {
+  0% {
+    transform: scale(1);
+    opacity: 0.75;
   }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-@keyframes marquee-right {
-  from {
-    transform: translateX(-50%);
-  }
-  to {
-    transform: translateX(0);
+  75%,
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
   }
 }
 
-.animate-marquee-left {
-  animation: marquee-left 55s linear infinite;
-  will-change: transform;
+.availability-ping {
+  animation: availability-ping 1.4s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
-.animate-marquee-right {
-  animation: marquee-right 55s linear infinite;
-  will-change: transform;
-}
-
-/*
- * Reduced motion for the marquee is handled in `TechMarquee` (static grid vs animated strip).
- * Do not disable these animations via `prefers-reduced-motion` here, or the strip can stay
- * duplicated while appearing “frozen” if JS and media queries disagree.
- */
-
-.marquee-fade-x {
-  mask-image: linear-gradient(
-    90deg,
-    transparent,
-    black 6%,
-    black 94%,
-    transparent
-  );
-  -webkit-mask-image: linear-gradient(
-    90deg,
-    transparent,
-    black 6%,
-    black 94%,
-    transparent
-  );
+@media (prefers-reduced-motion: reduce) {
+  .availability-ping {
+    animation: none;
+  }
 }
 
 ::selection {

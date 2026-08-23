@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import { HiOutlineArrowTopRightOnSquare } from "react-icons/hi2";
 import { motion, useReducedMotion } from "framer-motion";
+import { siteConfig } from "@/config/site";
 import type { ProjectView } from "@/lib/projects";
 import { useI18n } from "@/components/providers/i18n-provider";
 
@@ -14,6 +16,8 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
   const reduceMotion = useReducedMotion();
   const { t } = useI18n();
   const cover = project.images[0];
+  const logo = project.logo;
+  const showWordmark = project.coverWordmark;
 
   return (
     <motion.article
@@ -37,10 +41,28 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
             loading="lazy"
           />
         ) : (
-          <div
-            className="absolute inset-0 bg-gradient-to-br from-accent/20 via-skills/10 to-transparent"
-            aria-hidden
-          />
+          <>
+            <div
+              className="absolute inset-0 bg-gradient-to-br from-accent/20 via-skills/10 to-transparent"
+              aria-hidden
+            />
+            {showWordmark ? (
+              <p
+                className="devfolio-logo absolute inset-x-3 top-1/2 -translate-y-1/2 text-center text-2xl leading-tight text-foreground sm:text-3xl"
+                aria-hidden
+              >
+                {siteConfig.fullName}
+              </p>
+            ) : logo ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={logo}
+                alt=""
+                className="absolute left-1/2 top-1/2 max-h-[72%] w-auto max-w-[88%] -translate-x-1/2 -translate-y-1/2 object-contain transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
+            ) : null}
+          </>
         )}
       </div>
       <div className="flex flex-1 flex-col gap-3 p-5">
@@ -58,25 +80,29 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
             </li>
           ))}
         </ul>
-        <div className="mt-auto flex flex-wrap gap-3 pt-1">
+        <div className="mt-auto flex items-center justify-between gap-3 pt-1">
           {project.githubUrl ? (
             <Link
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-medium text-link underline-offset-4 hover:underline"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-link underline-offset-4 hover:underline"
             >
               {t("proj.cardCode")}
+              <HiOutlineArrowTopRightOnSquare className="size-3.5 shrink-0" aria-hidden />
             </Link>
-          ) : null}
+          ) : (
+            <span />
+          )}
           {project.liveUrl ? (
             <Link
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-medium text-link underline-offset-4 hover:underline"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-link underline-offset-4 hover:underline"
             >
               {t("proj.cardLive")}
+              <HiOutlineArrowTopRightOnSquare className="size-3.5 shrink-0" aria-hidden />
             </Link>
           ) : null}
         </div>

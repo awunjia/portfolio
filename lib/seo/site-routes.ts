@@ -28,43 +28,28 @@ export const SITE_ROUTES: readonly SiteRoute[] = [
       "Overview of Awunjia Serge - full-stack software engineer in Helsinki, stack highlights, and contact CTAs.",
   },
   {
+    path: "/background",
+    kind: "primary",
+    lastModified: "2026-08-23",
+    title: "Background",
+    summary:
+      "Skills stacks by layer plus education (Novia UAS Information Technology, RFID thesis on Theseus, and prior studies).",
+  },
+  {
+    path: "/projects",
+    kind: "primary",
+    lastModified: "2026-08-23",
+    title: "My Work",
+    summary:
+      "Selected websites and products: personal portfolio, Aeco Limited, CurNext, AsaTek, SBO Tech internal RFID attendance, and smart-home stack.",
+  },
+  {
     path: "/about",
     kind: "primary",
     lastModified: "2026-08-14",
     title: "Work experience",
     summary:
       "Professional roles (newest first): Groweo, Sbotech, Aeco Limited, and Wicon Technologies.",
-  },
-  {
-    path: "/education",
-    kind: "primary",
-    lastModified: "2026-08-14",
-    title: "Education",
-    summary:
-      "Degrees and programs including Novia UAS Information Technology and the published RFID thesis on Theseus.",
-  },
-  {
-    path: "/skills",
-    kind: "primary",
-    lastModified: "2026-08-14",
-    title: "Skills",
-    summary:
-      "Technology stacks grouped by layer: languages, frontend, backend, data, mobile/IoT, and cloud delivery.",
-  },
-  {
-    path: "/projects",
-    kind: "primary",
-    lastModified: "2026-08-14",
-    title: "Projects",
-    summary:
-      "Selected projects: portfolio platform, API toolkit, IoT attendance, and smart-home stack.",
-  },
-  {
-    path: "/open-source",
-    kind: "primary",
-    lastModified: "2026-08-14",
-    title: "Open source",
-    summary: "Public GitHub repositories for @awunjia, loaded live from the GitHub API.",
   },
   {
     path: "/contact",
